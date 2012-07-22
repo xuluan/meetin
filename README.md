@@ -1,9 +1,19 @@
 meetin
 ======
 
-todo
+TODO
+------
 - add cucumber and rspec
+- create, list, delete the meeting
 
 
-done
+Pending
+------
+- send mail?
+- add nickname(or username)
+
+
+DONE
+------
+
 - add signup login logout 
