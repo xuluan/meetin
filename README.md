@@ -9,11 +9,15 @@ TODO
 
 Pending
 ------
-- send mail?
-- add nickname(or username)
+
+Study
+------
+- editor plugin
 
 
 DONE
 ------
 
 - add signup login logout 
+- add username
+- send mail
