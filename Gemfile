@@ -51,3 +51,5 @@ group :test do
   gem 'guard-rspec'
   gem 'launchy'
 end
+
+gem 'simple_form'
