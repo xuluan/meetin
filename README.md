@@ -39,34 +39,34 @@ DONE
 - rich editor
 - create meeting
 
-===table
+Table
+======
 
-- user
-email
-username
+#### User
+- email
+- username
 
-- meeting
-title
-agenda
-location
-date time
-roles
-members
-status (open?)
-manager_id
-
-
-- role
-name
-meeting_id
-assign_member
-status
+#### Meeting
+- title
+- agenda
+- location
+- date time
+- roles
+- members
+- manager_id
 
 
-- role_assign
-user_id
-role_id
-assign?
-user_choice(decline|request|confirm|none)
-status
-signin?
+#### Role
+- name
+- meeting_id
+- assign_id
+
+#### Member
+- user_id
+- meeeting_id
+
+#### Choice
+- user_id
+- role_id
+- meeting_id
+- want
