@@ -6,7 +6,7 @@ TODO
 
 >- remove metting edit and update
 
-* CREATE MEETING
+* 1 CREATE MEETING
 
 >- validate roles and members
 >- parser roles and members
@@ -17,11 +17,11 @@ TODO
 >- send mail
 
 
-* ASSIGN ROLE TO THE MEETING
+* 2 ASSIGN ROLE TO THE MEETING
 
-* MEMBER JOIN/EXIT
+* 3 MEMBER JOIN/EXIT
 
-* MEMBER EDIT
+* 4 MEMBER EDIT
 
 
 
