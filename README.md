@@ -11,6 +11,12 @@ TODO
 - send mail
 
 
+# CREATE MEETING
+# ASSIGN ROLE TO THE MEETING
+# MEMBER JOIN/EXIT
+# MEMBER EDIT
+
+
 
 Pending
 ------
