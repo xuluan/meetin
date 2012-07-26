@@ -3,14 +3,18 @@ meetin
 
 TODO
 ------
+
 - remove metting edit and update
+
+1. CREATE MEETING
+- validate roles and members
+- parser roles and members
+- create db: roles, members, choices
 - add roles
 - add members
-- add assign table
 - add manamger_id
 - send mail
 
-1. CREATE MEETING
 2. ASSIGN ROLE TO THE MEETING
 3. MEMBER JOIN/EXIT
 4. MEMBER EDIT
