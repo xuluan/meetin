@@ -7,6 +7,7 @@ TODO
 - remove metting edit and update
 
 1. CREATE MEETING
+
 - validate roles and members
 - parser roles and members
 - create db: roles, members, choices
