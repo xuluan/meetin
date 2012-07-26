@@ -6,6 +6,12 @@
 </p>
 
 <p>
+  <b>Manager:</b>
+  <%= @meeting.manager.username %>
+</p>
+
+
+<p>
   <b>Agenda:</b>
   <%= raw @meeting.agenda_html %>
 </p>
@@ -31,5 +37,4 @@
 </p>
 
 
-<%= link_to 'Edit', edit_meeting_path(@meeting) %> |
 <%= link_to 'Back', meetings_path %>

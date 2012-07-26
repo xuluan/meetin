@@ -1,5 +1,5 @@
 Meetin::Application.routes.draw do
-  resources :meetings
+  resources :meetings, :except => [:edit, :update]
   devise_for :users
 
   root :to => "home#index"

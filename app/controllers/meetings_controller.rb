@@ -1,6 +1,11 @@
 class MeetingsController < ApplicationController
+
+before_filter :authenticate_user!
+
+
   # GET /meetings
   # GET /meetings.json
+
   def index
     @meetings = Meeting.all
 
@@ -41,7 +46,7 @@ class MeetingsController < ApplicationController
   # POST /meetings.json
   def create
     @meeting = Meeting.new(params[:meeting])
-
+    @meeting.manager_id = current_user.id 
     respond_to do |format|
       if @meeting.save
         format.html { redirect_to @meeting, notice: 'Meeting was successfully created.' }
