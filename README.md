@@ -3,11 +3,10 @@ meetin
 
 TODO
 ------
-
 >- remove metting edit and update
 
 * 1 CREATE MEETING
-
+ 
 >- validate roles and members
 >- parser roles and members
 >- create db: roles, members, choices
@@ -15,23 +14,12 @@ TODO
 >- add members
 >- add manamger_id
 >- send mail
-
-
+ 
 * 2 ASSIGN ROLE TO THE MEETING
 
 * 3 MEMBER JOIN/EXIT
 
 * 4 MEMBER EDIT
-
-
-
-Pending
-------
-
-Study
-------
-- editor plugin
-
 
 DONE
 ------
@@ -43,6 +31,7 @@ DONE
 - rich editor
 - create meeting
 
+* * *
 Table
 ======
 
