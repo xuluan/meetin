@@ -16,8 +16,11 @@ TODO
 >- add manamger_id
 >- send mail
 
+
 2. ASSIGN ROLE TO THE MEETING
+
 3. MEMBER JOIN/EXIT
+
 4. MEMBER EDIT
 
 
