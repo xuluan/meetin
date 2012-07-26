@@ -1,4 +1,4 @@
-MEETIN
+Meetin
 ======
 
 TODO
