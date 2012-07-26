@@ -8,13 +8,13 @@ TODO
 
 1. CREATE MEETING
 
-- validate roles and members
-- parser roles and members
-- create db: roles, members, choices
-- add roles
-- add members
-- add manamger_id
-- send mail
+>- validate roles and members
+>- parser roles and members
+>- create db: roles, members, choices
+>- add roles
+>- add members
+>- add manamger_id
+>- send mail
 
 2. ASSIGN ROLE TO THE MEETING
 3. MEMBER JOIN/EXIT
