@@ -6,7 +6,6 @@ TODO
 
 * 1 CREATE MEETING
  
->- validate roles and members
 >- parser roles and members
 >- add roles
 >- add members
@@ -31,6 +30,8 @@ DONE
 - remove metting edit and update
 - create db: roles, members, choices
 - add manamger_id
+
+- validate roles and members
 
 
 * * *

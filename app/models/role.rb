@@ -5,6 +5,6 @@ class Role < ActiveRecord::Base
   belongs_to :assign, :class_name => "User"
   belongs_to :meeting
 
-  has_many :choices, :dependent => :destroy
+  has_many :choices, :dependent => :destroy
 
 end

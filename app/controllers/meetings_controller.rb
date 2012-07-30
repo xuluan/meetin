@@ -49,6 +49,7 @@ before_filter :authenticate_user!
     @meeting.manager_id = current_user.id 
     respond_to do |format|
       if @meeting.save
+        # create meeting: add roles, add members and send email to invite members
         format.html { redirect_to @meeting, notice: 'Meeting was successfully created.' }
         format.json { render json: @meeting, status: :created, location: @meeting }
       else
