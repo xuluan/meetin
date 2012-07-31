@@ -10,7 +10,8 @@ module MeetingsHelper
         role.name = role_name
         role.meeting_id = meeting.id
         role.save
-      end
+      end #if
+    end #each
     
 
     # add members
@@ -23,11 +24,12 @@ module MeetingsHelper
           member.meeting_id = meeting.id 
           member.user_id = user.id 
           member.save
-      end   
-    end    
+        end #if
+      end #if   
+    end #each    
 
 
 
     # send emails
-  end	
+  end	#def
 end
