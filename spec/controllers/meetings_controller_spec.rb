@@ -20,6 +20,53 @@ require 'spec_helper'
 
 describe MeetingsController do
 
+  include Devise::TestHelpers
+
+  before (:each) do
+    @user = FactoryGirl.create(:user)
+    sign_in @user
+  end
+
+  describe "GET new" do
+    it "assigns a new meeting as @meeting" do
+      get :new
+      assigns(:meeting).should be_a_new(Meeting)
+    end
+  end
+
+  describe "GET index" do
+    it "assigns all meetings as @meetings" do
+      meeting = FactoryGirl.create(:meeting)
+      get :index
+      assigns(:meetings).should eq([meeting])
+    end
+  end
+
+  describe "GET show" do
+    it "assigns the requested meeting as @meeting" do
+      meeting = FactoryGirl.create(:meeting)
+      get :show, {:id => meeting.to_param}
+      assigns(:meeting).should eq(meeting)
+    end
+  end
+
+
+  describe "DELETE destroy" do
+    it "destroys the requested meeting" do
+      meeting = FactoryGirl.create(:meeting)
+      expect {
+        delete :destroy, {:id => meeting.to_param}
+      }.to change(Meeting, :count).by(-1)
+    end
+
+    it "redirects to the meetings list" do
+      meeting = FactoryGirl.create(:meeting)
+      delete :destroy, {:id => meeting.to_param}
+      response.should redirect_to(meetings_url)
+    end
+  end  
+
+=begin
   # This should return the minimal set of attributes required to create a valid
   # Meeting. As you add validations to Meeting, be sure to
   # update the return value of this method accordingly.
@@ -34,26 +81,12 @@ describe MeetingsController do
     {}
   end
 
-  describe "GET index" do
-    it "assigns all meetings as @meetings" do
-      meeting = Meeting.create! valid_attributes
-      get :index, {}, valid_session
-      assigns(:meetings).should eq([meeting])
-    end
-  end
 
-  describe "GET show" do
-    it "assigns the requested meeting as @meeting" do
-      meeting = Meeting.create! valid_attributes
-      get :show, {:id => meeting.to_param}, valid_session
-      assigns(:meeting).should eq(meeting)
-    end
-  end
 
   describe "GET new" do
     it "assigns a new meeting as @meeting" do
       get :new, {}, valid_session
-      assigns(:meeting).should be_a_new(Meeting)
+      assigns(:meeting).should be_new
     end
   end
 
@@ -146,19 +179,5 @@ describe MeetingsController do
     end
   end
 
-  describe "DELETE destroy" do
-    it "destroys the requested meeting" do
-      meeting = Meeting.create! valid_attributes
-      expect {
-        delete :destroy, {:id => meeting.to_param}, valid_session
-      }.to change(Meeting, :count).by(-1)
-    end
-
-    it "redirects to the meetings list" do
-      meeting = Meeting.create! valid_attributes
-      delete :destroy, {:id => meeting.to_param}, valid_session
-      response.should redirect_to(meetings_url)
-    end
-  end
-
+=end
 end

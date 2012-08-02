@@ -50,6 +50,8 @@ group :test do
   gem 'capybara'
   gem 'guard-rspec'
   gem 'launchy'
+  gem 'database_cleaner'
+  gem 'email_spec'  
 end
 
 gem 'simple_form'
