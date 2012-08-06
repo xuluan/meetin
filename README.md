@@ -5,7 +5,7 @@ TODO
 ------
 
 * 1 CREATE MEETING
->- send mail
+>- send mail (test)
  
 * 2 ASSIGN ROLE TO THE MEETING
 

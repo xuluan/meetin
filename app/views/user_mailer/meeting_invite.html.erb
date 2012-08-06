@@ -1,0 +1,37 @@
+
+<p>
+  <b>Welcome to join our meeting: </b>
+  <%= @meeting.title %>
+</p>
+
+<p>
+  <b>Agenda:</b>
+  <%= raw @meeting.agenda_html %>
+</p>
+
+<p>
+  <b>Role list:</b>
+  <%= @meeting.role_list %>
+</p>
+
+<p>
+  <b>Member list:</b>
+  <%= @meeting.member_list %>
+</p>
+
+<p>
+  <b>Started at:</b>
+  <%= @meeting.started_at %>
+</p>
+
+<p>
+  <b>Location:</b>
+  <%= @meeting.location %>
+</p>
+
+<p>
+  <b>host:</b>
+  <%= @meeting.manager.username %>
+</p>
+
+<p>Thank you!</p>

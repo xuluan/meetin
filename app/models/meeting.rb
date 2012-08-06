@@ -52,9 +52,12 @@ class Meeting < ActiveRecord::Base
           member.user_id = user.id 
           member.save
         end #if
+
+        # send emails
+        UserMailer.meeting_invite(member_email, self).deliver
+
       end #if
     end #each    
-    # send emails
   end #def
 
 
