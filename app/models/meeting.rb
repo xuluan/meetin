@@ -26,6 +26,7 @@ class Meeting < ActiveRecord::Base
   protected
 
   def meeting_created
+
     # add roles
     rolelist = self.role_list.split(';')
     rolelist.each do |role_name|
@@ -37,15 +38,14 @@ class Meeting < ActiveRecord::Base
         role.save
       end #if
     end #each
-    
+
     # add members
     memberlist = self.member_list.split(';')
 
     memberlist.each do |member_email|
       member_email.strip!
       if member_email.length >0
-        users = User.find_by_email(member_email)
-        user =  users.first if users
+        user = User.find_by_email(member_email)
         if user
           member = Member.new
           member.meeting_id = id 
@@ -54,7 +54,6 @@ class Meeting < ActiveRecord::Base
         end #if
       end #if
     end #each    
-
     # send emails
   end #def
 

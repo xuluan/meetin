@@ -8,7 +8,7 @@ FactoryGirl.define do
     member_list "aa@bb.com"
     started_at "2012-07-24 21:54:16"
     location "MyString"
-    manager_id 1    
+    manager factory: :user
   end
 end
 
@@ -20,7 +20,7 @@ FactoryGirl.define do
     member_list "MyString"
     started_at "2012-07-24 21:54:16"
     location "MyString"
-    manager_id 1    
+    manager factory: :user
   end
 
   factory :err_email_memberlist, :class => Meeting do
@@ -30,17 +30,17 @@ FactoryGirl.define do
     member_list "MyString"
     started_at "2012-07-24 21:54:16"
     location "MyString"
-    manager_id 1    
+    manager factory: :user
   end
 
   factory :meeting2, :class => Meeting   do
     title "MyString"
     agenda "MyText"
     role_list "MyString; role_2"
-    member_list "aa@bb.com; email_name@email.net; "
+    member_list "aa@bb.com; example@example.com; "
     started_at "2012-07-24 21:54:16"
     location "MyString"
-    manager_id 1    
+    manager factory: :user
   end
 
   factory :empty_memberlist, :class => Meeting   do
@@ -50,6 +50,6 @@ FactoryGirl.define do
     member_list "  ; \t  ;  \n   ; "
     started_at "2012-07-24 21:54:16"
     location "MyString"
-    manager_id 1    
+    manager factory: :user
   end
 end

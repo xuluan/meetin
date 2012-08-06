@@ -5,8 +5,6 @@ describe Meeting do
   it "is a valid meeting" do
   	meeting = FactoryGirl.build(:meeting)
     meeting.should be_valid
-    meeting = FactoryGirl.create(:meeting)
-    meeting.should have(1).roles
   end
 
   it "is a valid meeting" do
@@ -35,4 +33,14 @@ describe Meeting do
     empty_memberlist.should have(1).errors_on(:member_list)
   end
 
+  it "has one role but no member" do
+    meeting = FactoryGirl.create(:meeting)
+    meeting.should have(1).roles
+  end
+
+  it "has two roles and one member" do
+    meeting = FactoryGirl.create(:meeting2)
+    meeting.should have(2).roles
+    meeting.should have(1).members    
+  end  
 end

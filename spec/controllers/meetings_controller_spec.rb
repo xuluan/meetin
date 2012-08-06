@@ -21,11 +21,9 @@ require 'spec_helper'
 describe MeetingsController do
 
   let(:meeting) {FactoryGirl.create(:meeting)}
-  #let(:user) {FactoryGirl.create(:user)}
 
   before (:each) do
     sign_in meeting.manager
-    #sign_in user
   end
 
   describe "GET new" do
