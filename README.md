@@ -5,10 +5,9 @@ TODO
 ------
 
 * 1 CREATE MEETING
- 
->- parser roles and members
->- add roles
->- add members
+>- factory girl association ?
+>- one test case failed!
+>- add members (test)
 >- send mail
  
 * 2 ASSIGN ROLE TO THE MEETING
@@ -32,6 +31,8 @@ DONE
 - add manamger_id
 
 - validate roles and members
+- parser roles and members
+- add roles
 
 
 * * *

@@ -8,7 +8,7 @@ FactoryGirl.define do
     member_list "aa@bb.com"
     started_at "2012-07-24 21:54:16"
     location "MyString"
-    manager_id 1
+    manager_id 1    
   end
 end
 

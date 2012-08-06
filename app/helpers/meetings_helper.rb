@@ -1,35 +1,28 @@
 module MeetingsHelper
 
-  def meeting_create(meeting)
-    # add roles
-    role_list = meeting.role_list.split(';')
-    role_list.each do |role_name|
-      role_name.strip!
-      if role_name.length > 0
-        role =Role.new
-        role.name = role_name
-        role.meeting_id = meeting.id
-        role.save
-      end #if
-    end #each
+class RoleValidator < ActiveModel::Validator
+  def validate(record)
+    unless record.role_list.strip.length > 0
+      record.errors[:role_list] << 'Role List cannot be empty'
+    end
+  end
+end
+
+class MemberValidator < ActiveModel::Validator
+  def validate(record)
+    member_list = record.member_list.split(';')
     
-
-    # add members
-    member_list.each do |member_email|
-      member_email.strip!
-      if member_email.length >0
-        user = User.find_by_email(member_email).first
-        if user
-          member = Member.new
-          member.meeting_id = meeting.id 
-          member.user_id = user.id 
-          member.save
-        end #if
-      end #if   
-    end #each    
-
-
-
-    # send emails
-  end	#def
+    i = 0
+    member_list.each do |member|
+      member.strip!
+      next if member.length == 0 #skip when email is empty
+      unless member.strip =~ /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\z/i
+        record.errors[:member_list] << ("All members in Member List must be valid email address.")
+        break
+      end   
+      i += 1
+    end
+    record.errors[:member_list] << 'Member List cannot be empty' if i == 0
+  end
+end
 end

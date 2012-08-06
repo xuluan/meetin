@@ -20,47 +20,45 @@ require 'spec_helper'
 
 describe MeetingsController do
 
+  let(:meeting) {FactoryGirl.create(:meeting)}
+  #let(:user) {FactoryGirl.create(:user)}
+
   before (:each) do
-    @user = FactoryGirl.create(:user)
-    sign_in @user
-    @meeting =  FactoryGirl.create(:meeting)
+    sign_in meeting.manager
+    #sign_in user
   end
 
   describe "GET new" do
-    it "assigns a new meeting as @meeting" do
+    it "assigns a new meeting as meeting" do
       get :new
       assigns(:meeting).should be_a_new(Meeting)
     end
   end
 
   describe "GET index" do
-    it "assigns all meetings as @meetings" do
-      #meeting = FactoryGirl.create(:meeting)
+    it "assigns all meetings as meetings" do
       get :index
-      assigns(:meetings).should eq([@meeting])
+      assigns(:meetings).should eq([meeting])
     end
   end
 
   describe "GET show" do
-    it "assigns the requested meeting as @meeting" do
-      #meeting = FactoryGirl.create(:meeting)
-      get :show, {:id => @meeting.to_param}
-      assigns(:meeting).should eq(@meeting)
+    it "assigns the requested meeting as meeting" do
+      get :show, {:id => meeting.to_param}
+      assigns(:meeting).should eq(meeting)
     end
   end
 
 
   describe "DELETE destroy" do
     it "destroys the requested meeting" do
-      #meeting = FactoryGirl.create(:meeting)
       expect {
-        delete :destroy, {:id => @meeting.to_param}
+        delete :destroy, {:id => meeting.to_param}
       }.to change(Meeting, :count).by(-1)
     end
 
     it "redirects to the meetings list" do
-      #meeting = FactoryGirl.create(:meeting)
-      delete :destroy, {:id => @meeting.to_param}
+      delete :destroy, {:id => meeting.to_param}
       response.should redirect_to(meetings_url)
     end
   end  
@@ -74,7 +72,7 @@ describe MeetingsController do
         }.to change(Meeting, :count).by(1)
       end
 
-      it "assigns a newly created meeting as @meeting" do
+      it "assigns a newly created meeting as meeting" do
         attrs = FactoryGirl.attributes_for(:meeting2)
         post :create, {:meeting => attrs}
         assigns(:meeting).should be_a(Meeting)
@@ -89,7 +87,7 @@ describe MeetingsController do
     end
 
     describe "with invalid params" do
-      it "assigns a newly created but unsaved meeting as @meeting" do
+      it "assigns a newly created but unsaved meeting as meeting" do
         # Trigger the behavior that occurs when invalid params are submitted
         Meeting.any_instance.stub(:save).and_return(false)
         post :create, {:meeting => {}}
