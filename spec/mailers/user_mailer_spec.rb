@@ -2,16 +2,22 @@ require "spec_helper"
 
 describe UserMailer do
   describe "meeting_invite" do
-    let(:mail) { UserMailer.meeting_invite }
+    before(:each) do
+      @meeting = FactoryGirl.create(:meeting2)
+      @to_mail = 'example@example.com'      
+      @mail = UserMailer.meeting_invite(@to_mail, @meeting)
+
+    end
+    #let(:mail) { UserMailer.meeting_invite('example@example.com') }
 
     it "renders the headers" do
-      mail.subject.should eq("Meeting invite")
-      mail.to.should eq(["to@example.org"])
-      mail.from.should eq(["no-reply@meetin.xunuo.mem"])
+      @mail.subject.should eq("Meeting invitation: #{@meeting.title}")
+      @mail.to.should eq([@to_mail])
+      @mail.from.should eq(["no-reply@meetin.xunuo.mem"])
     end
 
     it "renders the body" do
-      mail.body.encoded.should match("Hi")
+      @mail.body.encoded.should match("Welcome to join our meeting:")
     end
   end
 

@@ -3,35 +3,36 @@ Meetin
 
 TODO
 ------
+* 2 MEMBER JOIN/EXIT
 
-* 1 CREATE MEETING
->- send mail (test)
- 
-* 2 ASSIGN ROLE TO THE MEETING
-
-* 3 MEMBER JOIN/EXIT
+* 3 ASSIGN ROLE TO THE MEETING
 
 * 4 MEMBER EDIT
 
+* 5 Send notify mail for meeting status 
+
+* 6 AJAX
+
 DONE
 ------
+* INIT && SIGNUP && LOGIN
+>- add signup login logout 
+>- add username
+>- setup rspec
 
-- add signup login logout 
-- add username
-- send mail
-- add cucumber and rspec
-- rich editor
-- create meeting
+* CREATE MEETING
+>- rich editor
+>- create meeting
 
-- remove metting edit and update
-- create db: roles, members, choices
-- add manamger_id
-
-- validate roles and members
-- parser roles and members
-- add roles
-- add members 
-
+>- remove metting edit and update
+>- create db: roles, members, choices
+>- add manamger_id
+>- validate roles and members
+>- parser roles and members
+>- add roles
+>- add members 
+>- send mail
+>- setup FactoryGirl
 
 * * *
 Table
