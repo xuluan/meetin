@@ -3,15 +3,14 @@ Meetin
 
 TODO
 ------
-* 2 MEMBER JOIN/EXIT
 
-* 3 ASSIGN ROLE TO THE MEETING
+* ASSIGN ROLE TO THE MEETING
+>- assign function
+>- Send notify mail for meeting status 
 
-* 4 MEMBER EDIT
+* MEMBER EDIT
 
-* 5 Send notify mail for meeting status 
 
-* 6 AJAX
 
 DONE
 ------
@@ -33,6 +32,8 @@ DONE
 >- add members 
 >- send mail
 >- setup FactoryGirl
+
+* MEMBER JOIN/EXIT
 
 * * *
 Table

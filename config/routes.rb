@@ -1,5 +1,9 @@
 Meetin::Application.routes.draw do
-  resources :meetings, :except => [:edit, :update]
+
+  resources :meetings, :except => [:edit, :update] 
+    
+  resources :members, :only => [:create, :destroy]
+
   devise_for :users
 
   root :to => "home#index"

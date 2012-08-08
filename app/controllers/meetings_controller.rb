@@ -19,6 +19,12 @@ before_filter :authenticate_user!
   # GET /meetings/1.json
   def show
     @meeting = Meeting.find(params[:id])
+    @member = @meeting.members.find_by_user_id(current_user.id)
+    unless @member
+      @member = Member.new
+      @member.meeting = @meeting
+      @member.user = current_user
+    end
 
     respond_to do |format|
       format.html # show.html.erb

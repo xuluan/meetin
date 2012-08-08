@@ -1,0 +1,29 @@
+
+<div id="user_join">
+<div id="user_join_error">
+</div>
+
+  <strong><%= current_user.username %>,</strong>
+  <% if @member.persisted?  %>
+
+     <span>you have already joined this meeting</span>
+     <p>If you want to exit, please click</p>
+     <p>
+      <%= link_to( "Exit", member_path(@member), :method => :delete, :remote => true, :confirm => "Are you sure?") %>
+
+     </p>
+
+  <% else %>
+     <span>you have not joined this meeting</span>
+<p>If you want to join, please click
+<span>
+  <%= form_for @member, :remote => true do |f| %>
+<%= hidden_field(:member, :user_id) %>
+<%= hidden_field(:member, :meeting_id) %>
+
+      <%= f.submit "Join" %>
+      <% end %>
+</span>
+  <% end %>
+</div>
+
