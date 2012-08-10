@@ -10,7 +10,7 @@ end
 
 class MemberValidator < ActiveModel::Validator
   def validate(record)
-    member_list = record.member_list.split(';')
+    member_list = record.member_list.split(/[,;]/)
     
     i = 0
     member_list.each do |member|

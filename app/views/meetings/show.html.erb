@@ -39,3 +39,49 @@
 
 
 <%= link_to 'Back', meetings_path %>
+
+<p>
+<table border="1">
+  <tr>
+    <th></th>
+    <% @meeting.roles.each do |role| %>
+    <th>
+      <%= role.name %>
+    </th>
+    <% end %>
+
+  </tr>
+  <tr>
+    <td>Assign member</td>
+    <% @meeting.roles.each do |role| %>
+    <td>
+      <%= role.assign.presence || 'OPEN' %>
+    </td>
+    <% end %>
+
+
+  </tr>
+    <% @meeting.members.each do |member| %>
+  <tr>
+    <td> 
+      <%= member %>
+    </td>
+
+    <% @meeting.roles.each do |role| %>
+    <td>
+      <% choices = @meeting.choices.where("role_id = ? and role_id = ?", member.id, role.id) %>
+      <% choice = choices.first unless choices.empty? %>
+
+      <%= 'NONE' if choice.nil? %>
+      <%= 'WANT' if choice && choice.want == true %>
+      <%= 'DONTWANT' if choice && choice.want == false %>
+    </td>
+    <% end %>
+
+
+  </tr>
+
+    <% end %>
+</table>
+
+</p>

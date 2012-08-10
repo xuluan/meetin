@@ -40,7 +40,7 @@ class Meeting < ActiveRecord::Base
     end #each
 
     # add members
-    memberlist = self.member_list.split(';')
+    memberlist = self.member_list.split(/[,;]/)
 
     memberlist.each do |member_email|
       member_email.strip!

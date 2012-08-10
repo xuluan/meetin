@@ -4,4 +4,8 @@ class Member < ActiveRecord::Base
 
   belongs_to :meeting
   belongs_to :user
+
+  def to_s
+  	user.username
+  end  
 end
