@@ -21,10 +21,12 @@
     <td><%= meeting.member_list %></td>
     <td><%= meeting.started_at %></td>
     <td><%= meeting.location %></td>
+    <% if current_user %>
     <td><%= link_to 'Show', meeting %></td>
-    <td><%= link_to 'edit', edit_meeting_path(meeting) %></td>
+    <td><%= link_to current_user.edit_action(meeting), edit_meeting_path(meeting) %></td>
 
     <td><%= link_to 'Destroy', meeting, confirm: 'Are you sure?', method: :delete %></td>
+    <% end %>
   </tr>
 <% end %>
 </table>

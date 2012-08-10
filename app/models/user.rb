@@ -13,5 +13,17 @@ class User < ActiveRecord::Base
   def to_s
   	username
   end
+
+  def manager?(meeting)
+    meeting.manager_id == id
+  end
+
+  def member?(member)
+    member.user_id == id
+  end  
+
+  def edit_action(meeting)
+    manager?(meeting) ? 'Assign' : 'Choose'
+  end
   
 end

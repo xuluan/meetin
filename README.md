@@ -4,18 +4,8 @@ Meetin
 TODO
 ------
 
-* ASSIGN ROLE TO THE MEETING
->- assign function
 >- Send notify mail for meeting status 
->- set home page
->- assign role (roles:assign_id, update)
->- cancel role (roles:assign_id, update)
-
-* MEMBER EDIT
->- want  (choices:want create or update)
->- don't want (choices:want create or update)
-
->- sync to roles and choices when member join or exit
+>- add test
 
 * deploy
 
@@ -47,6 +37,18 @@ DONE
 >- setup FactoryGirl
 
 * MEMBER JOIN/EXIT
+
+* ASSIGN ROLE TO THE MEETING
+- assign role (roles:assign_id, update)
+- cancel role (roles:assign_id, update)
+- set home page
+
+
+* MEMBER EDIT
+
+- want  (choices:want create or update)
+- don't want (choices:want create or update)
+- sync to roles and choices when member join or exit
 
 * * *
 Table

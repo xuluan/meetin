@@ -1,15 +1,25 @@
 module MeetingsHelper
 class EditPresenter
- 
-  def initialize(meetings)
-    @meetings = meetings
-    @choices = {}
+  extend ActiveSupport::Memoizable
+
+  def initialize(meeting)
+    @meeting = meeting
   end
 
 
+  def make_choice(user_id, role_id, want)
+    choice = Choice.new
+    choice.meeting_id = @meeting.id 
+    choice.user_id = user_id
+    choice.role_id = role_id
+    choice.want = want
 
-  def choice(user_id, role_id)
-    @choices["#{user_id}_#{role_id}"] ||= get_choice(user_id, role_id)
+    choice
+
+  end
+
+  def choice_status(user_id, role_id)
+      Choice.get_entry(@meeting.id, user_id, role_id).presence || 'OPEN'
   end
 
   def assign_role(user_id, role_id, cmd = 'Assign')
@@ -21,25 +31,7 @@ class EditPresenter
     role
   end
 
-  private
-
-
-
-  def get_choice(user_id, role_id)
-      choices = @meetings.choices.choosing(user_id, role_id);
-      if choices.empty?
-        'NONE'
-      else
-        choice = choices.first
-        if choice.want
-          'WANT' 
-        else
-          'DONTWANT'
-        end
-      end
-  end  
-
-
+  memoize :choice_status
 end
 
 class RoleValidator < ActiveModel::Validator

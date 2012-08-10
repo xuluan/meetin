@@ -7,5 +7,17 @@ class Choice < ActiveRecord::Base
   belongs_to :user 
   belongs_to :role 
 
-  scope :choosing, lambda { |m,r| where("role_id = ? and role_id = ?", m, r) }
+  def Choice::get_entry(m, u,r)
+    self.where("meeting_id = ? and user_id = ? and role_id = ?",m, u, r).first
+  end
+
+
+  def to_s
+    if want.nil?
+      'NONE'
+    else
+      want ? 'WANT' : 'DONTWANT'
+    end
+  end
+
 end
