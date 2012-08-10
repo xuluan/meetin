@@ -22,6 +22,8 @@
     <td><%= meeting.started_at %></td>
     <td><%= meeting.location %></td>
     <td><%= link_to 'Show', meeting %></td>
+    <td><%= link_to 'edit', edit_meeting_path(meeting) %></td>
+
     <td><%= link_to 'Destroy', meeting, confirm: 'Are you sure?', method: :delete %></td>
   </tr>
 <% end %>

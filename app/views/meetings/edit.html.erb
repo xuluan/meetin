@@ -1,6 +1,51 @@
 <h1>Editing meeting</h1>
+<p id="rolle"></p>
 
-<%= render 'form' %>
+<p>
+<table border="1">
+  <tr>
+    <th></th>
+    <% @meeting.roles.each do |role| %>
+    <th>
+      <%= role.name %>
+    </th>
+    <% end %>
 
-<%= link_to 'Show', @meeting %> |
+  </tr>
+  <tr>
+    <td>Assign member</td>
+    <% @meeting.roles.each do |role| %>
+    <td>
+    <%=  content_tag(:p, :id => "assign_#{dom_id(role)}") do %>
+    
+      <%= role.assign.presence || 'OPEN' %>
+    <% end %>
+
+    <%= render @presenter.assign_role(nil, role.id, 'Cancel'), :as => :role %>
+
+    </td>
+    <% end %>
+
+
+  </tr>
+    <% @meeting.members.each do |member| %>
+  <tr>
+    <td> 
+      <%= member %>
+    </td>
+
+    <% @meeting.roles.each do |role| %>
+    <td>
+      <%= @presenter.choice(member.id, role.id) %>
+      <%= render @presenter.assign_role(member.user.id, role.id), :as => :role %>
+    </td>
+    <% end %>
+
+
+  </tr>
+
+    <% end %>
+</table>
+
+</p>
 <%= link_to 'Back', meetings_path %>

@@ -1,0 +1,6 @@
+<%= form_for @role=role, :remote => true do |f| %>
+<%= hidden_field(:role, :assign_id) %>
+<%= hidden_field(:role, :meeting_id) %>
+
+<%= f.submit @role.cmd %>
+<% end %>

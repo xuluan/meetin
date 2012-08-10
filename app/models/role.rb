@@ -7,4 +7,5 @@ class Role < ActiveRecord::Base
 
   has_many :choices, :dependent => :destroy
 
+  attr_accessor :cmd
 end

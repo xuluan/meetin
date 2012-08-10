@@ -1,0 +1,7 @@
+<% if @role.assign %>
+$('#assign_<%=dom_id(@role)%>').html('<%= escape_javascript(@role.assign.username) %>')
+<% else %>
+$('#assign_<%=dom_id(@role)%>').html('OPEN')
+
+<% end %>
+

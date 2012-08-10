@@ -1,4 +1,46 @@
 module MeetingsHelper
+class EditPresenter
+ 
+  def initialize(meetings)
+    @meetings = meetings
+    @choices = {}
+  end
+
+
+
+  def choice(user_id, role_id)
+    @choices["#{user_id}_#{role_id}"] ||= get_choice(user_id, role_id)
+  end
+
+  def assign_role(user_id, role_id, cmd = 'Assign')
+    role = Role.find(role_id)
+    if role
+      role.assign_id = user_id 
+      role.cmd = cmd
+    end
+    role
+  end
+
+  private
+
+
+
+  def get_choice(user_id, role_id)
+      choices = @meetings.choices.choosing(user_id, role_id);
+      if choices.empty?
+        'NONE'
+      else
+        choice = choices.first
+        if choice.want
+          'WANT' 
+        else
+          'DONTWANT'
+        end
+      end
+  end  
+
+
+end
 
 class RoleValidator < ActiveModel::Validator
   def validate(record)

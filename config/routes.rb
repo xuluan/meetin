@@ -1,6 +1,8 @@
 Meetin::Application.routes.draw do
 
-  resources :meetings, :except => [:edit, :update] 
+  resources :roles, :only => [:update] 
+
+  resources :meetings, :except => [:update] 
     
   resources :members, :only => [:create, :destroy]
 

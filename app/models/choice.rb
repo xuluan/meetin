@@ -7,4 +7,5 @@ class Choice < ActiveRecord::Base
   belongs_to :user 
   belongs_to :role 
 
+  scope :choosing, lambda { |m,r| where("role_id = ? and role_id = ?", m, r) }
 end
