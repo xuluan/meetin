@@ -39,16 +39,16 @@ DONE
 * MEMBER JOIN/EXIT
 
 * ASSIGN ROLE TO THE MEETING
-- assign role (roles:assign_id, update)
-- cancel role (roles:assign_id, update)
-- set home page
+>- assign role (roles:assign_id, update)
+>- cancel role (roles:assign_id, update)
+>- set home page
 
 
 * MEMBER EDIT
 
-- want  (choices:want create or update)
-- don't want (choices:want create or update)
-- sync to roles and choices when member join or exit
+>- want  (choices:want create or update)
+>- don't want (choices:want create or update)
+>- sync to roles and choices when member join or exit
 
 * * *
 Table

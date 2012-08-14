@@ -28,7 +28,7 @@ class Meeting < ActiveRecord::Base
   def meeting_created
 
     # add roles
-    rolelist = self.role_list.split(';')
+    rolelist = self.role_list.split(/[,;]/)
     rolelist.each do |role_name|
       role_name.strip!
       if role_name.length > 0
