@@ -3,11 +3,13 @@
 <table>
   <tr>
     <th>Title</th>
-    <th>Agenda</th>
-    <th>Role list</th>
-    <th>Member list</th>
     <th>Started at</th>
     <th>Location</th>
+    <th>Intro</th>
+    <th>Organizer</th>
+    
+    
+    
     <th></th>
     <th></th>
     <th></th>
@@ -16,14 +18,13 @@
 <% @meetings.each do |meeting| %>
   <tr>
     <td><%= meeting.title %></td>
-    <td><%= meeting.agenda %></td>
-    <td><%= meeting.role_list %></td>
-    <td><%= meeting.member_list %></td>
     <td><%= meeting.started_at %></td>
     <td><%= meeting.location %></td>
+    <td><%= meeting.title %></td>
+    <td><%= meeting.manager %></td>
     <% if current_user %>
-    <td><%= link_to 'Show', meeting %></td>
-    <td><%= link_to current_user.edit_action(meeting), edit_meeting_path(meeting) %></td>
+    <td><%= link_to 'Enter', meeting %></td>
+    
 
     <td><%= link_to 'Destroy', meeting, confirm: 'Are you sure?', method: :delete %></td>
     <% end %>
