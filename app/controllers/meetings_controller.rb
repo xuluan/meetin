@@ -7,7 +7,15 @@ before_filter :authenticate_user!, :except => [:index]
   # GET /meetings.json
 
   def index
-    @meetings = Meeting.all
+    type = params.fetch(:type, 'all')
+    case type
+    when 'all'
+      @meetings = Meeting.page(params[:page])
+    when 'mine' 
+      @meetings = current_user.mymeetings.page(params[:page])
+    when 'join'
+      @meetings = current_user.meetings.page(params[:page])
+    end
 
     respond_to do |format|
       format.html # index.html.erb

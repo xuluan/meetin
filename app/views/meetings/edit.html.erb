@@ -18,7 +18,7 @@
     <td>
     <%=  content_tag(:p, :id => "assign_#{dom_id(role)}") do %>
     
-      <%= role.assign.presence || 'OPEN' %>
+      <%= role.assign.presence || "\t" %>
     <% end %>
     <% if current_user.manager? (@meeting) %>
     <%= render @presenter.assign_role(nil, role.id, 'Cancel'), :as => :role %>
