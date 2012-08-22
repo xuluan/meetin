@@ -1,6 +1,11 @@
 module MeetingsHelper
+
+  def is_new_meeting(meeting)
+    Time.now > meeting.started_at ? "old_meeting" : "new_meeting"
+    
+  end
+
 class EditPresenter
-  extend ActiveSupport::Memoizable
 
   def initialize(meeting)
     @meeting = meeting
@@ -19,7 +24,7 @@ class EditPresenter
   end
 
   def choice_status(user_id, role_id)
-      Choice.get_entry(@meeting.id, user_id, role_id).presence || 'OPEN'
+      Choice.get_entry(@meeting.id, user_id, role_id).presence || "\t"
   end
 
   def assign_role(user_id, role_id, cmd = 'Assign')
@@ -31,7 +36,6 @@ class EditPresenter
     role
   end
 
-  memoize :choice_status
 end
 
 class RoleValidator < ActiveModel::Validator
@@ -59,4 +63,6 @@ class MemberValidator < ActiveModel::Validator
     record.errors[:member_list] << 'Member List cannot be empty' if i == 0
   end
 end
+
+
 end

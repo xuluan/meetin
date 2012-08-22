@@ -29,7 +29,7 @@ Page <%= @meetings.current_page %> of <%= @meetings.total_pages %>
   </tr>
 
 <% @meetings.each do |meeting| %>
-  <tr>
+  <tr class="<%= is_new_meeting(meeting) %>">
     <td><%= meeting.title %></td>
     <td><%= meeting.agenda %></td>
     <td><%= meeting.role_list %></td>

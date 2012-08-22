@@ -6,7 +6,7 @@ FactoryGirl.define do
     agenda "MyText"
     role_list "MyString"
     member_list "aa@bb.com"
-    started_at "2012-07-24 21:54:16"
+    started_at "2012-09-24 21:54:16"
     location "MyString"
     manager factory: :user
   end
@@ -38,7 +38,7 @@ FactoryGirl.define do
     agenda "MyText"
     role_list "MyString; role_2"
     member_list "aa@bb.com; example@example.com; "
-    started_at "2012-07-24 21:54:16"
+    started_at "2012-08-24 21:54:17"
     location "MyString"
     manager factory: :user
   end
