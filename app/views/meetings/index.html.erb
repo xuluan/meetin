@@ -1,4 +1,19 @@
+
+
 <h1>Listing meetings</h1>
+<p>
+  <%= link_to "All", params.merge(:type => 'all', :page => 1 ) %>
+  <%= link_to "Organizer", params.merge(:type => 'mine', :page => 1  ) %>
+  <%= link_to "Member", params.merge(:type => 'join', :page => 1  ) %>
+</p>
+
+<% if @meetings.previous_page %>
+  <%= link_to "< Previous", params.merge(:page => @meetings.previous_page ) %>
+<% end %>
+Page <%= @meetings.current_page %> of <%= @meetings.total_pages %>
+<% if @meetings.next_page %>
+  <%= link_to "Next >", params.merge(:page => @meetings.next_page ) %>
+<% end %>
 
 <table>
   <tr>

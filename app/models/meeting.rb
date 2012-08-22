@@ -17,7 +17,12 @@ class Meeting < ActiveRecord::Base
 
   has_many :roles, :dependent => :destroy
   has_many :members, :dependent => :destroy
+  has_many :users, :through => :members    
   has_many :choices, :dependent => :destroy
+
+  self.per_page = 1
+
+  default_scope order('started_at desc') 
 
   def agenda_html
     Markdown.new(agenda, :hard_wrap).to_html

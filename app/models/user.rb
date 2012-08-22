@@ -7,6 +7,11 @@ class User < ActiveRecord::Base
   validates :username, :presence => true
   validates :username, :uniqueness => true
 
+  has_many :mymeetings, :class_name => "Meeting", :foreign_key => "manager_id"
+
+  has_many :members
+  has_many :meetings, :through => :members  
+
   # Setup accessible (or protected) attributes for your model
   attr_accessible :email, :password, :password_confirmation, :remember_me, :username
 

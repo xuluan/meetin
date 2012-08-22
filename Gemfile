@@ -56,3 +56,4 @@ end
 
 gem 'simple_form'
 gem 'redcarpet'
+gem 'will_paginate'

@@ -3,6 +3,8 @@ Meetin
 
 TODO
 ------
+1 index: all, organizer, member
+2 
 
 >- Send notify mail for meeting status 
 >- add test
