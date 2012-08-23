@@ -28,15 +28,33 @@ before_filter :authenticate_user!, :except => [:index]
   def show
     @meeting = Meeting.find(params[:id])
     @member = @meeting.members.find_by_user_id(current_user.id)
-    unless @member
-      @member = Member.new
-      @member.meeting = @meeting
-      @member.user = current_user
+    @presenter = MeetingsHelper::EditPresenter.new(@meeting)
+
+    member = params[:member]
+
+    case member
+    when 'join'
+      if @member
+        @member.status = true;
+        @member.save
+      else
+        @member = Meeting.create(meeting_id:@meeting.id, user_id:@user.id)
+      end
+
+    when 'exit'
+      if @member
+        @member.status = false;
+        @member.save
+      end
     end
 
-    respond_to do |format|
-      format.html # show.html.erb
-      format.json { render json: @meeting }
+   
+    if member
+      redirect_to @meeting 
+    else
+      respond_to do |format|
+        format.html # show.html.erb
+      end
     end
   end
 

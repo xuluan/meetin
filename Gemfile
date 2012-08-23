@@ -57,3 +57,5 @@ end
 gem 'simple_form'
 gem 'redcarpet'
 gem 'will_paginate'
+
+gem 'pry-rails', :group => :development

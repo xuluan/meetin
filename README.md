@@ -3,7 +3,8 @@ Meetin
 
 TODO
 ------
-
+>- list the members who signoff
+>- merge show and edit page to enter page
 >- add X and set color
 >- Send notify mail for meeting status 
 >- add test

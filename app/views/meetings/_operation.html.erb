@@ -1,0 +1,61 @@
+<h1>Operation meeting</h1>
+<p id="choice_error"></p>
+
+<p>
+<table border="1">
+  <tr>
+    <th></th>
+    <% @meeting.roles.each do |role| %>
+    <th>
+      <%= role.name %>
+    </th>
+    <% end %>
+
+  </tr>
+  <tr>
+    <td>Assign Status</td>
+    <% @meeting.roles.each do |role| %>
+    <td>
+    <%=  content_tag(:p, :id => "assign_#{dom_id(role)}") do %>
+    
+      <%= role.assign.presence || "\t" %>
+    <% end %>
+    <% if current_user.mymeetings.include? (@meeting) %>
+    <%= render @presenter.assign_role(nil, role.id, 'Cancel'), :as => :role %>
+    <% end %>
+
+    </td>
+    <% end %>
+
+
+  </tr>
+    <% @meeting.members.each do |member| %>
+  <tr id=<%= "#{dom_id(member.user)}" %>>
+    <td> 
+      <%= member %>
+    </td>
+
+    <% @meeting.roles.each do |role| %>
+    <td>
+      <%=  content_tag(:p, :class => "#{dom_id(role)}") do %>
+        <%= @presenter.choice_status(member.user.id, role.id) %>
+      <% end %>
+    <% if current_user.mymeetings.include? (@meeting) %>
+      <%= render @presenter.assign_role(member.user.id, role.id), :as => :role %>
+    <% elsif current_user.member? (member) %>
+
+      <%= render @presenter.make_choice(member.user.id, role.id, true), :as => :choice %>
+      <%= render @presenter.make_choice(member.user.id, role.id, false), :as => :choice %>
+    <% end %>
+
+    </td>
+    <% end %>
+
+
+  </tr>
+
+    <% end %>
+</table>
+
+</p>
+<%= link_to 'Back', meetings_path %>
