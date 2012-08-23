@@ -38,7 +38,7 @@ before_filter :authenticate_user!, :except => [:index]
         @member.status = true;
         @member.save
       else
-        @member = Meeting.create(meeting_id:@meeting.id, user_id:@user.id)
+        @member = Member.create(meeting_id:@meeting.id, user_id:current_user.id)
       end
 
     when 'exit'

@@ -30,6 +30,7 @@
 
   </tr>
     <% @meeting.members.each do |member| %>
+    <% next unless member.status%>
   <tr id=<%= "#{dom_id(member.user)}" %>>
     <td> 
       <%= member %>
@@ -37,9 +38,12 @@
 
     <% @meeting.roles.each do |role| %>
     <td>
-      <%=  content_tag(:p, :class => "#{dom_id(role)}") do %>
+      <%=  content_tag(:p, :class => "choice_#{dom_id(role)}") do %>
         <%= @presenter.choice_status(member.user.id, role.id) %>
       <% end %>
+      <%=  content_tag(:p, :class => "assign_#{dom_id(role)}") do %>
+        <%= assign_status_for(@meeting, role, member.user.id) %>
+      <% end %>      
     <% if current_user.mymeetings.include? (@meeting) %>
       <%= render @presenter.assign_role(member.user.id, role.id), :as => :role %>
     <% elsif current_user.member? (member) %>
@@ -58,4 +62,3 @@
 </table>
 
 </p>
-<%= link_to 'Back', meetings_path %>

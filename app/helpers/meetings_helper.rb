@@ -5,6 +5,15 @@ module MeetingsHelper
     
   end
 
+
+  def assign_status_for(meeting, role, user_id)
+    if role.assign_id == user_id
+     klass ="color_" + Choice.get_entry(meeting.id, user_id, role.id).to_s
+     content_tag(:p, "X", :class => klass.downcase)
+    end
+  end
+
+
 class EditPresenter
 
   def initialize(meeting)
