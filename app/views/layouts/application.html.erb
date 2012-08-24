@@ -11,24 +11,22 @@
         <div id="user_nav" class="navbar navbar-fixed-top">
     <div class="navbar-inner">
       <div class="container">
-        <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-        </a>
+        
         <a class="brand" href="#">Meetin</a>
-        <div class="nav-collapse">
-          <ul class="nav">
+          
+        
+          <ul class="nav pull-right">
             <% if user_signed_in? %>
           
-          <li><%= link_to 'setting', edit_user_registration_path %> </li>
+          <li><%= link_to 'My Account', edit_user_registration_path %> </li>
           <li><%= link_to "Logout", destroy_user_session_path, method: :delete %> </li>
-          <li><%= link_to 'contact us' %> </li>
+          <li><%= link_to 'Contact Us' %> </li>
         <% else %>
-          <li><%= link_to "Sign up", new_user_registration_path %> </li>
+          <li><%= link_to "Sign Up", new_user_registration_path %> </li>
           <li><%= link_to "Login", new_user_session_path %></li>
+          <li><%= link_to 'Contact Us' %> </li>
         <% end %>
-      </div>
+      
 
 
           </ul>
@@ -38,26 +36,9 @@
   
 
         
-	
+	<%= yield %>
        
-<div class="container">
-  <div class="row">
-    <div class="span3">
-      <p class="notice"><%= notice %></p>
-       <p class="alert"><%= alert %></p>
-       <% if user_signed_in? %>
-       Hello <strong><%= current_user.username %></strong> !
-       <%else%>
-       Welcome! Please <%= link_to "Sign up", new_user_registration_path %> here.
-       <%end%>
-      <h2>About Us</h2>
-        Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-    </div>
-    <div class="span9">
-<%= yield %>
-    </div>
-  </div>
-</div>
+
 
 
 </body>

@@ -18,7 +18,8 @@ group :assets do
   # gem 'therubyracer'
 
   gem 'uglifier', '>= 1.0.3'
-  gem 'twitter-bootstrap-rails'
+  #gem  uninstall 'twitter-bootstrap-rails'
+  gem  'bootstrap-sass'
 end
 
 gem 'jquery-rails'
