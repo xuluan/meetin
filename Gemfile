@@ -59,8 +59,4 @@ end
 gem 'simple_form'
 gem 'redcarpet'
 gem 'will_paginate'
-<<<<<<< HEAD
-=======
-
 gem 'pry-rails', :group => :development
->>>>>>> origin/master

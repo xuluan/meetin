@@ -4,22 +4,23 @@
 <div class="signup">
 
 <h2> Sign up </h2>
+
 <%= form_for(resource, :as => resource_name, :url => registration_path(resource_name)) do |f| %>
   <%= devise_error_messages! %>
 
 
-  <div><%= f.email_field :email, placeholder: "Email",class: "span3" %></div>
+  <div><%= f.email_field :email, placeholder: "Email",class: "input-large" %></div>
 
-  <div><%= f.text_field :username,placeholder:"Name",class: "span3"%></div>
+  <div><%= f.text_field :username,placeholder:"Name",class: "input-large"%></div>
 
-  <div><%= f.password_field :password,placeholder:"Password",class: "span3" %></div>
+  <div><%= f.password_field :password,placeholder:"Password",class: "input-large" %></div>
 
-  <div><%= f.password_field :password_confirmation, placeholder:"Password Confirmation",class: "span3"%></div>
+  <div><%= f.password_field :password_confirmation, placeholder:"Password Confirmation",class: "input-large"%></div>
 
   <div><%= f.submit "Start",class: " btn btn-signup btn-primary" %></div>
 <% end %>
 
-<%= render "devise/shared/links" %>
+<h5><%= render "devise/shared/links" %></h5>
 </div>
 </div>
 

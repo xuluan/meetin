@@ -1,0 +1,15 @@
+Done:
+signup:          register/new
+login:           session/new
+myAccount:       register/edit
+newPwd:          password/new
+
+Todo:
+editPwd:         password/edit /*why need this one*/
+meetinglist:     meeting/index
+meetingnew:      meeting/new, _form
+meetingshow:     meeting/show, _operation
+
+
+Issue:
+1.how to change and style error information?

@@ -14,15 +14,107 @@ body {padding-top: 60px;}
 
 // I. signup page
 
-.signup {
+.signup,.login,.newPwd {
     margin-top: 60px;
 	margin-left: auto;
 	margin-right: auto;
 	width:220px;
+	h2 {margin-bottom:20px;}
+	
 }
          //the submit button in signup page, inherit from ".btn-large"
 .btn-signup {
   padding: 5px 94px;
+  font-size: $baseFontSize + 2px;
+  line-height: normal;
+  @include border-radius(5px);
+}
+
+//II. Login page
+
+//the submit button in signup page, inherit from ".btn-large"
+
+//.login => .signup
+.btn-login {
+  padding: 5px 92px;
+  font-size: $baseFontSize + 2px;
+  line-height: normal;
+  @include border-radius(5px);
+}
+
+
+.loginRemMe {
+	width:220px;
+
+	background-color: #cccccc;
+	@include border-radius(5px);
+	margin-bottom:10px;
+	
+}
+
+.loginLabel {
+   width:120px;
+   margin:3px auto;
+   padding-top:4px;
+   padding-bottom:4px;
+   
+ 
+   }
+
+.loginChebox {
+	
+	
+	margin-right:15px;
+}
+
+
+//III. Edit Account
+.editAccount {
+    margin-top: 60px;
+	margin-left: auto;
+	margin-right: auto;
+	width:520px;
+
+	h3 { margin-bottom:20px;}
+	
+	sup {color:red;
+	    font-weight:bold;
+	    vertical-align:text-top;}
+	span {margin-left:10px;}
+
+}
+
+.btn-editAccount {
+  padding: 5px 86px;
+
+  font-size: $baseFontSize + 2px;
+  line-height: normal;
+  @include border-radius(5px);
+}
+
+.editCancelAcnt{
+    width:220px;
+    height:27px;
+    
+	background-color: #cccccc;
+	@include border-radius(5px);
+	margin-bottom:10px;
+
+	
+}
+.cancelText {
+
+    width:120px;
+   
+    
+    padding-top:5px;
+    margin: auto auto;	}
+
+// IV. New Password
+   //.newPWD => signup ,login
+
+.btn-newPwd {
+  padding: 5px 52px;
   font-size: $baseFontSize + 2px;
   line-height: normal;
   @include border-radius(5px);
