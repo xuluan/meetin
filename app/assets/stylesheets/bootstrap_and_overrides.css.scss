@@ -1,9 +1,29 @@
 
 // Set the correct sprite paths
 //@iconSpritePath: image-path('glyphicons-halflings.png');
-//@iconWhiteSpritePath: image-path('glyphicons-halflings-white.png');
+
+
+
+
 
 @import "bootstrap";
 
 
-@import "bootstrap-responsive";
+
+body {padding-top: 60px;}
+
+// I. signup page
+
+.signup {
+    margin-top: 60px;
+	margin-left: auto;
+	margin-right: auto;
+	width:220px;
+}
+         //the submit button in signup page, inherit from ".btn-large"
+.btn-signup {
+  padding: 5px 94px;
+  font-size: $baseFontSize + 2px;
+  line-height: normal;
+  @include border-radius(5px);
+}

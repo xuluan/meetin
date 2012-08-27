@@ -5,9 +5,16 @@ class Member < ActiveRecord::Base
   belongs_to :meeting
   belongs_to :user
 
-  before_destroy :sync_to_choice_role
+  after_save :sync_to_choice_role
+
+
+  def Member.join?(m, u)
+    self.where("meeting_id = ? and user_id = ? and status = ?",m, u, true).first
+  end
 
   def sync_to_choice_role
+    return if status
+
     Choice.where("meeting_id = ? and user_id = ?", meeting_id, user_id).each do |choice|
       choice.delete
     end

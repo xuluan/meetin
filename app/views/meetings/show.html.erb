@@ -1,5 +1,28 @@
 <p id="notice"><%= notice %></p>
-<%= render  @member %>
+
+</div>
+
+  <strong><%= current_user.username %>,</strong>
+  <% if @member&& @member.status  %>
+
+     <span>you have already joined this meeting</span>
+     <p>If you want to exit, please click<span>
+     
+      <%= link_to( "Exit", params.merge(:member => "exit"), :confirm => "Are you sure?") %>
+      </span>
+
+     </p>
+
+  <% else %>
+     <span>you have not joined this meeting</span>
+<p>If you want to join, please click <span>
+
+      <%= link_to( "Join", params.merge(:member => "join")) %>
+      </span>
+</p>
+  <% end %>
+</div>
+
 
 <p>
   <b>Title:</b>
@@ -37,6 +60,11 @@
   <%= @meeting.location %>
 </p>
 
+  <% if current_user.operate? (@meeting)  %>
+  <%= render :partial => "operation" %>
+  <% end %>
+
+<%= link_to 'Refresh', @meeting %>
 
 <%= link_to 'Back', meetings_path %>
 

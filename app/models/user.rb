@@ -19,8 +19,8 @@ class User < ActiveRecord::Base
   	username
   end
 
-  def manager?(meeting)
-    meeting.manager_id == id
+  def operate?(meeting)
+    (meeting.manager_id == id) || Member.join?(meeting.id, self.id)
   end
 
   def member?(member)
