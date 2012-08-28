@@ -3,22 +3,30 @@
 </div>
 
   <strong><%= current_user.username %>,</strong>
-  <% if @member&& @member.status  %>
+  <% if @member && @member.status  %>
 
      <span>you have already joined this meeting</span>
-     <p>If you want to exit, please click<span>
-     
-      <%= link_to( "Exit", params.merge(:member => "exit"), :confirm => "Are you sure?") %>
+     <p>If you want to exit, please click
+      <span>
+<%= form_tag("/members/#{@member.id}", :method => :delete) do %>
+<%= submit_tag("Exit") %>
+<% end %>
+
+
       </span>
 
      </p>
 
   <% else %>
      <span>you have not joined this meeting</span>
-<p>If you want to join, please click <span>
-
-      <%= link_to( "Join", params.merge(:member => "join")) %>
-      </span>
+<p>If you want to join, please click 
+<span>
+<%= form_tag("/members") do %>
+<%= hidden_field_tag 'meeting_id', "#{@meeting.id}" %>
+<%= hidden_field_tag 'user_id', "#{current_user.id}" %>
+<%= submit_tag("Join") %>
+<% end %>
+</span>
 </p>
   <% end %>
 </div>

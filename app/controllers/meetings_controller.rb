@@ -30,32 +30,10 @@ before_filter :authenticate_user!, :except => [:index]
     @member = @meeting.members.find_by_user_id(current_user.id)
     @presenter = MeetingsHelper::EditPresenter.new(@meeting)
 
-    member = params[:member]
-
-    case member
-    when 'join'
-      if @member
-        @member.status = true;
-        @member.save
-      else
-        @member = Member.create(meeting_id:@meeting.id, user_id:current_user.id)
-      end
-
-    when 'exit'
-      if @member
-        @member.status = false;
-        @member.save
-      end
+    respond_to do |format|
+      format.html # show.html.erb
     end
 
-   
-    if member
-      redirect_to @meeting 
-    else
-      respond_to do |format|
-        format.html # show.html.erb
-      end
-    end
   end
 
   # GET /meetings/new

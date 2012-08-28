@@ -1,21 +1,33 @@
 class MembersController < ApplicationController
   def create
-    @member = Member.new(params[:member])
-    @member.save
-    respond_to do |format|
-      format.js { render :layout => false }
-    end    
+
+    raise "invalid access!" unless params[:user_id].to_i == current_user.id && Meeting.find(params[:meeting_id].to_i)
+
+    @member = Member.where("meeting_id = ? and user_id = ?", params[:meeting_id], params[:user_id]).first
+
+    if @member
+      @member.status = true
+      @member.save
+    else
+      @member = Member.create(:meeting_id => params[:meeting_id].to_i, :user_id => params[:user_id].to_i, :status => true )
+    end
+
+
+    
+    puts @member.inspect
+    redirect_to @member.meeting
   end
 
   def destroy    
     @member = Member.find(params[:id])
-    new_member = Member.new
-    new_member.meeting_id = @member.meeting_id
-    new_member.user_id = @member.user_id
-    @member.destroy
-    @member = new_member
-    respond_to do |format|
-      format.js { render :create, :layout => false }
-    end
+
+    raise "invalid access!" unless @member && @member.user_id == current_user.id
+
+    if @member
+      @member.status = false
+      @member.save
+    end      
+
+    redirect_to @member.meeting
   end
 end

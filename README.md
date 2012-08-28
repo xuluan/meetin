@@ -3,18 +3,18 @@ Meetin
 
 TODO
 ------
->- list the members who signoff
->- merge show and edit page to enter page
->- add X and set color
->- Send notify mail for meeting status 
 >- add test
+>- add X and set color(update)
+>- list the members who signoff
+>- Send notify mail for meeting status 
 
 * deploy
 
 STAGE 2
 
-* kankan
 * profile
+* kankan and admin
+
 
 DONE
 ------
@@ -23,7 +23,7 @@ DONE
 >- multi page
 >- index: all, organizer, member
 >- add new_meeting| old_meeting class in index page
-
+>- merge show and edit page to enter page
 
 * MEMBER JOIN/EXIT
 
