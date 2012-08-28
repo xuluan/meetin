@@ -1,3 +1,57 @@
+<<<<<<< HEAD
+
+
+<h1>Listing meetings</h1>
+<p>
+  <%= link_to "All", params.merge(:type => 'all', :page => 1 ) %>
+  <%= link_to "Organizer", params.merge(:type => 'mine', :page => 1  ) %>
+  <%= link_to "Member", params.merge(:type => 'join', :page => 1  ) %>
+</p>
+
+<% if @meetings.previous_page %>
+  <%= link_to "< Previous", params.merge(:page => @meetings.previous_page ) %>
+<% end %>
+Page <%= @meetings.current_page %> of <%= @meetings.total_pages %>
+<% if @meetings.next_page %>
+  <%= link_to "Next >", params.merge(:page => @meetings.next_page ) %>
+<% end %>
+
+<table>
+  <tr>
+    <th>Title</th>
+    <th>Started at</th>
+    <th>Location</th>
+    <th>Intro</th>
+    <th>Organizer</th>
+    
+    
+    
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @meetings.each do |meeting| %>
+  <tr class="<%= is_new_meeting(meeting) %>">
+    <td><%= meeting.title %></td>
+    <td><%= meeting.started_at %></td>
+    <td><%= meeting.location %></td>
+    <td><%= meeting.title %></td>
+    <td><%= meeting.manager %></td>
+    <% if current_user %>
+    <td><%= link_to 'Enter', meeting %></td>
+    
+
+    <td><%= link_to 'Destroy', meeting, confirm: 'Are you sure?', method: :delete %></td>
+    <% end %>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Meeting', new_meeting_path %>
+=======
 
 
 <h1>Listing meetings</h1>
@@ -46,3 +100,4 @@ Page <%= @meetings.current_page %> of <%= @meetings.total_pages %>
 <br />
 
 <%= link_to 'New Meeting', new_meeting_path %>
+>>>>>>> origin/master
