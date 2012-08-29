@@ -1,4 +1,7 @@
-Done:
+08292012-Done
+meetingnew:     meeting/new, _form
+
+08282012-Done:
 signup:          register/new
 login:           session/new
 myAccount:       register/edit
@@ -7,7 +10,6 @@ newPwd:          password/new
 Todo:
 editPwd:         password/edit /*why need this one*/
 meetinglist:     meeting/index
-meetingnew:      meeting/new, _form
 meetingshow:     meeting/show, _operation
 
 
