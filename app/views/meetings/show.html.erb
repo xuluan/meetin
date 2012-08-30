@@ -1,34 +1,27 @@
 <p id="notice"><%= notice %></p>
 
-</div>
+<div>
 
-  <strong><%= current_user.username %>,</strong>
-  <% if @member && @member.status  %>
+<strong><%= current_user.username %>,</strong>
+<% if @member && @member.status  %>
+  <span>you have already joined this meeting</span>
 
-     <span>you have already joined this meeting</span>
-     <p>If you want to exit, please click
-      <span>
-<%= form_tag("/members/#{@member.id}", :method => :delete) do %>
-<%= submit_tag("Exit") %>
+  <p>If you want to exit, please click
+    <%= form_tag("/members/#{@member.id}", :method => :delete) do %>
+      <%= submit_tag("Exit") %>
+    <% end %>
+  </p>
+
+<% else %>
+  <span>you have not joined this meeting</span>
+  <p>If you want to join, please click 
+    <%= form_tag("/members") do %>
+      <%= hidden_field_tag 'meeting_id', "#{@meeting.id}" %>
+      <%= hidden_field_tag 'user_id', "#{current_user.id}" %>
+      <%= submit_tag("Join") %>
+    <% end %>
+  </p>
 <% end %>
-
-
-      </span>
-
-     </p>
-
-  <% else %>
-     <span>you have not joined this meeting</span>
-<p>If you want to join, please click 
-<span>
-<%= form_tag("/members") do %>
-<%= hidden_field_tag 'meeting_id', "#{@meeting.id}" %>
-<%= hidden_field_tag 'user_id', "#{current_user.id}" %>
-<%= submit_tag("Join") %>
-<% end %>
-</span>
-</p>
-  <% end %>
 </div>
 
 
@@ -68,9 +61,9 @@
   <%= @meeting.location %>
 </p>
 
-  <% if current_user.operate? (@meeting)  %>
+<% if current_user.operate? (@meeting)  %>
   <%= render :partial => "operation" %>
-  <% end %>
+<% end %>
 
 <%= link_to 'Refresh', @meeting %>
 

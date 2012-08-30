@@ -20,7 +20,7 @@ class Meeting < ActiveRecord::Base
   has_many :users, :through => :members    
   has_many :choices, :dependent => :destroy
 
-  self.per_page = 1
+  self.per_page = 10
 
   default_scope order('started_at desc') 
 

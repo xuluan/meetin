@@ -1,5 +1,9 @@
-<h1>New meeting</h1>
-
-<%= render 'form' %>
-
-<%= link_to 'Back', meetings_path %>
+<div class="container-fluid">
+  <div class="newMeeting">
+    <div class="newMeetingInner">
+      <h2>New meeting</h2>
+      <%= render 'form' %>
+      <%= link_to '<< Back', meetings_path %>
+    </div>
+  </div>
+</div>

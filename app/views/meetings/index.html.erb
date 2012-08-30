@@ -1,52 +1,64 @@
+<div class="row-fluid">
+  <div class="span3">
+    <h4>Welcome to Meetin!</h4>
+    <ul>
+      <li><%= link_to "All meetings", params.merge(:type => 'all', :page => 1 ) %></li>
 
+      <% if current_user %>      
+        <li><%= link_to "Organized by Me", params.merge(:type => 'mine', :page => 1  ) %></li>
+        <li><%= link_to "Attended Meeting", params.merge(:type => 'join', :page => 1  ) %></li>
 
-<h1>Listing meetings</h1>
-<p>
-  <%= link_to "All", params.merge(:type => 'all', :page => 1 ) %>
-  <%= link_to "Organizer", params.merge(:type => 'mine', :page => 1  ) %>
-  <%= link_to "Member", params.merge(:type => 'join', :page => 1  ) %>
-</p>
+        <li><%= link_to 'New Meeting', new_meeting_path %> </li>
 
-<% if @meetings.previous_page %>
-  <%= link_to "< Previous", params.merge(:page => @meetings.previous_page ) %>
-<% end %>
-Page <%= @meetings.current_page %> of <%= @meetings.total_pages %>
-<% if @meetings.next_page %>
-  <%= link_to "Next >", params.merge(:page => @meetings.next_page ) %>
-<% end %>
+      <% end %>
+    </ul>
+  </div>
 
-<table>
-  <tr>
-    <th>Title</th>
-    <th>Started at</th>
-    <th>Location</th>
-    <th>Intro</th>
-    <th>Organizer</th>
-    
-    
-    
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
-
-<% @meetings.each do |meeting| %>
-  <tr class="<%= is_new_meeting(meeting) %>">
-    <td><%= meeting.title %></td>
-    <td><%= meeting.started_at %></td>
-    <td><%= meeting.location %></td>
-    <td><%= meeting.title %></td>
-    <td><%= meeting.manager %></td>
-    <% if current_user %>
-    <td><%= link_to 'Enter', meeting %></td>
-    
-
-    <td><%= link_to 'Destroy', meeting, confirm: 'Are you sure?', method: :delete %></td>
+  <div class="span9">
+    <% if @meetings.previous_page %>
+      <%= link_to "< Previous", params.merge(:page => @meetings.previous_page ) %>
     <% end %>
-  </tr>
-<% end %>
-</table>
+    
+    Page <%= @meetings.current_page %> of <%= @meetings.total_pages %>
+    
+    <% if @meetings.next_page %>
+      <%= link_to "Next >", params.merge(:page => @meetings.next_page ) %>
+    <% end %>
 
-<br />
+    <table>
+      <tr>
+        <th>Title</th>
+        <th>Started at</th>
+        <th>Location</th>
+        <th>Organizer</th>
+      </tr>
 
-<%= link_to 'New Meeting', new_meeting_path %>
+      <% @meetings.each do |meeting| %>
+  
+        <tr class="<%= is_new_meeting(meeting) %>">
+          <td><%= meeting.title %></td>
+          <td><%= meeting.started_at %></td>
+          <td><%= meeting.location %></td>
+          <td><%= meeting.manager %></td>
+
+          <% if current_user %>
+            <td><%= link_to 'Enter', meeting %></td>
+          <% end %>
+        </tr>
+      <% end %>
+
+    </table>
+  </div>
+
+  <br />
+
+  
+</div>
+
+
+
+
+
+
+
+
