@@ -50,8 +50,6 @@ before_filter :authenticate_user!, :except => [:index]
   # GET /meetings/1/edit
   def edit
     @meeting = Meeting.find(params[:id])
-    @presenter = MeetingsHelper::EditPresenter.new(@meeting)
-
   end
 
   # POST /meetings

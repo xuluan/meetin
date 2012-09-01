@@ -44,6 +44,10 @@
           <% if current_user %>
             <td><%= link_to 'Enter', meeting %></td>
           <% end %>
+          <% if current_user.mymeetings.include? (@meeting) %>
+            <td><%= link_to 'Edit', edit_meeting_path(meeting) %></td>
+          <% end %>
+
         </tr>
       <% end %>
 

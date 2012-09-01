@@ -2,7 +2,23 @@ Meetin
 ======
 
 TODO
+
 ------
+* STAGE 2
+
+>- edit role
+>- delete role
+>- add role
+>- edit role by template
+
+>- invatation list to attendance
+>- delete attendance
+>- edit attendance by template
+>- invatation some one
+
+>- template operate (set as template, create by template, list template)
+
+* improve
 >- add test
 >- add X and set color(update)
 >- list the members who signoff
@@ -10,9 +26,6 @@ TODO
 
 * deploy
 
-STAGE 2
-
-* profile
 * kankan and admin
 
 
