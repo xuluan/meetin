@@ -1,22 +1,25 @@
 <%= simple_form_for(@meeting) do |f| %>
   <%= f.error_notification %>
-
  <!--<div class="form-inputs">-->
     <form>
       <%= f.input :title, :placeholder=>"Ex: TM_08292012",:input_html=>{:class => "span5"} %>
 
       <%= f.input :agenda, label: "Intro", :placeholder=>"Brief introduction of the meeting",:input_html=>{:class => "span5"} %>
 
-      <div class="formGroup">
-        <%= f.input :role_list,:placeholder=>"List roles,separated by ,",:input_html=>{:class => "span5 formInline"} %>
-        <button class="btn  formInline" type="button" onClick="loction.href='#'">Import</button>
-      </div>
-
         <%= f.fields_for :roles do |builder| %>
           <%= render 'role_fields', f: builder %>
         <% end %>
-        <%= link_to_add_fields "Add Role", f, :roles %>
 
+        <% if @meeting_template %>
+          <% @meeting_template.roles.each do |role| %>
+            <% new_object = @meeting.roles.new(name: role.name, meeting_id: @meeting.id) %>
+
+            <%= f.fields_for :roles, new_object do |builder| %>
+              <%= render 'role_fields', f: builder %>
+            <% end %>
+          <% end %>
+        <% end %>
+        <%= link_to_add_fields "Add Role", f, :roles %>
 
       <div class=" formGroup">
         <%= f.input :member_list, :placeholder=>"List member emails,separated by ,",

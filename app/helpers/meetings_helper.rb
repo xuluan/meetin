@@ -19,7 +19,6 @@ module MeetingsHelper
     fields = f.fields_for(association, new_object, child_index: id) do |builder|
       render(association.to_s.singularize + "_fields", f: builder)
     end
-    puts fields
     link_to(name, '#', class: "add_fields", data: {id: id, fields: fields.gsub("\n", "")})
   end
 
@@ -54,14 +53,6 @@ class EditPresenter
     role
   end
 
-end
-
-class RoleValidator < ActiveModel::Validator
-  def validate(record)
-    unless record.role_list.strip.length > 0
-      record.errors[:role_list] << 'Role List cannot be empty'
-    end
-  end
 end
 
 class MemberValidator < ActiveModel::Validator

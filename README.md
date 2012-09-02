@@ -5,12 +5,11 @@ TODO
 
 ------
 * STAGE 2
-
->- edit role by template
-
->- invatation list to attendance
+>- edit attendance (just show)
 >- delete attendance
+>- before_delete hook for attendance
 >- edit attendance by template
+>- invatation list to attendance
 >- invatation some one
 
 >- template operate (set as template, create by template, list template)
@@ -33,6 +32,7 @@ DONE
 >- edit role
 >- delete role
 >- add role
+>- edit role by template
 
 * STAGE 1 improve
 >- multi page

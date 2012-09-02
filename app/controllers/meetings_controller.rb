@@ -40,6 +40,7 @@ before_filter :authenticate_user!, :except => [:index]
   # GET /meetings/new.json
   def new
     @meeting = Meeting.new
+    @meeting_template = Meeting.find(params[:id]) if params[:id]
 
     respond_to do |format|
       format.html # new.html.erb

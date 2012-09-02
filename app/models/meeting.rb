@@ -4,7 +4,6 @@ class Meeting < ActiveRecord::Base
   include ActiveModel::Validations
   after_create :meeting_created
 
-  validates_with MeetingsHelper::RoleValidator  
   validates_with MeetingsHelper::MemberValidator  
 
   validates :manager_id, :presence => true
@@ -33,7 +32,7 @@ class Meeting < ActiveRecord::Base
   protected
 
   def meeting_created
-
+=begin
     # add roles
     rolelist = self.role_list.split(/[,;]/)
     rolelist.each do |role_name|
@@ -45,7 +44,7 @@ class Meeting < ActiveRecord::Base
         role.save
       end #if
     end #each
-
+=end
     # add members
     memberlist = self.member_list.split(/[,;]/)
 
