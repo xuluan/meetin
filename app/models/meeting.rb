@@ -16,6 +16,8 @@ class Meeting < ActiveRecord::Base
   belongs_to :manager, :class_name => "User"
 
   has_many :roles, :dependent => :destroy
+  accepts_nested_attributes_for :roles, allow_destroy: true
+  
   has_many :members, :dependent => :destroy
   has_many :users, :through => :members    
   has_many :choices, :dependent => :destroy

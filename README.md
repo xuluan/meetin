@@ -6,9 +6,6 @@ TODO
 ------
 * STAGE 2
 
->- edit role
->- delete role
->- add role
 >- edit role by template
 
 >- invatation list to attendance
@@ -31,6 +28,11 @@ TODO
 
 DONE
 ------
+* STAGE 2
+
+>- edit role
+>- delete role
+>- add role
 
 * STAGE 1 improve
 >- multi page

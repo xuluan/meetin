@@ -1,0 +1,9 @@
+
+<fieldset>
+<div class="formGroup">
+
+	<%= f.input :name, label: "Role", :input_html=>{:class => "span5 formInline"} %>
+	<%= f.hidden_field :_destroy %>
+	<%= link_to "remove", '#', class: "remove_fields" %>
+</div>
+</fieldset>

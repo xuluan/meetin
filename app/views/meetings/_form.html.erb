@@ -12,6 +12,12 @@
         <button class="btn  formInline" type="button" onClick="loction.href='#'">Import</button>
       </div>
 
+        <%= f.fields_for :roles do |builder| %>
+          <%= render 'role_fields', f: builder %>
+        <% end %>
+        <%= link_to_add_fields "Add Role", f, :roles %>
+
+
       <div class=" formGroup">
         <%= f.input :member_list, :placeholder=>"List member emails,separated by ,",
         :input_html=>{:class => "span5 formInline"} %>
