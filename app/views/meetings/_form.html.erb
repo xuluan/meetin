@@ -4,7 +4,7 @@
     <form>
       <%= f.input :title, :placeholder=>"Ex: TM_08292012",:input_html=>{:class => "span5"} %>
 
-      <%= f.input :agenda, label: "Intro", :placeholder=>"Brief introduction of the meeting",:input_html=>{:class => "span5"} %>
+      <%= f.input :intro, label: "Intro", :placeholder=>"Brief introduction of the meeting",:input_html=>{:class => "span5"} %>
 
         <%= f.fields_for :roles do |builder| %>
           <%= render 'role_fields', f: builder %>

@@ -8,7 +8,7 @@ class Meeting < ActiveRecord::Base
 
   validates :manager_id, :presence => true
   validates :title, :presence => true
-  validates :agenda, :presence => true
+  validates :intro, :presence => true
   validates :location, :presence => true
   validates :started_at, :presence => true
 
@@ -35,12 +35,6 @@ class Meeting < ActiveRecord::Base
 
   def meeting_created
 
-    
-    # send email for each member
-    self.members.each do |member|
-      UserMailer.meeting_invite(member.user.email, self).deliver
-    end
-
     invatations = []
     # add members
     memberlist = self.member_list.split(/[,;]/)
@@ -57,21 +51,27 @@ class Meeting < ActiveRecord::Base
 
     self.member_list = invatations.join("; ")
     self.save
+    
+    # send email for each member
+    self.members.each do |member|
+      UserMailer.meeting_invite(member.user.email, self).deliver
+    end
+
+
+
+
 
     #add manager 
     add_member(self.manager)
   end #def
 
   def add_member(user)
-    if user and (not Members.join?(self.id, user.id))
+    if user and (not Member.join?(self.id, user.id))
       member = Member.new
       member.meeting_id = id 
       member.user_id = user.id 
       member.save
     end #if
-
-    # send emails
-    UserMailer.meeting_invite(member_email, self).deliver
   end
 
 
