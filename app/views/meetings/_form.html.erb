@@ -21,11 +21,30 @@
         <% end %>
         <%= link_to_add_fields "Add Role", f, :roles %>
 
+      <% if @meeting.new_record? %>
+        <div class=" formGroup">
+          <%= f.input :member_list, label: "Invatation List", :placeholder=>"List member emails,separated by ,",
+          :input_html=>{:class => "span5 formInline"} %>
+        </div>
+      <% else %>
       <div class=" formGroup">
-        <%= f.input :member_list, :placeholder=>"List member emails,separated by ,",
-        :input_html=>{:class => "span5 formInline"} %>
-        <button class="btn  formInline" type="button" onClick="loction.href='#'">Import</button>
-      </div>
+          <%= f.label "#{@meeting.member_list}", :input_html=>{:class => "span5 formInline"} %>
+        </div>
+      <% end %>
+
+      <%= f.fields_for :members do |builder| %>
+        <%= render 'member_fields', f: builder %>
+      <% end %>
+
+        <% if @meeting_template %>
+          <% @meeting_template.members.each do |member| %>
+            <% new_object = @meeting.members.new(user_id: member.user_id, meeting_id: @meeting.id) %>
+
+            <%= f.fields_for :members, new_object do |builder| %>
+              <%= render 'member_fields', f: builder %>
+            <% end %>
+          <% end %>
+        <% end %>
 
       <div class="formInline" >
         <%= f.input :started_at %>

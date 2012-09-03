@@ -59,7 +59,6 @@ class MemberValidator < ActiveModel::Validator
   def validate(record)
     member_list = record.member_list.split(/[,;]/)
     
-    i = 0
     member_list.each do |member|
       member.strip!
       next if member.length == 0 #skip when email is empty
@@ -67,9 +66,7 @@ class MemberValidator < ActiveModel::Validator
         record.errors[:member_list] << ("All members in Member List must be valid email address.")
         break
       end   
-      i += 1
     end
-    record.errors[:member_list] << 'Member List cannot be empty' if i == 0
   end
 end
 

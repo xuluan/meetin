@@ -48,6 +48,8 @@
               <td><%= link_to 'Edit', edit_meeting_path(meeting) %></td>
             <% end %>
 
+            <td><%= link_to 'New Meeting with it as template', "#{new_meeting_path}?id=#{meeting.id}" %></td>
+
           <% end %>
 
         </tr>

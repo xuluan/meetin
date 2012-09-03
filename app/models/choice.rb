@@ -7,7 +7,7 @@ class Choice < ActiveRecord::Base
   belongs_to :user 
   belongs_to :role 
 
-  def Choice::get_entry(m, u,r)
+  def Choice::get_entry(m, u, r)
     self.where("meeting_id = ? and user_id = ? and role_id = ?",m, u, r).first
   end
 

@@ -5,14 +5,7 @@ TODO
 
 ------
 * STAGE 2
->- edit attendance (just show)
->- delete attendance
->- before_delete hook for attendance
->- edit attendance by template
->- invatation list to attendance
 >- invatation some one
-
->- template operate (set as template, create by template, list template)
 
 * improve
 >- add test
@@ -28,6 +21,15 @@ TODO
 DONE
 ------
 * STAGE 2
+
+>- before_delete hook for attendance
+>- invatation list to attendance
+>- template operate (set as template, create by template, list template)
+
+
+>- edit attendance (just show)
+>- delete attendance
+>- edit attendance by template
 
 >- edit role
 >- delete role

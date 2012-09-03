@@ -41,6 +41,10 @@ before_filter :authenticate_user!, :except => [:index]
   def new
     @meeting = Meeting.new
     @meeting_template = Meeting.find(params[:id]) if params[:id]
+    if @meeting_template
+      @meeting.member_list = @meeting_template.member_list
+      @meeting.location = @meeting_template.location
+    end
 
     respond_to do |format|
       format.html # new.html.erb
