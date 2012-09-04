@@ -3,8 +3,7 @@
 FactoryGirl.define do
   factory :meeting do
     title "MyString"
-    agenda "MyText"
-    role_list "MyString"
+    intro "MyText"
     member_list "aa@bb.com"
     started_at "2012-09-24 21:54:16"
     location "MyString"
@@ -13,20 +12,10 @@ FactoryGirl.define do
 end
 
 FactoryGirl.define do
-  factory :empty_rolelist, :class => Meeting do
-    title "MyString"
-    agenda "MyText"
-    role_list "  \s \n \t"
-    member_list "MyString"
-    started_at "2012-07-24 21:54:16"
-    location "MyString"
-    manager factory: :user
-  end
 
   factory :err_email_memberlist, :class => Meeting do
     title "MyString"
-    agenda "MyText"
-    role_list "MyString"
+    intro "MyText"
     member_list "MyString"
     started_at "2012-07-24 21:54:16"
     location "MyString"
@@ -35,8 +24,7 @@ FactoryGirl.define do
 
   factory :meeting2, :class => Meeting   do
     title "MyString"
-    agenda "MyText"
-    role_list "MyString; role_2"
+    intro "MyText"
     member_list "aa@bb.com; example@example.com; "
     started_at "2012-08-24 21:54:17"
     location "MyString"
@@ -45,8 +33,7 @@ FactoryGirl.define do
 
   factory :empty_memberlist, :class => Meeting   do
     title "MyString"
-    agenda "MyText"
-    role_list "MyString; role_2"
+    intro "MyText"
     member_list "  ; \t  ;  \n   ; "
     started_at "2012-07-24 21:54:16"
     location "MyString"

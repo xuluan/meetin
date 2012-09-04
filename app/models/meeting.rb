@@ -42,27 +42,26 @@ class Meeting < ActiveRecord::Base
     memberlist.each do |member_email|
       member_email.strip!
       if member_email.length >0
-        add_member(User.find_by_email(member_email))
-      else
-        UserMailer.meeting_invite(member_email, self).deliver
-        invatations << member_email
+        if user = User.find_by_email(member_email)
+          add_member(user)
+        else  
+          UserMailer.meeting_invite(member_email, self).deliver
+          invatations << member_email
+        end
       end #if
     end #each    
 
     self.member_list = invatations.join("; ")
     self.save
-    
+
+    #add manager 
+    add_member(self.manager)
+        
     # send email for each member
     self.members.each do |member|
       UserMailer.meeting_invite(member.user.email, self).deliver
     end
 
-
-
-
-
-    #add manager 
-    add_member(self.manager)
   end #def
 
   def add_member(user)

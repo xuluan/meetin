@@ -2,45 +2,87 @@ require 'spec_helper'
 
 describe Meeting do
 
-  it "is a valid meeting" do
-  	meeting = FactoryGirl.build(:meeting)
-    meeting.should be_valid
+  context "when it has not been created (validate)" do
+
+    it "is a valid meeting" do
+      meeting = FactoryGirl.build(:meeting)
+      meeting.should be_valid
+    end
+
+    it "is a valid meeting" do
+      FactoryGirl.build(:meeting2).should be_valid
+    end
+
+
+    it "is invalid with an error email in member list" do
+      err_email_memberlist = FactoryGirl.build(:err_email_memberlist)
+      err_email_memberlist.should_not be_valid
+      err_email_memberlist.should have(1).errors_on(:member_list)
+    end
+
+
+    it "is valid with empty email in member list" do
+      empty_memberlist = FactoryGirl.build(:empty_memberlist)
+      empty_memberlist.should be_valid
+    end
+
   end
 
-  it "is a valid meeting" do
-  	FactoryGirl.build(:meeting2).should be_valid
+  context "when created with member_list" do
+
+    before (:each) do
+      user = FactoryGirl.create(:user, email: 'example@example.com') 
+    end
+
+    it "add member if user exist and remove it from member_list" do
+      meeting = FactoryGirl.create(:meeting2)
+      meeting.reload
+      meeting.should have(2).members
+      meeting.member_list.should == "aa@bb.com" 
+    end
+
+    it "send mail to members, manager and member_list" do
+      deliver = stub(:deliver)
+      UserMailer.should_receive(:meeting_invite).with("aa@bb.com", anything).once.and_return(deliver)
+      UserMailer.should_receive(:meeting_invite).with("example@example.com", anything).once.and_return(deliver)      
+      UserMailer.should_receive(:meeting_invite).with(/username(\d*)@example.com/, anything).once.and_return(deliver)      
+      deliver.should_receive(:deliver).exactly(3).times      
+      meeting = FactoryGirl.create(:meeting2)
+    end
+
   end
 
-  it "is invalid with an empty role list" do
-    empty_rolelist = FactoryGirl.build(:empty_rolelist)
-    empty_rolelist.should_not be_valid
-    empty_rolelist.should have(1).errors_on(:role_list)
-    empty_rolelist.should have(2).errors_on(:member_list)
+  context "when after created" do
+
+    it "can add a role" do
+      meeting = FactoryGirl.create(:meeting)
+      role = Role.create(name:'role', meeting_id: meeting.id)
+      meeting.should have(1).roles
+      meeting.member_list.should == "aa@bb.com"
+    end
+
+    it "can add two roles" do
+      meeting = FactoryGirl.create(:meeting)
+      role1 = Role.create(name:'role1', meeting_id: meeting.id)
+      role2 = Role.create(name:'role2', meeting_id: meeting.id)      
+      meeting.should have(2).roles
+      meeting.member_list.should == "aa@bb.com"
+    end
+
+    it "can add a member" do
+      user = FactoryGirl.create(:user, email: 'example@example.com')
+      meeting = FactoryGirl.create(:meeting)
+      member = Member.create(user:user, meeting:meeting)
+      meeting.reload
+      meeting.should have(2).members
+    end
+
 
   end
 
 
-  it "is invalid with an error email in member list" do
-    err_email_memberlist = FactoryGirl.build(:err_email_memberlist)
-    err_email_memberlist.should_not be_valid
-    err_email_memberlist.should have(2).errors_on(:member_list)
+  context "when it has already been created (edit)" do
+    
   end
 
-
-  it "is invalid with empty email in member list" do
-  	empty_memberlist = FactoryGirl.build(:empty_memberlist)
-    empty_memberlist.should_not be_valid
-    empty_memberlist.should have(1).errors_on(:member_list)
-  end
-
-  it "has one role but no member" do
-    meeting = FactoryGirl.create(:meeting)
-    meeting.should have(1).roles
-  end
-
-  it "has two roles and one member" do
-    meeting = FactoryGirl.create(:meeting2)
-    meeting.should have(2).roles
-    meeting.should have(1).members    
-  end  
 end

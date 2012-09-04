@@ -44,6 +44,8 @@ group :development, :test do
   gem 'rspec-rails'
   gem 'factory_girl_rails'
   gem "webrat"  
+
+  gem 'pry-rails'  
 end
 
 group :test do
@@ -59,4 +61,3 @@ gem 'simple_form'
 gem 'redcarpet'
 gem 'will_paginate'
 
-gem 'pry-rails', :group => :development
