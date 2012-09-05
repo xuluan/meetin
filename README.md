@@ -4,12 +4,18 @@ Meetin
 TODO
 
 ------
-* STAGE 2
->- invatation some one
 
-* improve
->- add test
+* refactoring
+>- rbp
+>- change name
+>- model and db access
+>- invalid access
+
+* STAGE 2
 >- add X and set color(update)
+>- invatation some one
+>- check send email issue
+>- member exit issue ?
 >- list the members who signoff
 >- Send notify mail for meeting status 
 
@@ -21,6 +27,8 @@ TODO
 DONE
 ------
 * STAGE 2
+
+>- add test (model and controller)
 
 >- before_delete hook for attendance
 >- invatation list to attendance

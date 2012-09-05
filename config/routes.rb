@@ -1,6 +1,6 @@
 Meetin::Application.routes.draw do
 
-  resources :choices, :only => [:create, :destroy]
+  resources :choices, :only => [:create]
 
   resources :roles, :only => [:update] 
 

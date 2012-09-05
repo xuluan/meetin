@@ -12,9 +12,6 @@ class MembersController < ApplicationController
       @member = Member.create(:meeting_id => params[:meeting_id].to_i, :user_id => params[:user_id].to_i, :status => true )
     end
 
-
-    
-    puts @member.inspect
     redirect_to @member.meeting
   end
 
