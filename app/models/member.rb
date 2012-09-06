@@ -3,7 +3,7 @@ class Member < ActiveRecord::Base
 
   belongs_to :meeting
   belongs_to :user
-  has_many :choices, :dependent => :destroy
+  #has_many :choices, :through => :users, :dependent => :destroy
   delegate :username, to: :user
 
   after_save :cleanup

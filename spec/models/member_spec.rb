@@ -2,26 +2,24 @@ require 'spec_helper'
 
 describe Member do
 
-  context "when it has not been created" do
+  context "when validate" do
 
     it "is a valid member" do
       member = FactoryGirl.build(:member)
       member.should be_valid
     end    
 
-    it "is an invalid member without user_id" do
-      member = FactoryGirl.build(:member_no_user_id)
-      member.should_not be_valid
-      member.should have(1).errors_on(:user_id)
-    end   
+    it { should  validate_presence_of(:user_id)}
 
-    xit "is an invalid member without meeting_id" do
-      member = FactoryGirl.build(:member_no_meeting_id)
-      member.should_not be_valid
-      member.should have(1).errors_on(:meeting_id)
-    end  
+    xit { should  validate_presence_of(:meeting_id)}
 
-    it "is an invalid member with_status_false" do
+    it { should  belong_to(:meeting)}
+
+    it { should  belong_to(:user)}
+
+    xit { should  have_many(:choices).through(:users)}
+
+    it "is a valid member with_status_false" do
       member = FactoryGirl.build(:member_status_false)
       member.should be_valid
     end    

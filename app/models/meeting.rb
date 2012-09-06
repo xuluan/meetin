@@ -1,17 +1,9 @@
-require 'redcarpet/compat'
 
 class Meeting < ActiveRecord::Base
-  include ActiveModel::Validations
-  after_create :meeting_created
 
-  validates_with MeetingsHelper::MemberValidator  
-
-  validates :manager_id, :presence => true
-  validates :title, :presence => true
-  validates :intro, :presence => true
-  validates :location, :presence => true
-  validates :started_at, :presence => true
-
+  validates_presence_of :manager_id, :title, :intro, :location, :started_at
+  validates_with MeetingsHelper::MemberValidator
+  
   belongs_to :manager, :class_name => "User"
 
   has_many :roles, :dependent => :destroy
@@ -27,9 +19,7 @@ class Meeting < ActiveRecord::Base
 
   default_scope order('started_at desc') 
 
-  def agenda_html
-    Markdown.new(agenda, :hard_wrap).to_html
-  end
+  after_create :meeting_created
 
   protected
 

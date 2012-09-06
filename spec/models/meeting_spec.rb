@@ -2,7 +2,7 @@ require 'spec_helper'
 
 describe Meeting do
 
-  context "when it has not been created (validate)" do
+  context "when validate" do
 
     it "is a valid meeting" do
       meeting = FactoryGirl.build(:meeting)
@@ -13,6 +13,20 @@ describe Meeting do
       FactoryGirl.build(:meeting2).should be_valid
     end
 
+=begin
+    # pending for MemberValidator
+
+    it { should validate_presence_of(:title) }
+    it { should validate_presence_of(:manager_id) }
+    it { should validate_presence_of(:intro) }
+    it { should validate_presence_of(:location) }
+    it { should validate_presence_of(:started_at) }
+
+    it { should have_many(:roles) }
+    it { should have_many(:choices) }
+    it { should have_many(:users).through(:members) }
+    it { should belong_to(:manager) }
+=end
 
     it "is invalid with an error email in member list" do
       err_email_memberlist = FactoryGirl.build(:err_email_memberlist)
