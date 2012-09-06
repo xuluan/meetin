@@ -8,6 +8,7 @@ TODO
 * refactoring
 >- assign (user->member)
 >- choice (user->member)
+>- member status (hidden)
 >- rbp
 >- change name
 >- model and db access

@@ -13,7 +13,7 @@ describe Meeting do
       FactoryGirl.build(:meeting2).should be_valid
     end
 
-=begin
+
     # pending for MemberValidator
 
     it { should validate_presence_of(:title) }
@@ -26,7 +26,7 @@ describe Meeting do
     it { should have_many(:choices) }
     it { should have_many(:users).through(:members) }
     it { should belong_to(:manager) }
-=end
+
 
     it "is invalid with an error email in member list" do
       err_email_memberlist = FactoryGirl.build(:err_email_memberlist)

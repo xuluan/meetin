@@ -2,8 +2,10 @@
 class Meeting < ActiveRecord::Base
 
   validates_presence_of :manager_id, :title, :intro, :location, :started_at
-  validates_with MeetingsHelper::MemberValidator
-  
+  validates :member_list, :format => { 
+    :with => /\A\s*((([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\s*)?[;,]\s*)*((([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\s*)?)\z/i,
+    :message => "Only email allowed" }
+
   belongs_to :manager, :class_name => "User"
 
   has_many :roles, :dependent => :destroy
