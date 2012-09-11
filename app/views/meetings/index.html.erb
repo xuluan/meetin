@@ -1,20 +1,67 @@
 <div class="row-fluid">
-  <div class="span3">
+  <div class="span2 indexLeft">
+    <div class="indexLeftInner">
     <h4>Welcome to Meetin!</h4>
-    <ul>
-      <li><%= link_to "All meetings", params.merge(:type => 'all', :page => 1 ) %></li>
+    <ul class="nav nav-tabs nav-stacked">
+      <li class="<%= active_class('all') %>"><%= link_to "All meetings", params.merge(:type => 'all', :page => 1 ) %></li>
 
       <% if current_user %>      
-        <li><%= link_to "Organized by Me", params.merge(:type => 'mine', :page => 1  ) %></li>
-        <li><%= link_to "Attended Meeting", params.merge(:type => 'join', :page => 1  ) %></li>
+        <li class="<%= active_class('mine') %>"><%= link_to "Organized by Me", params.merge(:type => 'mine', :page => 1  ) %></li>
+        <li class="<%= active_class('join') if params[:type] == 'join' %>"><%= link_to "Attended Meeting", params.merge(:type => 'join', :page => 1  ) %></li>
 
-        <li><%= link_to 'New Meeting', new_meeting_path %> </li>
+        <li ><%= link_to 'New Meeting', new_meeting_path %> </li>
 
       <% end %>
     </ul>
   </div>
+  </div>
 
-  <div class="span9">
+  <div class="span10 indexMain">
+    <div class="indexMainInner">
+    
+
+    <table class="table indexTable">
+      <thead>
+      <tr>
+        <th>Title</th>
+        <th>Started at</th>
+        <th>Organizer</th>
+        <th>Intro</th>
+        <th>Location</th>
+        
+      </tr>
+    </thead>
+
+      <% @meetings.each do |meeting| %>
+  
+        <tr class="<%= is_new_meeting(meeting) %>" onclick="document.location.href ='meetings/'+ <%= meeting.id %>">
+          <td class="meetingInfo"><%= meeting.title %></td>
+          <td class="meetingInfo"><%= meeting.started_at %></td>
+           <td class="meetingInfo"><%= meeting.manager %></td>
+           <td class="meetingInfo"><%= meeting.intro %></td>
+          <td class="meetingInfo"><%= meeting.location %></td>
+         
+        <td class="meetingLink">
+          <ul class="nav  nav-stacked" >
+          <% if current_user %>
+            <li class="enter"><%= link_to 'Enter', meeting %></li>
+
+            <% if current_user.mymeetings.include? (meeting) %>
+              <li><%= link_to 'Edit', edit_meeting_path(meeting) %></li>
+            <% end %>
+
+
+            <li><%= link_to 'Template for New', "#{new_meeting_path}?id=#{meeting.id}" %></li>
+          </ul>
+        </td>
+
+          <% end %>
+
+        </tr>
+      <% end %>
+
+    </table>
+    <div class="indexPage">
     <% if @meetings.previous_page %>
       <%= link_to "< Previous", params.merge(:page => @meetings.previous_page ) %>
     <% end %>
@@ -24,38 +71,8 @@
     <% if @meetings.next_page %>
       <%= link_to "Next >", params.merge(:page => @meetings.next_page ) %>
     <% end %>
-
-    <table>
-      <tr>
-        <th>Title</th>
-        <th>Started at</th>
-        <th>Location</th>
-        <th>Organizer</th>
-      </tr>
-
-      <% @meetings.each do |meeting| %>
-  
-        <tr class="<%= is_new_meeting(meeting) %>">
-          <td><%= meeting.title %></td>
-          <td><%= meeting.started_at %></td>
-          <td><%= meeting.location %></td>
-          <td><%= meeting.manager %></td>
-
-          <% if current_user %>
-            <td><%= link_to 'Enter', meeting %></td>
-
-            <% if current_user.mymeetings.include? (meeting) %>
-              <td><%= link_to 'Edit', edit_meeting_path(meeting) %></td>
-            <% end %>
-
-            <td><%= link_to 'New Meeting with it as template', "#{new_meeting_path}?id=#{meeting.id}" %></td>
-
-          <% end %>
-
-        </tr>
-      <% end %>
-
-    </table>
+  </div>
+  </div>
   </div>
 
   <br />

@@ -248,3 +248,58 @@ fieldset{
             box-shadow:  0px 0px 0px 0px #000;
 }
 
+.indexLeft{
+ //border: 1px dashed green;
+}
+
+.indexLeftInner{
+  h4 {margin-bottom:20px;}
+  padding:25px 10px;
+}
+
+.indexMain{
+//border: 1px dashed green;
+border-left: 3px dotted threedface;
+
+}
+
+.indexMainInner {
+  padding:30px ;
+}
+
+.nav-tabs > .active > a {
+  //background-color: #0088CC;
+  color: #0088CC;
+}
+
+.indexTable{
+  margin-bottom:50px;
+}
+
+.indexPage{
+  float:right;
+}
+
+.indexTable  {
+  .new_meeting .meetingInfo:first-child {
+    //border:1px solid red;
+    background: #FFFFFF url('smallnew.jpg') no-repeat 0 100%;
+    //background-image: url('smallnew.jpg');
+    //background-repeat:no-repeat;
+    //background-position: 0 100% ;
+                }
+ .new_meeting td {
+  color: black;
+ }
+ .old_meeting td {color: grey}
+ .meetingInfo { font-weight:bold;}
+ .meetingLink { 
+
+  color:threadface;
+
+    .enter{font-weight:bold;
+           a {color:green;}}
+
+  }
+  
+}

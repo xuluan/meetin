@@ -53,7 +53,15 @@ class EditPresenter
     role
   end
 
-end
+  end
+
+# for active class, but didn't use
+  def active_class(actionName)
+    if params[:type] == actionName
+      "active"
+    end
+  end
+
 
 class MemberValidator < ActiveModel::Validator
   def validate(record)
