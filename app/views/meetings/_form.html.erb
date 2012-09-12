@@ -2,28 +2,33 @@
   <%= f.error_notification %>
  <!--<div class="form-inputs">-->
     <form>
+      <!-- Meeting Title -->
+      <fieldset class="theFieldset basic">
+      <legend class="theLegend"> Basic Info </legend>
+
       <%= f.input :title, :placeholder=>"Ex: TM_08292012",:input_html=>{:class => "span5"} %>
+      
+      <!-- Meeting Intro -->
+      <%= f.input :intro, :placeholder=>"Brief introduction of the meeting",:input_html=>{:class => "span5"} %>
 
-      <%= f.input :intro, label: "Intro", :placeholder=>"Brief introduction of the meeting",:input_html=>{:class => "span5"} %>
+      <!-- Meeting Time -->
+       <div class="formInline" >
+        <%= f.input :started_at %>
+      </div>
 
-        <%= f.fields_for :roles do |builder| %>
-          <%= render 'role_fields', f: builder %>
-        <% end %>
+      <!-- Meeting Place -->
+      <%= f.input :location,:placeholder=>"Ex: 12808 West Airport Suite 260. Sugar Land TX 77478", :input_html=>{:class => "span5"} %>
+   
+     </fieldset>
 
-        <% if @meeting_template %>
-          <% @meeting_template.roles.each do |role| %>
-            <% new_object = @meeting.roles.new(name: role.name, meeting_id: @meeting.id) %>
-
-            <%= f.fields_for :roles, new_object do |builder| %>
-              <%= render 'role_fields', f: builder %>
-            <% end %>
-          <% end %>
-        <% end %>
-        <%= link_to_add_fields "Add Role", f, :roles %>
-
+     <fieldset class="theFieldset invitee">
+    <legend class="theLegend"> Invite Members </legend>
+      
+      <!-- Meeting Invitees -->
+      
       <% if @meeting.new_record? %>
         <div class=" formGroup">
-          <%= f.input :member_list, label: "Invatation List", :placeholder=>"List member emails,separated by ,",
+          <%= f.input :member_list, label: "Invitation List", :placeholder=>"List member emails separated by ,",
           :input_html=>{:class => "span5 formInline"} %>
         </div>
       <% else %>
@@ -45,12 +50,38 @@
             <% end %>
           <% end %>
         <% end %>
+      </fieldset>
+        
 
-      <div class="formInline" >
-        <%= f.input :started_at %>
-      </div>
+      <!-- Meeting Roles -->
 
-      <%= f.input :location,:placeholder=>"Ex: 12808 West Airport Suite 260. Sugar Land TX 77478", :input_html=>{:class => "span5"} %>
+    <fieldset class="theFieldset role">
+    <legend class="theLegend"> Add Roles </legend>
+
+    <%= f.fields_for :roles do |builder| %>
+          <%= render 'role_fields', f: builder %>
+
+        <% end %>
+
+       
+        <% if @meeting_template %>
+          <% @meeting_template.roles.each do |role| %>
+            <% new_object = @meeting.roles.new(name: role.name, meeting_id: @meeting.id) %>
+
+            <%= f.fields_for :roles, new_object do |builder| %>
+              <%= render 'role_fields', f: builder %>
+            <% end %>
+          <% end %>
+        <% end %>
+        <%= link_to_add_fields "+ Add a Role", f, :roles %>
+
+    </fieldset>
+      
+
+     
+     
+
+      
 
       <%= f.button :submit %>
   </form>

@@ -22,6 +22,13 @@ module MeetingsHelper
     link_to(name, '#', class: "add_fields", data: {id: id, fields: fields.gsub("\n", "")})
   end
 
+  # for active class, but didn't use
+  def active_class(actionName)
+    if params[:type] == actionName
+      "active"
+    end
+  end  
+  
   class EditPresenter
 
     def initialize(meeting)
