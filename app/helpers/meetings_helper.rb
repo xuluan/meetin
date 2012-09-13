@@ -28,6 +28,11 @@ module MeetingsHelper
       "active"
     end
   end  
+
+  def display_invitaion_list(meeting)
+    invitation_list =  meeting.member_list.blank? ? " EMPTY" : meeting.member_list
+    raw label_tag "Invitation List", invitation_list
+  end    
   
   class EditPresenter
 

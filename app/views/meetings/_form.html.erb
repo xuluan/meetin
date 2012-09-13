@@ -32,8 +32,11 @@
           :input_html=>{:class => "span5 formInline"} %>
         </div>
       <% else %>
-      <div class=" formGroup">
-          <%= f.label "#{@meeting.member_list}", :input_html=>{:class => "span5 formInline"} %>
+        <div class=" formGroup">
+          <%= label_tag nil, "Invitation List", class: "string optional control-label", :input_html=>{:class => "span5 formInline"} %>
+          <%= display_invitaion_list(f.object) %>
+
+
         </div>
       <% end %>
 
