@@ -26,11 +26,11 @@ ActiveRecord::Schema.define(:version => 20120903085837) do
     t.string   "title"
     t.text     "agenda"
     t.string   "role_list"
-    t.string   "member_list"
+    t.string   "invitation_list"
     t.datetime "started_at"
     t.string   "location"
-    t.datetime "created_at",  :null => false
-    t.datetime "updated_at",  :null => false
+    t.datetime "created_at",      :null => false
+    t.datetime "updated_at",      :null => false
     t.integer  "manager_id"
     t.string   "intro"
   end

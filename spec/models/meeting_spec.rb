@@ -31,7 +31,7 @@ describe Meeting do
     it "is invalid with an error email in member list" do
       err_email_memberlist = FactoryGirl.build(:err_email_memberlist)
       err_email_memberlist.should_not be_valid
-      err_email_memberlist.should have(1).errors_on(:member_list)
+      err_email_memberlist.should have(1).errors_on(:invitation_list)
     end
 
 
@@ -42,20 +42,20 @@ describe Meeting do
 
   end
 
-  context "when created with member_list" do
+  context "when created with invitation_list" do
 
     before (:each) do
       user = FactoryGirl.create(:user, email: 'example@example.com') 
     end
 
-    it "add member if user exist and remove it from member_list" do
+    it "add member if user exist and remove it from invitation_list" do
       meeting = FactoryGirl.create(:meeting2)
       meeting.reload
       meeting.should have(2).members
-      meeting.member_list.should == "aa@bb.com" 
+      meeting.invitation_list.should == "aa@bb.com" 
     end
 
-    it "send mail to members, manager and member_list" do
+    it "send mail to members, manager and invitation_list" do
       deliver = stub(:deliver)
       UserMailer.should_receive(:meeting_invite).with("aa@bb.com", anything).once.and_return(deliver)
       UserMailer.should_receive(:meeting_invite).with("example@example.com", anything).once.and_return(deliver)      
@@ -72,7 +72,7 @@ describe Meeting do
       meeting = FactoryGirl.create(:meeting)
       role = Role.create(name:'role', meeting_id: meeting.id)
       meeting.should have(1).roles
-      meeting.member_list.should == "aa@bb.com"
+      meeting.invitation_list.should == "aa@bb.com"
     end
 
     it "can add two roles" do
@@ -80,7 +80,7 @@ describe Meeting do
       role1 = Role.create(name:'role1', meeting_id: meeting.id)
       role2 = Role.create(name:'role2', meeting_id: meeting.id)      
       meeting.should have(2).roles
-      meeting.member_list.should == "aa@bb.com"
+      meeting.invitation_list.should == "aa@bb.com"
     end
 
     it "can add a member" do

@@ -28,7 +28,7 @@
       
       <% if @meeting.new_record? %>
         <div class=" formGroup">
-          <%= f.input :member_list, label: "Invitation List", :placeholder=>"List member emails separated by ,",
+          <%= f.input :invitation_list, label: "Invitation List", :placeholder=>"List member emails separated by ,",
           :input_html=>{:class => "span5 formInline"} %>
         </div>
       <% else %>

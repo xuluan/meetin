@@ -2,7 +2,7 @@
 class Meeting < ActiveRecord::Base
 
   validates_presence_of :manager_id, :title, :intro, :location, :started_at
-  validates :member_list, :format => { 
+  validates :invitation_list, :format => { 
     :with => /\A\s*((([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\s*)?[;,]\s*)*((([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\s*)?)\z/i,
     :message => "Only email allowed" }
 
@@ -29,9 +29,9 @@ class Meeting < ActiveRecord::Base
 
     invatations = []
     # add members
-    memberlist = self.member_list.split(/[,;]/)
+    invitationlist = self.invitation_list.split(/[,;]/)
 
-    memberlist.each do |member_email|
+    invitationlist.each do |member_email|
       member_email.strip!
       if member_email.length >0
         if user = User.find_by_email(member_email)
@@ -43,7 +43,7 @@ class Meeting < ActiveRecord::Base
       end #if
     end #each    
 
-    self.member_list = invatations.join("; ")
+    self.invitation_list = invatations.join("; ")
     self.save
 
     #add manager 

@@ -42,7 +42,7 @@ before_filter :authenticate_user!, :except => [:index]
     @meeting = Meeting.new
     @meeting_template = Meeting.find(params[:id]) if params[:id]
     if @meeting_template
-      @meeting.member_list = @meeting_template.member_list
+      @meeting.invitation_list = @meeting_template.invitation_list
       @meeting.location = @meeting_template.location
     end
 

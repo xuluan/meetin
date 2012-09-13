@@ -11,6 +11,11 @@ TODO
 >- member status (hidden)
 >- rbp
 >- change name
+   member_list -> invitation_list
+   manager_id? (meeting table)
+   assign_id? (role table)
+   want? (choice table)
+
 >- model and db access
 >- invalid access
 
