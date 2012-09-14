@@ -5,7 +5,7 @@ describe ChoicesController do
   let(:user) { FactoryGirl.create(:user, email: 'example@example.com') }
   let(:meeting) { FactoryGirl.create(:meeting) }
   let(:member) { Member.create(user: user, meeting: meeting) }
-  let(:role) { Role.create( name: "test", meeting: meeting, assign: user) }
+  let(:role) { Role.create( name: "test", meeting: meeting, assign: member) }
 
   before (:each) do
     sign_in user

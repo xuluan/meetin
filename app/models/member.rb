@@ -3,10 +3,12 @@ class Member < ActiveRecord::Base
 
   belongs_to :meeting
   belongs_to :user
-  has_many :choices, :dependent => :destroy
+  has_many :choices
+
   delegate :username, to: :user
 
   after_save :cleanup_when_exit
+  before_destroy :cleanup
 
   scope :attendence, lambda { |status = true| where("status = ? ", status) }
 
@@ -21,13 +23,15 @@ class Member < ActiveRecord::Base
   protected
 
   def cleanup_when_exit
-    unless self.status
-      self.choices.each { |c| c.delete }
+    cleanup unless self.status
+  end
 
-      Role.where("meeting_id = ? and assign_id = ?", meeting_id, user_id).each do |r| 
-        r.assign_id = nil
-        r.save
-      end 
-    end
+  def cleanup
+    self.choices.each { |c| c.delete }
+
+    Role.where("meeting_id = ? and assign_id = ?", meeting_id, self.id).each do |r| 
+      r.assign_id = nil
+      r.save
+    end 
   end
 end

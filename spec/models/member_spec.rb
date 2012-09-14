@@ -30,7 +30,7 @@ describe Member do
     let(:user) { FactoryGirl.create(:user, email: 'example@example.com') }
     let(:meeting) { FactoryGirl.create(:meeting) }
     let(:member) { Member.create(user: user, meeting: meeting) }
-    let(:role) { Role.create( name: "test", meeting: meeting, assign: user) }
+    let(:role) { Role.create( name: "test", meeting: meeting, assign: member) }
 
     before (:each) do
       choice = Choice.create(member: member, meeting: meeting, role: role, want: true)
@@ -60,7 +60,7 @@ describe Member do
       meeting.should have(1).members
       meeting.should have(0).choices
       
-      #role.assign.should be_nil
+      role.assign.should be_nil
     end
 
   end

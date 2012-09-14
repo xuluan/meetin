@@ -5,9 +5,9 @@ module MeetingsHelper
   end
 
 
-  def assign_status_for(meeting, role, user_id)
-    if role.assign_id == user_id
-     klass ="color_" + Choice.get_entry(meeting.id, user_id, role.id).to_s
+  def assign_status_for(meeting, role, member_id)
+    if role.assign_id == member_id
+     klass ="color_" + Choice.get_entry(meeting.id, member_id, role.id).to_s
      content_tag(:p, "X", :class => klass.downcase)
     end
   end
@@ -55,10 +55,10 @@ module MeetingsHelper
         Choice.get_entry(@meeting.id, member_id, role_id).presence || "\t"
     end
 
-    def assign_role(user_id, role_id, cmd = 'Assign')
+    def assign_role(member_id, role_id, cmd = 'Assign')
       role = Role.find(role_id)
       if role
-        role.assign_id = user_id 
+        role.assign_id = member_id 
         role.cmd = cmd
       end
       role

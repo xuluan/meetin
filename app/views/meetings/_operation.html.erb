@@ -42,7 +42,7 @@
         <%= @presenter.choice_status(member.id, role.id) %>
       <% end %>
       <%=  content_tag(:p, :class => "assign_#{dom_id(role)}") do %>
-        <%= assign_status_for(@meeting, role, member.user.id) %>
+        <%= assign_status_for(@meeting, role, member.id) %>
       <% end %>      
     <% if current_user.mymeetings.include? (@meeting) %>
       <%= render @presenter.assign_role(member.id, role.id), :as => :role %>
