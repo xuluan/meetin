@@ -2,7 +2,6 @@ module MeetingsHelper
 
   def is_new_meeting(meeting)
     Time.now > meeting.started_at ? "old_meeting" : "new_meeting"
-    
   end
 
 
@@ -41,10 +40,10 @@ module MeetingsHelper
     end
 
 
-    def make_choice(user_id, role_id, want)
+    def make_choice(member_id, role_id, want)
       choice = Choice.new
       choice.meeting_id = @meeting.id 
-      choice.user_id = user_id
+      choice.member_id = member_id
       choice.role_id = role_id
       choice.want = want
 
@@ -52,8 +51,8 @@ module MeetingsHelper
 
     end
 
-    def choice_status(user_id, role_id)
-        Choice.get_entry(@meeting.id, user_id, role_id).presence || "\t"
+    def choice_status(member_id, role_id)
+        Choice.get_entry(@meeting.id, member_id, role_id).presence || "\t"
     end
 
     def assign_role(user_id, role_id, cmd = 'Assign')

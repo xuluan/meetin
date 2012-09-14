@@ -20,7 +20,7 @@ class User < ActiveRecord::Base
   end
 
   def operate?(meeting)
-    (meeting.manager_id == id) || Member.join?(meeting.id, self.id)
+    (meeting.manager_id == id) || meeting.members.attend?(self.id).first
   end
 
   def member?(member)

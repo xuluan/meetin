@@ -31,7 +31,7 @@
   </tr>
     <% @meeting.members.each do |member| %>
     <% next unless member.status%>
-  <tr id=<%= "#{dom_id(member.user)}" %>>
+  <tr id=<%= "#{dom_id(member)}" %>>
     <td> 
       <%= member %>
     </td>
@@ -39,17 +39,17 @@
     <% @meeting.roles.each do |role| %>
     <td>
       <%=  content_tag(:p, :class => "choice_#{dom_id(role)}") do %>
-        <%= @presenter.choice_status(member.user.id, role.id) %>
+        <%= @presenter.choice_status(member.id, role.id) %>
       <% end %>
       <%=  content_tag(:p, :class => "assign_#{dom_id(role)}") do %>
         <%= assign_status_for(@meeting, role, member.user.id) %>
       <% end %>      
     <% if current_user.mymeetings.include? (@meeting) %>
-      <%= render @presenter.assign_role(member.user.id, role.id), :as => :role %>
+      <%= render @presenter.assign_role(member.id, role.id), :as => :role %>
     <% elsif current_user.member? (member) %>
 
-      <%= render @presenter.make_choice(member.user.id, role.id, true), :as => :choice %>
-      <%= render @presenter.make_choice(member.user.id, role.id, false), :as => :choice %>
+      <%= render @presenter.make_choice(member.id, role.id, true), :as => :choice %>
+      <%= render @presenter.make_choice(member.id, role.id, false), :as => :choice %>
     <% end %>
 
     </td>

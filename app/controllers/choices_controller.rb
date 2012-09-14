@@ -2,7 +2,7 @@ class ChoicesController < ApplicationController
 
   def create
 
-    @choice = Choice.get_entry(params[:choice][:meeting_id], params[:choice][:user_id], params[:choice][:role_id])
+    @choice = Choice.get_entry(params[:choice][:meeting_id], params[:choice][:member_id], params[:choice][:role_id])
 
     if @choice
       @choice.assign_attributes(params[:choice])
@@ -12,7 +12,7 @@ class ChoicesController < ApplicationController
 
 
     if @choice.save
-      @user = current_user
+      @member = Member.find(@choice.member_id)
       @role = Role.find(@choice.role_id)
     end
 

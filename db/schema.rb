@@ -14,7 +14,7 @@
 ActiveRecord::Schema.define(:version => 20120903085837) do
 
   create_table "choices", :force => true do |t|
-    t.integer  "user_id"
+    t.integer  "member_id"
     t.integer  "role_id"
     t.integer  "meeting_id"
     t.boolean  "want"

@@ -3,15 +3,12 @@ class Member < ActiveRecord::Base
 
   belongs_to :meeting
   belongs_to :user
-  #has_many :choices, :through => :users, :dependent => :destroy
+  has_many :choices, :dependent => :destroy
   delegate :username, to: :user
 
-  after_save :cleanup
-  before_destroy :cleanup
+  after_save :cleanup_when_exit
 
-  def Member.join?(m, u)
-    self.where("meeting_id = ? and user_id = ? and status = ?",m, u, true).first
-  end
+  scope :attend?, lambda { |user_id, status = true| where("user_id = ? and status = ? ", user_id, status) }
 
   def to_s
   	user.username
@@ -19,15 +16,14 @@ class Member < ActiveRecord::Base
 
   protected
 
-  def cleanup
-    #delete all choice
-    Choice.where("meeting_id = ? and user_id = ?", meeting_id, user_id).each { |c| c.delete }
+  def cleanup_when_exit
+    unless self.status
+      self.choices.each { |c| c.delete }
 
-    #clear all assign
-    Role.where("meeting_id = ? and assign_id = ?", meeting_id, user_id).each do |r| 
-      r.assign_id = nil
-      r.save
+      Role.where("meeting_id = ? and assign_id = ?", meeting_id, user_id).each do |r| 
+        r.assign_id = nil
+        r.save
+      end 
     end
   end
-
 end

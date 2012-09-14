@@ -57,7 +57,7 @@ class Meeting < ActiveRecord::Base
   end #def
 
   def add_member(user)
-    if user and (not Member.join?(self.id, user.id))
+    if user and (not self.members.attend?(user.id).first)
       member = Member.new
       member.meeting_id = id 
       member.user_id = user.id 
