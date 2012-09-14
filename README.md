@@ -6,12 +6,12 @@ TODO
 ------
 
 * refactoring
->- model and db access
+
 >- rbp
 >- invalid access
 
 * STAGE 2
->- add X and set color(update)
+
 >- invatation some one
 >- check send email issue
 >- member exit issue ?
@@ -25,9 +25,8 @@ TODO
 
 DONE
 ------
-* STAGE 2
-
 * refactoring
+
 >- assign (user->member)
 >- choice (user->member)
 >- member status (hidden)
@@ -36,6 +35,9 @@ DONE
    member_list -> invitation_list
    manager_id -> organizer_id
 
+
+* STAGE 2
+>- add X and set color(update)
 
 >- add test (model and controller)
 

@@ -1,5 +1,8 @@
+
+$('.assign_<%=dom_id(@role)%>').html("")
 <% if @role.assign %>
 $('#assign_<%=dom_id(@role)%>').html('<%= escape_javascript(@role.assign.username) %>')
+$('#member_<%=dom_id(@role.assign)%> .assign_<%=dom_id(@role)%>').html('<%= escape_javascript(assign_status_for(@role, @role.assign_id)) %>')
 <% else %>
 $('#assign_<%=dom_id(@role)%>').html("\t")
 

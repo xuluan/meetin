@@ -21,7 +21,7 @@
       <%= role.assign.presence || "\t" %>
     <% end %>
     <% if current_user.mymeetings.include? (@meeting) %>
-    <%= render @presenter.assign_role(nil, role.id, 'Cancel'), :as => :role %>
+      <%= render @presenter.assign_role(nil, role.id, 'Cancel'), :as => :role %>
     <% end %>
 
     </td>
@@ -31,7 +31,7 @@
   </tr>
     <% @meeting.members.each do |member| %>
     <% next unless member.status%>
-  <tr id=<%= "#{dom_id(member)}" %>>
+  <tr id=<%= "member_#{dom_id(member)}" %>>
     <td> 
       <%= member %>
     </td>
@@ -41,8 +41,8 @@
       <%=  content_tag(:p, :class => "choice_#{dom_id(role)}") do %>
         <%= @presenter.choice_status(member.id, role.id) %>
       <% end %>
-      <%=  content_tag(:p, :class => "assign_#{dom_id(role)}") do %>
-        <%= assign_status_for(@meeting, role, member.id) %>
+      <%=  content_tag(:div, :class => "assign_#{dom_id(role)}") do %>
+        <%= assign_status_for(role, member.id) %>
       <% end %>      
     <% if current_user.mymeetings.include? (@meeting) %>
       <%= render @presenter.assign_role(member.id, role.id), :as => :role %>

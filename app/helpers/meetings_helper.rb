@@ -5,9 +5,9 @@ module MeetingsHelper
   end
 
 
-  def assign_status_for(meeting, role, member_id)
+  def assign_status_for(role, member_id)
     if role.assign_id == member_id
-     klass ="color_" + Choice.get_entry(meeting.id, member_id, role.id).to_s
+     klass ="color_" + Choice.get_entry(role.meeting_id, member_id, role.id).to_s
      content_tag(:p, "X", :class => klass.downcase)
     end
   end
