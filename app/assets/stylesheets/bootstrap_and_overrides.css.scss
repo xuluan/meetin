@@ -303,3 +303,40 @@ border-left: 3px dotted threedface;
   }
   
 }
+
+.showLeftInner{
+  padding:20px;
+}
+
+.showMainInner{
+  padding:20px;
+}
+
+.showButton{
+  width:180px;
+  text-align:middle;
+  margin-bottom:10px;
+}
+
+.showExitButton{
+  background-color:#E9967A;
+  margin-left: 50px;
+}
+
+.showJoinButton{
+  background-color:green;
+  margin-left:50px;
+}
+
+.showMeetingInfo{
+
+.leftItemName {display:inline-block;
+              width:70px;
+              //border:1px solid red;
+              text-align:right;
+              vertical-align:top;}
+.leftItemValue {display:inline-block;
+                width:150px;
+                text-align:left;
+                vertical-align:top;}
+}

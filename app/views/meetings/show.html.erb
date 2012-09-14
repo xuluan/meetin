@@ -1,66 +1,78 @@
-<p id="notice"><%= notice %></p>
+<div class="row-fluid">
+  <div class="span3 showLeft">
+    <div class="showLeftInner">
+              <p id="notice"><%= notice %></p>
 
-<div>
+    <div class="showStatus">
+        <button class='btn btn-info btn-block showButton'>Your Status</button>
 
-<strong><%= current_user.username %>,</strong>
-<% if @member && @member.status  %>
-  <span>you have already joined this meeting</span>
+          <p>Currently logged in as: <strong><%= current_user.username %>:</strong></br></p>
+          <% if @member && @member.status  %>
+              <span>you have already joined this meeting.</span>
 
-  <p>If you want to exit, please click
-    <%= form_tag("/members/#{@member.id}", :method => :delete) do %>
-      <%= submit_tag("Exit") %>
-    <% end %>
-  </p>
+              <p>If you cannot attend, please click
+                      <%= form_tag("/members/#{@member.id}", :method => :delete) do %>
+                      <%= submit_tag("Cannot Attend", :class => 'showExitButton') %>
+                      <% end %>
+              </p>
 
-<% else %>
-  <span>you have not joined this meeting</span>
-  <p>If you want to join, please click 
-    <%= form_tag("/members") do %>
-      <%= hidden_field_tag 'meeting_id', "#{@meeting.id}" %>
-      <%= hidden_field_tag 'user_id', "#{current_user.id}" %>
-      <%= submit_tag("Join") %>
-    <% end %>
-  </p>
-<% end %>
+          <% else %>
+             <p>You have not joined this meeting</p>
+             <p>If you want to join, please click:
+                  <%= form_tag("/members") do %>
+                  <%= hidden_field_tag 'meeting_id', "#{@meeting.id}" %>
+                  <%= hidden_field_tag 'user_id', "#{current_user.id}" %>
+                  <%= submit_tag("Join") %>
+                  <% end %>
+            </p>
+         <% end %>
+   </div>
+
+    <div class="showMeetingInfo">
+        <button class='btn btn-info btn-block showButton '>Meeting Info</button>
+                   <p >
+                     <b class="leftItemName">Title:</b>
+                     <em class="leftItemValue"><%= @meeting.title%></em>
+                   </p>
+                   <p>
+                     <b class="leftItemName">Intro:</b>
+                     <em class="leftItemValue"><%= @meeting.intro %></em>
+                  </p>
+
+                   <p>
+                     <b class="leftItemName">Organizer:</b>
+                     <em class="leftItemValue"><%= @meeting.manager.username %></em>
+                   </p>
+
+
+                  
+
+                 
+
+                  <p>
+                     <b class="leftItemName">Started at:</b>
+                     <em class="leftItemValue"><%= @meeting.started_at %> </em>
+                  </p>
+
+                  <p>
+                     <b class="leftItemName">Location:</b>
+                     <em class="leftItemValue"> <%= @meeting.location %></em>
+                  </p>
+
+                  <%= link_to 'Refresh', @meeting %>
+
+                  <%= link_to 'Back', meetings_path %>
+      </div>
+    </div>
+  </div>
+
+  <div class="span9 showMain">
+      <div class="showMainInner">
+                  <% if current_user.operate? (@meeting)  %>
+                  <%= render :partial => "operation" %>
+                  <% end %>
+      </div>
+  </div>
+
+
 </div>
-
-
-<p>
-  <b>Title:</b>
-  <%= @meeting.title %>
-</p>
-
-<p>
-  <b>Manager:</b>
-  <%= @meeting.manager.username %>
-</p>
-
-
-<p>
-  <b>Intro:</b>
-  <%= @meeting.intro %>
-</p>
-
-<p>
-  <b>Member list:</b>
-  <%= @meeting.member_list %>
-</p>
-
-<p>
-  <b>Started at:</b>
-  <%= @meeting.started_at %>
-</p>
-
-<p>
-  <b>Location:</b>
-  <%= @meeting.location %>
-</p>
-
-<% if current_user.operate? (@meeting)  %>
-  <%= render :partial => "operation" %>
-<% end %>
-
-<%= link_to 'Refresh', @meeting %>
-
-<%= link_to 'Back', meetings_path %>
-
