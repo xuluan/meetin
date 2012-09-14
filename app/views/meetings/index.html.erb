@@ -48,6 +48,7 @@
 
             <% if current_user.mymeetings.include? (meeting) %>
               <li><%= link_to 'Edit', edit_meeting_path(meeting) %></li>
+              <li><%= link_to 'Destroy', meeting, confirm: 'Are you sure?', method: :delete %></li>
             <% end %>
 
 

@@ -8,7 +8,11 @@ class Member < ActiveRecord::Base
 
   after_save :cleanup_when_exit
 
-  scope :attend?, lambda { |user_id, status = true| where("user_id = ? and status = ? ", user_id, status) }
+  scope :attendence, lambda { |status = true| where("status = ? ", status) }
+
+  def self.attend?(meeting_id, user_id, status = true)
+    Member.where("meeting_id = ? and user_id = ? and status = ? ", meeting_id, user_id, status).first
+  end
 
   def to_s
   	user.username
