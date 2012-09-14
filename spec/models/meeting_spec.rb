@@ -17,7 +17,7 @@ describe Meeting do
     # pending for MemberValidator
 
     it { should validate_presence_of(:title) }
-    it { should validate_presence_of(:manager_id) }
+    it { should validate_presence_of(:organizer_id) }
     it { should validate_presence_of(:intro) }
     it { should validate_presence_of(:location) }
     it { should validate_presence_of(:started_at) }
@@ -25,7 +25,7 @@ describe Meeting do
     it { should have_many(:roles) }
     it { should have_many(:choices) }
     it { should have_many(:users).through(:members) }
-    it { should belong_to(:manager) }
+    it { should belong_to(:organizer) }
 
 
     it "is invalid with an error email in member list" do
@@ -55,7 +55,7 @@ describe Meeting do
       meeting.invitation_list.should == "aa@bb.com" 
     end
 
-    it "send mail to members, manager and invitation_list" do
+    it "send mail to members, organizer and invitation_list" do
       deliver = stub(:deliver)
       UserMailer.should_receive(:meeting_invite).with("aa@bb.com", anything).once.and_return(deliver)
       UserMailer.should_receive(:meeting_invite).with("example@example.com", anything).once.and_return(deliver)      

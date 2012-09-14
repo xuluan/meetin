@@ -12,9 +12,7 @@ TODO
 >- rbp
 >- change name
    member_list -> invitation_list
-   manager_id? (meeting table)
-   assign_id? (role table)
-   want? (choice table)
+   manager_id -> organizer_id
 
 >- model and db access
 >- invalid access

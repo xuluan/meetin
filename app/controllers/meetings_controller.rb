@@ -61,7 +61,7 @@ before_filter :authenticate_user!, :except => [:index]
   # POST /meetings.json
   def create
     @meeting = Meeting.new(params[:meeting])
-    @meeting.manager_id = current_user.id 
+    @meeting.organizer_id = current_user.id 
     respond_to do |format|
       if @meeting.save
         # create meeting: add roles, add members and send email to invite members

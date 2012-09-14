@@ -5,7 +5,7 @@ describe MeetingsController do
   let(:meeting) {FactoryGirl.create(:meeting)}
 
   before (:each) do
-    sign_in meeting.manager
+    sign_in meeting.organizer
   end
 
   describe "GET new" do

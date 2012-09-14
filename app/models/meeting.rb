@@ -1,12 +1,12 @@
 
 class Meeting < ActiveRecord::Base
 
-  validates_presence_of :manager_id, :title, :intro, :location, :started_at
+  validates_presence_of :organizer_id, :title, :intro, :location, :started_at
   validates :invitation_list, :format => { 
     :with => /\A\s*((([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\s*)?[;,]\s*)*((([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\s*)?)\z/i,
     :message => "Only email allowed" }
 
-  belongs_to :manager, :class_name => "User"
+  belongs_to :organizer, :class_name => "User"
 
   has_many :roles, :dependent => :destroy
   accepts_nested_attributes_for :roles, allow_destroy: true
@@ -46,8 +46,8 @@ class Meeting < ActiveRecord::Base
     self.invitation_list = invatations.join("; ")
     self.save
 
-    #add manager 
-    add_member(self.manager)
+    #add organizer 
+    add_member(self.organizer)
         
     # send email for each member
     self.members.each do |member|

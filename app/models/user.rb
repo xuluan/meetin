@@ -7,7 +7,7 @@ class User < ActiveRecord::Base
   validates :username, :presence => true
   validates :username, :uniqueness => true
 
-  has_many :mymeetings, :class_name => "Meeting", :foreign_key => "manager_id"
+  has_many :mymeetings, :class_name => "Meeting", :foreign_key => "organizer_id"
 
   has_many :members
   has_many :meetings, :through => :members  
@@ -20,15 +20,11 @@ class User < ActiveRecord::Base
   end
 
   def operate?(meeting)
-    (meeting.manager_id == id) || Member.attend?(meeting.id, self.id)
+    (meeting.organizer_id == id) || Member.attend?(meeting.id, self.id)
   end
 
   def member?(member)
     member.user_id == id
   end  
 
-  def edit_action(meeting)
-    manager?(meeting) ? 'Assign' : 'Choose'
-  end
-  
 end

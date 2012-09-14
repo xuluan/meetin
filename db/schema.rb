@@ -31,7 +31,7 @@ ActiveRecord::Schema.define(:version => 20120903085837) do
     t.string   "location"
     t.datetime "created_at",      :null => false
     t.datetime "updated_at",      :null => false
-    t.integer  "manager_id"
+    t.integer  "organizer_id"
     t.string   "intro"
   end
 
