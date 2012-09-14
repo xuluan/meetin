@@ -1,5 +1,7 @@
 class ChoicesController < ApplicationController
 
+  before_filter :authenticate_user!
+
   def create
 
     @choice = Choice.get_entry(params[:choice][:meeting_id], params[:choice][:member_id], params[:choice][:role_id])

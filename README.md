@@ -6,15 +6,8 @@ TODO
 ------
 
 * refactoring
->- assign (user->member)
->- choice (user->member)
->- member status (hidden)
->- rbp
->- change name
-   member_list -> invitation_list
-   manager_id -> organizer_id
-
 >- model and db access
+>- rbp
 >- invalid access
 
 * STAGE 2
@@ -33,6 +26,16 @@ TODO
 DONE
 ------
 * STAGE 2
+
+* refactoring
+>- assign (user->member)
+>- choice (user->member)
+>- member status (hidden)
+
+>- change name
+   member_list -> invitation_list
+   manager_id -> organizer_id
+
 
 >- add test (model and controller)
 
