@@ -14,7 +14,7 @@
 ActiveRecord::Schema.define(:version => 20120903085837) do
 
   create_table "choices", :force => true do |t|
-    t.integer  "user_id"
+    t.integer  "member_id"
     t.integer  "role_id"
     t.integer  "meeting_id"
     t.boolean  "want"
@@ -26,12 +26,12 @@ ActiveRecord::Schema.define(:version => 20120903085837) do
     t.string   "title"
     t.text     "agenda"
     t.string   "role_list"
-    t.string   "member_list"
+    t.string   "invitation_list"
     t.datetime "started_at"
     t.string   "location"
-    t.datetime "created_at",  :null => false
-    t.datetime "updated_at",  :null => false
-    t.integer  "manager_id"
+    t.datetime "created_at",      :null => false
+    t.datetime "updated_at",      :null => false
+    t.integer  "organizer_id"
     t.string   "intro"
   end
 

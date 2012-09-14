@@ -17,7 +17,7 @@ describe Member do
 
     it { should  belong_to(:user)}
 
-    xit { should  have_many(:choices).through(:users)}
+    it { should  have_many(:choices)}
 
     it "is a valid member with_status_false" do
       member = FactoryGirl.build(:member_status_false)
@@ -30,17 +30,19 @@ describe Member do
     let(:user) { FactoryGirl.create(:user, email: 'example@example.com') }
     let(:meeting) { FactoryGirl.create(:meeting) }
     let(:member) { Member.create(user: user, meeting: meeting) }
-    let(:role) { Role.create( name: "test", meeting: meeting, assign: user) }
+    let(:role) { Role.create( name: "test", meeting: meeting, assign: member) }
 
     before (:each) do
-      choice = Choice.create(user: user, meeting: meeting, role: role, want: true)
+      choice = Choice.create(member: member, meeting: meeting, role: role, want: true)
     end
 
     it "should be cleanup when exit" do
+      member.reload
       member.status = false      
       member.save
-      meeting.reload
       role.reload
+      member.reload
+      meeting.reload
 
       meeting.should have(2).members
       meeting.should have(0).choices
@@ -48,9 +50,12 @@ describe Member do
     end
 
     it "should be cleanup when deleted" do
-      member.delete
       meeting.reload
+      member.reload
+      member.destroy
       role.reload
+      meeting.reload
+
 
       meeting.should have(1).members
       meeting.should have(0).choices

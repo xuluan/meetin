@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <div class="row-fluid">
   <div class="span3 showLeft">
     <div class="showLeftInner">
@@ -76,3 +77,71 @@
 
 
 </div>
+=======
+<p id="notice"><%= notice %></p>
+
+<div>
+
+<strong><%= current_user.username %>,</strong>
+<% if @member && @member.status  %>
+  <span>you have already joined this meeting</span>
+
+  <p>If you want to exit, please click
+    <%= form_tag("/members/#{@member.id}", :method => :delete) do %>
+      <%= submit_tag("Exit") %>
+    <% end %>
+  </p>
+
+<% else %>
+  <span>you have not joined this meeting</span>
+  <p>If you want to join, please click 
+    <%= form_tag("/members") do %>
+      <%= hidden_field_tag 'meeting_id', "#{@meeting.id}" %>
+      <%= hidden_field_tag 'user_id', "#{current_user.id}" %>
+      <%= submit_tag("Join") %>
+    <% end %>
+  </p>
+<% end %>
+</div>
+
+
+<p>
+  <b>Title:</b>
+  <%= @meeting.title %>
+</p>
+
+<p>
+  <b>Organizer:</b>
+  <%= @meeting.organizer.username %>
+</p>
+
+
+<p>
+  <b>Intro:</b>
+  <%= @meeting.intro %>
+</p>
+
+<p>
+  <b>Invitation list:</b>
+  <%= @meeting.invitation_list %>
+</p>
+
+<p>
+  <b>Started at:</b>
+  <%= @meeting.started_at %>
+</p>
+
+<p>
+  <b>Location:</b>
+  <%= @meeting.location %>
+</p>
+
+<% if current_user.operate? (@meeting)  %>
+  <%= render :partial => "operation" %>
+<% end %>
+
+<%= link_to 'Refresh', @meeting %>
+
+<%= link_to 'Back', meetings_path %>
+
+>>>>>>> origin/master

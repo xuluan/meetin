@@ -2,13 +2,12 @@ module MeetingsHelper
 
   def is_new_meeting(meeting)
     Time.now > meeting.started_at ? "old_meeting" : "new_meeting"
-    
   end
 
 
-  def assign_status_for(meeting, role, user_id)
-    if role.assign_id == user_id
-     klass ="color_" + Choice.get_entry(meeting.id, user_id, role.id).to_s
+  def assign_status_for(role, member_id)
+    if role.assign_id == member_id
+     klass ="color_" + Choice.get_entry(role.meeting_id, member_id, role.id).to_s
      content_tag(:p, "X", :class => klass.downcase)
     end
   end
@@ -30,7 +29,7 @@ module MeetingsHelper
   end  
 
   def display_invitaion_list(meeting)
-    invitation_list =  meeting.member_list.blank? ? " EMPTY" : meeting.member_list
+    invitation_list =  meeting.invitation_list.blank? ? " EMPTY" : meeting.invitation_list
     raw label_tag "Invitation List", invitation_list
   end    
   
@@ -41,10 +40,10 @@ module MeetingsHelper
     end
 
 
-    def make_choice(user_id, role_id, want)
+    def make_choice(member_id, role_id, want)
       choice = Choice.new
       choice.meeting_id = @meeting.id 
-      choice.user_id = user_id
+      choice.member_id = member_id
       choice.role_id = role_id
       choice.want = want
 
@@ -52,14 +51,14 @@ module MeetingsHelper
 
     end
 
-    def choice_status(user_id, role_id)
-        Choice.get_entry(@meeting.id, user_id, role_id).presence || "\t"
+    def choice_status(member_id, role_id)
+        Choice.get_entry(@meeting.id, member_id, role_id).presence || "\t"
     end
 
-    def assign_role(user_id, role_id, cmd = 'Assign')
+    def assign_role(member_id, role_id, cmd = 'Assign')
       role = Role.find(role_id)
       if role
-        role.assign_id = user_id 
+        role.assign_id = member_id 
         role.cmd = cmd
       end
       role

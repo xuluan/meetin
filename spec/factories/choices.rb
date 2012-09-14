@@ -2,7 +2,7 @@
 
 FactoryGirl.define do
   factory :choice do
-    user factory: :user
+    member factory: :member
     role factory: :role
     meeting factory: :meeting
     want false

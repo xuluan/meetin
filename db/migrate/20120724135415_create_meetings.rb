@@ -4,7 +4,7 @@ class CreateMeetings < ActiveRecord::Migration
       t.string :title
       t.text :agenda
       t.string :role_list
-      t.string :member_list
+      t.string :invitation_list
       t.datetime :started_at
       t.string :location
 

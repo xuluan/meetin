@@ -1,7 +1,6 @@
 class MeetingsController < ApplicationController
 
-before_filter :authenticate_user!, :except => [:index] 
-
+  before_filter :authenticate_user!, :except => [:index] 
 
   # GET /meetings
   # GET /meetings.json
@@ -42,7 +41,7 @@ before_filter :authenticate_user!, :except => [:index]
     @meeting = Meeting.new
     @meeting_template = Meeting.find(params[:id]) if params[:id]
     if @meeting_template
-      @meeting.member_list = @meeting_template.member_list
+      @meeting.invitation_list = @meeting_template.invitation_list
       @meeting.location = @meeting_template.location
     end
 
@@ -61,7 +60,7 @@ before_filter :authenticate_user!, :except => [:index]
   # POST /meetings.json
   def create
     @meeting = Meeting.new(params[:meeting])
-    @meeting.manager_id = current_user.id 
+    @meeting.organizer_id = current_user.id 
     respond_to do |format|
       if @meeting.save
         # create meeting: add roles, add members and send email to invite members

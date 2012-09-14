@@ -7,7 +7,7 @@ describe Choice do
     choice.should be_valid
   end    
 
-  it { should  validate_presence_of(:user_id)}
+  it { should  validate_presence_of(:member_id)}
 
   it { should  validate_presence_of(:meeting_id)}
 
@@ -15,7 +15,7 @@ describe Choice do
 
   it { should  belong_to(:meeting)}
 
-  it { should  belong_to(:user)}
+  it { should  belong_to(:member)}
 
   it { should  belong_to(:role)}
 

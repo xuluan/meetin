@@ -1,4 +1,7 @@
 class MembersController < ApplicationController
+
+  before_filter :authenticate_user!
+  
   def create
 
     raise "invalid access!" unless params[:user_id].to_i == current_user.id && Meeting.find(params[:meeting_id].to_i)

@@ -37,7 +37,7 @@
         <tr class="<%= is_new_meeting(meeting) %>" onclick="document.location.href ='meetings/'+ <%= meeting.id %>">
           <td class="meetingInfo"><%= meeting.title %></td>
           <td class="meetingInfo"><%= meeting.started_at %></td>
-           <td class="meetingInfo"><%= meeting.manager %></td>
+           <td class="meetingInfo"><%= meeting.organizer %></td>
            <td class="meetingInfo"><%= meeting.intro %></td>
           <td class="meetingInfo"><%= meeting.location %></td>
          
@@ -48,6 +48,7 @@
 
             <% if current_user.mymeetings.include? (meeting) %>
               <li><%= link_to 'Edit', edit_meeting_path(meeting) %></li>
+              <li><%= link_to 'Destroy', meeting, confirm: 'Are you sure?', method: :delete %></li>
             <% end %>
 
 

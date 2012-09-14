@@ -1,12 +1,12 @@
 
 class Meeting < ActiveRecord::Base
 
-  validates_presence_of :manager_id, :title, :intro, :location, :started_at
-  validates :member_list, :format => { 
+  validates_presence_of :organizer_id, :title, :intro, :location, :started_at
+  validates :invitation_list, :format => { 
     :with => /\A\s*((([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\s*)?[;,]\s*)*((([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\s*)?)\z/i,
     :message => "Only email allowed" }
 
-  belongs_to :manager, :class_name => "User"
+  belongs_to :organizer, :class_name => "User"
 
   has_many :roles, :dependent => :destroy
   accepts_nested_attributes_for :roles, allow_destroy: true
@@ -29,9 +29,9 @@ class Meeting < ActiveRecord::Base
 
     invatations = []
     # add members
-    memberlist = self.member_list.split(/[,;]/)
+    invitationlist = self.invitation_list.split(/[,;]/)
 
-    memberlist.each do |member_email|
+    invitationlist.each do |member_email|
       member_email.strip!
       if member_email.length >0
         if user = User.find_by_email(member_email)
@@ -43,11 +43,11 @@ class Meeting < ActiveRecord::Base
       end #if
     end #each    
 
-    self.member_list = invatations.join("; ")
+    self.invitation_list = invatations.join("; ")
     self.save
 
-    #add manager 
-    add_member(self.manager)
+    #add organizer 
+    add_member(self.organizer)
         
     # send email for each member
     self.members.each do |member|
@@ -57,7 +57,7 @@ class Meeting < ActiveRecord::Base
   end #def
 
   def add_member(user)
-    if user and (not Member.join?(self.id, user.id))
+    if user and (not Member.attend?(self.id, user.id))
       member = Member.new
       member.meeting_id = id 
       member.user_id = user.id 
