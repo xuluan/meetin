@@ -11,45 +11,57 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120903085837) do
+ActiveRecord::Schema.define(:version => 20120823022326) do
 
   create_table "choices", :force => true do |t|
-    t.integer  "member_id"
-    t.integer  "role_id"
-    t.integer  "meeting_id"
+    t.integer  "member_id",  :null => false
+    t.integer  "role_id",    :null => false
+    t.integer  "meeting_id", :null => false
     t.boolean  "want"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
   end
 
+  add_index "choices", ["meeting_id"], :name => "index_choices_on_meeting_id"
+  add_index "choices", ["member_id"], :name => "index_choices_on_member_id"
+  add_index "choices", ["role_id"], :name => "index_choices_on_role_id"
+
   create_table "meetings", :force => true do |t|
-    t.string   "title"
+    t.string   "title",           :null => false
     t.text     "agenda"
     t.string   "role_list"
     t.string   "invitation_list"
-    t.datetime "started_at"
-    t.string   "location"
+    t.datetime "started_at",      :null => false
+    t.string   "location",        :null => false
+    t.string   "intro",           :null => false
+    t.integer  "organizer_id",    :null => false
     t.datetime "created_at",      :null => false
     t.datetime "updated_at",      :null => false
-    t.integer  "organizer_id"
-    t.string   "intro"
   end
 
+  add_index "meetings", ["organizer_id"], :name => "index_meetings_on_organizer_id"
+
   create_table "members", :force => true do |t|
-    t.integer  "meeting_id"
-    t.integer  "user_id"
+    t.integer  "meeting_id",                   :null => false
+    t.integer  "user_id",                      :null => false
     t.datetime "created_at",                   :null => false
     t.datetime "updated_at",                   :null => false
     t.boolean  "status",     :default => true
   end
 
+  add_index "members", ["meeting_id"], :name => "index_members_on_meeting_id"
+  add_index "members", ["user_id"], :name => "index_members_on_user_id"
+
   create_table "roles", :force => true do |t|
-    t.string   "name"
-    t.integer  "meeting_id"
+    t.string   "name",       :null => false
+    t.integer  "meeting_id", :null => false
     t.integer  "assign_id"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
   end
+
+  add_index "roles", ["assign_id"], :name => "index_roles_on_assign_id"
+  add_index "roles", ["meeting_id"], :name => "index_roles_on_meeting_id"
 
   create_table "users", :force => true do |t|
     t.string   "email",                  :default => "", :null => false

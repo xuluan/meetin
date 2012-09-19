@@ -2,22 +2,21 @@
 <html>
 <head>
   <title>Meetin</title>
-  <%= stylesheet_link_tag    "application", :media => "all" %>
+  <%= stylesheet_link_tag    "application", media: "all" %>
   <%= javascript_include_tag "application" %>
   <%= csrf_meta_tags %>
 </head>
 <body>
-     
-        <div id="user_nav" class="navbar navbar-fixed-top">
+
+  <div id="user_nav" class="navbar navbar-fixed-top">
     <div class="navbar-inner">
-      
-        <div class="container-fluid">
+      <div class="container-fluid">
+
         <a class="brand" href="#">Meetin</a>
-          
-        
+
           <ul class="nav pull-right">
             <% if user_signed_in? %>
-          
+
           <li ><%= link_to 'My Account', edit_user_registration_path %> </li>
           <li class="divider-vertical"></li>
           <li><%= link_to "Logout", destroy_user_session_path, method: :delete %> </li>
@@ -30,21 +29,14 @@
              <li class="divider-vertical"></li>
           <li><%= link_to 'Contact Us' %> </li>
         <% end %>
-      
-
 
           </ul>
         </div>
-        </div>
       </div>
     </div>
-  
+  </div>
 
-        
-	<%= yield %>
-       
-
-
+  <%= yield %>
 
 </body>
 </html>

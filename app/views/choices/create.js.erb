@@ -1,8 +1,5 @@
 <% if @choice.errors.empty? %>
-
-$('tr#<%=dom_id(@member)%> p.<%="choice_"+dom_id(@role)%>').html('<%= escape_javascript(@choice.to_s) %>')
+$('#member_<%=dom_id(@choice.member)%> .<%="choice_"+dom_id(@choice.role)%>').html('<%= escape_javascript(@choice.to_s) %>')
 <% else %>
-
 $('#choice_error').html('<%= escape_javascript(@choice.errors.full_messages.join(',')) %>')
-
 <% end %>

@@ -1,14 +1,28 @@
 class Choice < ActiveRecord::Base
-  validates :meeting_id, :presence => true
-  validates :member_id, :presence => true
-  validates :role_id, :presence => true
+  include ActiveModel::ForbiddenAttributesProtection
+
+  validates_presence_of :meeting_id, :member_id, :role_id
 
   belongs_to :meeting
-  belongs_to :member 
-  belongs_to :role 
+  belongs_to :member
+  belongs_to :role
 
-  def Choice::get_entry(meeting_id, member_id, role_id)
-    self.where("meeting_id = ? and member_id = ? and role_id = ?", meeting_id, member_id, role_id).first
+
+  def Choice::find_choice(meeting_id, member_id, role_id)
+    self.where("meeting_id = ? and member_id = ? and role_id = ?",
+      meeting_id, member_id, role_id).first
+  end
+
+
+  def Choice::make_choice(params)
+    choice = find_choice(params[:meeting_id], params[:member_id], params[:role_id])
+
+    if choice
+      choice.assign_attributes(params)
+    else
+      choice = Choice.new(params)
+    end
+    choice.tap { |c| c.save }
   end
 
 

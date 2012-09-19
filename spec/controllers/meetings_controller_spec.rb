@@ -62,14 +62,14 @@ describe MeetingsController do
       it "assigns a newly created but unsaved meeting as meeting" do
         # Trigger the behavior that occurs when invalid params are submitted
         Meeting.any_instance.stub(:save).and_return(false)
-        post :create, {:meeting => {}}
+        post :create, {:meeting => { title: ''}}
         assigns(:meeting).should be_a_new(Meeting)
       end
 
       it "re-renders the 'new' template" do
         # Trigger the behavior that occurs when invalid params are submitted
         Meeting.any_instance.stub(:save).and_return(false)
-        post :create, {:meeting => {}}
+        post :create, {:meeting => { title: ''}}
         response.should render_template("new")
       end
     end

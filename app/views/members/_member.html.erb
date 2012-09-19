@@ -9,7 +9,7 @@
      <span>you have already joined this meeting</span>
      <p>If you want to exit, please click</p>
      <p>
-      <%= link_to( "Exit", member_path(@member), :method => :delete, :remote => true, :confirm => "Are you sure?") %>
+      <%= link_to( "Exit", member_path(@member), method: :delete, remote: true, confirm: "Are you sure?") %>
 
      </p>
 
@@ -17,7 +17,7 @@
      <span>you have not joined this meeting</span>
 <p>If you want to join, please click
 <span>
-  <%= form_for @member, :remote => true do |f| %>
+  <%= form_for @member, remote: true do |f| %>
 <%= hidden_field(:member, :user_id) %>
 <%= hidden_field(:member, :meeting_id) %>
 

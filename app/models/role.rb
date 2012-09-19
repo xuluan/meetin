@@ -1,10 +1,13 @@
 class Role < ActiveRecord::Base
-  validates :name, :presence => true
+  include ActiveModel::ForbiddenAttributesProtection
 
-  belongs_to :assign, :class_name => "Member"
+  validates_presence_of :name
+
+  belongs_to :assign, class_name: "Member"
   belongs_to :meeting
 
-  has_many :choices, :dependent => :destroy
+  has_many :choices, dependent: :destroy
 
   attr_accessor :cmd
+
 end

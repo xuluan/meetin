@@ -1,6 +1,6 @@
 class MeetingsController < ApplicationController
 
-  before_filter :authenticate_user!, :except => [:index] 
+  before_filter :authenticate_user!, except: [:index]
 
   # GET /meetings
   # GET /meetings.json
@@ -10,7 +10,7 @@ class MeetingsController < ApplicationController
     case type
     when 'all'
       @meetings = Meeting.page(params[:page])
-    when 'mine' 
+    when 'mine'
       @meetings = current_user.mymeetings.page(params[:page])
     when 'join'
       @meetings = current_user.meetings.page(params[:page])
@@ -59,8 +59,7 @@ class MeetingsController < ApplicationController
   # POST /meetings
   # POST /meetings.json
   def create
-    @meeting = Meeting.new(params[:meeting])
-    @meeting.organizer_id = current_user.id 
+    @meeting = current_user.mymeetings.build(params[:meeting])
     respond_to do |format|
       if @meeting.save
         # create meeting: add roles, add members and send email to invite members

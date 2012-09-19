@@ -2,31 +2,31 @@
   <div class="editAccount" >
 <h3>Edit My Account</h3>
 
-<%= form_for(resource, :as => resource_name, :url => registration_path(resource_name), :html => { :method => :put }) do |f| %>
+<%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
   <%= devise_error_messages! %>
 
   <div><%= f.email_field :email %></div>
 
   <div><%= f.text_field :username %></div>
 
-  <div><%= f.password_field :password,placeholder: "New Password" ,:autocomplete => "off" %>
+  <div><%= f.password_field :password, placeholder: "New Password" , autocomplete: "off" %>
   <span>  Leave blank if you don't want to change it.</span>
   </div>
-  <div><%= f.password_field :password_confirmation,placeholder: "Password Confirmation" %>
+  <div><%= f.password_field :password_confirmation, placeholder: "Password Confirmation" %>
   <span>  Leave blank if you don't want to change it.</span>
   </div>
 
   <div> <%= f.password_field :current_password, placeholder: "Current Password" %><sup>*</sup>
-    
+
   <span>Current password is required for any change.</span>
 </div>
 
-  <div><%= f.submit "Update",class: "btn btn-editAccount btn-primary"%></div>
+  <div><%= f.submit "Update", class: "btn btn-editAccount btn-primary"%></div>
 <% end %>
 
 
 
-<div class="editCancelAcnt"><div class="cancelText"><%= link_to "Cancel My Account", registration_path(resource_name), :data => { :confirm => "Are you sure?" }, :method => :delete %></div></div>
+<div class="editCancelAcnt"><div class="cancelText"><%= link_to "Cancel My Account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete %></div></div>
 
 <%= link_to "Back", :back %>
 </div>

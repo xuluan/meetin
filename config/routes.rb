@@ -1,15 +1,15 @@
 Meetin::Application.routes.draw do
 
-  resources :choices, :only => [:create]
+  resources :choices, only: [:create]
 
-  resources :roles, :only => [:update] 
+  resources :roles, only: [:update]
 
   resources :meetings
-    
-  resources :members, :only => [:create, :destroy]
+
+  resources :members, only: [:create, :destroy]
 
   devise_for :users
 
-  root :to => "meetings#index"
+  root to: "meetings#index"
 
 end

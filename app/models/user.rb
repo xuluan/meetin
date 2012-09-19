@@ -4,19 +4,20 @@ class User < ActiveRecord::Base
   # :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
-  validates :username, :presence => true
-  validates :username, :uniqueness => true
 
-  has_many :mymeetings, :class_name => "Meeting", :foreign_key => "organizer_id"
+  validates_presence_of :username
+  validates_uniqueness_of :username
+
+  has_many :mymeetings, class_name: "Meeting", foreign_key: "organizer_id"
 
   has_many :members
-  has_many :meetings, :through => :members  
+  has_many :meetings, through: :members
 
   # Setup accessible (or protected) attributes for your model
   attr_accessible :email, :password, :password_confirmation, :remember_me, :username
 
   def to_s
-  	username
+    username
   end
 
   def operate?(meeting)
@@ -25,6 +26,6 @@ class User < ActiveRecord::Base
 
   def member?(member)
     member.user_id == id
-  end  
+  end
 
 end

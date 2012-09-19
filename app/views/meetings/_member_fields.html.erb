@@ -1,9 +1,9 @@
 
 <fieldset>
 <div class="formGroup">
-  <%= f.label "#{f.object.username}", :input_html=>{:class => "span5 formInline"} %>
+  <%= f.label "#{f.object.username}", input_html: { class: "span5 formInline"} %>
   <%= f.hidden_field :user_id %>
-  <%= f.hidden_field :meeting_id %>  
+  <%= f.hidden_field :meeting_id %>
   <%= f.hidden_field :_destroy %>
   <%= link_to "remove", '#', class: "remove_fields" %>
 </div>

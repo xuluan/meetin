@@ -4,11 +4,11 @@
     <div class="indexLeftInner">
     <h4>Welcome to Meetin!</h4>
     <ul class="nav nav-tabs nav-stacked">
-      <li class="<%= active_class('all') %>"><%= link_to "All meetings", params.merge(:type => 'all', :page => 1 ) %></li>
+      <li class="<%= active_class('all') %>"><%= link_to "All meetings", params.merge(type: 'all', page: 1 ) %></li>
 
-      <% if current_user %>      
-        <li class="<%= active_class('mine') %>"><%= link_to "Organized by Me", params.merge(:type => 'mine', :page => 1  ) %></li>
-        <li class="<%= active_class('join') if params[:type] == 'join' %>"><%= link_to "Attended Meeting", params.merge(:type => 'join', :page => 1  ) %></li>
+      <% if current_user %>
+        <li class="<%= active_class('mine') %>"><%= link_to "Organized by Me", params.merge(type: 'mine', page: 1  ) %></li>
+        <li class="<%= active_class('join') if params[:type] == 'join' %>"><%= link_to "Attended Meeting", params.merge(type: 'join', page: 1  ) %></li>
 
         <li ><%= link_to 'New Meeting', new_meeting_path %> </li>
 
@@ -19,7 +19,6 @@
 
   <div class="span10 indexMain">
     <div class="indexMainInner">
-    
 
     <table class="table indexTable">
       <thead>
@@ -29,19 +28,19 @@
         <th>Organizer</th>
         <th>Intro</th>
         <th>Location</th>
-        
+
       </tr>
     </thead>
 
       <% @meetings.each do |meeting| %>
-  
+
         <tr class="<%= is_new_meeting(meeting) %>" onclick="document.location.href ='meetings/'+ <%= meeting.id %>">
           <td class="meetingInfo"><%= meeting.title %></td>
           <td class="meetingInfo"><%= meeting.started_at %></td>
            <td class="meetingInfo"><%= meeting.organizer %></td>
            <td class="meetingInfo"><%= meeting.intro %></td>
           <td class="meetingInfo"><%= meeting.location %></td>
-         
+
         <td class="meetingLink">
           <ul class="nav  nav-stacked" >
           <% if current_user %>
@@ -51,7 +50,6 @@
               <li><%= link_to 'Edit', edit_meeting_path(meeting) %></li>
               <li><%= link_to 'Destroy', meeting, confirm: 'Are you sure?', method: :delete %></li>
             <% end %>
-
 
             <li><%= link_to 'Template for New', "#{new_meeting_path}?id=#{meeting.id}" %></li>
           </ul>
@@ -65,13 +63,13 @@
     </table>
     <div class="indexPage">
     <% if @meetings.previous_page %>
-      <%= link_to "< Previous", params.merge(:page => @meetings.previous_page ) %>
+      <%= link_to "< Previous", params.merge(page: @meetings.previous_page ) %>
     <% end %>
-    
+
     Page <%= @meetings.current_page %> of <%= @meetings.total_pages %>
-    
+
     <% if @meetings.next_page %>
-      <%= link_to "Next >", params.merge(:page => @meetings.next_page ) %>
+      <%= link_to "Next >", params.merge(page: @meetings.next_page ) %>
     <% end %>
   </div>
   </div>
@@ -79,13 +77,4 @@
 
   <br />
 
-  
 </div>
-</div>
-
-
-
-
-
-
-

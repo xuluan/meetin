@@ -19,9 +19,7 @@ describe ChoicesController do
       meeting.reload
       meeting.should have(1).choices
       choice = meeting.choices.first
-      
-      assigns(:member).should eq(member)
-      assigns(:role).should eq(role)
+
       assigns(:choice).should eq(choice)
 
     end
@@ -37,8 +35,6 @@ describe ChoicesController do
       choice.want.should be_false
       meeting.should have(1).choices
 
-      assigns(:member).should eq(member)
-      assigns(:role).should eq(role)
       assigns(:choice).should eq(choice)
     end
 

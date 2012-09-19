@@ -6,22 +6,32 @@ TODO
 ------
 
 * refactoring
-
 >- rbp
->- invalid access
 
 * STAGE 2
+protect mass assignment
+http://rails-bestpractices.com/posts/148-protect-mass-assignment
 
 >- invatation some one
->- check send email issue
->- member exit issue ?
->- list the members who signoff
 >- Send notify mail for meeting status 
+>- check send email issue
+   1 cannot send mail
+   2 use observer and put in queue
+   3 use multipart/alternative as content_type of email
+
+>- list the members who signoff
+
+>- invalid access
+>- member exit issue ?
+
+* STAGE 3
 
 * deploy
-
 * kankan and admin
 
+* Strong Parameters
+>- meeting: {} will be error?
+>- start_at error?  "started_at(1i)"=>"2012"
 
 DONE
 ------

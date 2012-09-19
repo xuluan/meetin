@@ -1,6 +1,6 @@
 <% if @member.errors.empty? %>
 
-$('#user_join').html($('<%= escape_javascript(render :partial => 'member', :object => @member) %>')).hide().fadeIn('fast').css('display', 'table-row');
+$('#user_join').html($('<%= escape_javascript(render @member) %>')).hide().fadeIn('fast').css('display', 'table-row');
 
 <% else %>
 

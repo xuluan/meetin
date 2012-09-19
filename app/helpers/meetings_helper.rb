@@ -7,7 +7,7 @@ module MeetingsHelper
 
   def assign_status_for(role, member_id)
     if role.assign_id == member_id
-     klass ="color_" + Choice.get_entry(role.meeting_id, member_id, role.id).to_s
+     klass ="color_" + Choice.find_choice(role.meeting_id, member_id, role.id).to_s
      content_tag(:p, "X", :class => klass.downcase)
     end
   end
@@ -26,13 +26,13 @@ module MeetingsHelper
     if params[:type] == actionName
       "active"
     end
-  end  
+  end
 
   def display_invitaion_list(meeting)
     invitation_list =  meeting.invitation_list.blank? ? " EMPTY" : meeting.invitation_list
     raw label_tag "Invitation List", invitation_list
-  end    
-  
+  end
+
   class EditPresenter
 
     def initialize(meeting)
@@ -42,7 +42,7 @@ module MeetingsHelper
 
     def make_choice(member_id, role_id, want)
       choice = Choice.new
-      choice.meeting_id = @meeting.id 
+      choice.meeting_id = @meeting.id
       choice.member_id = member_id
       choice.role_id = role_id
       choice.want = want
@@ -52,13 +52,13 @@ module MeetingsHelper
     end
 
     def choice_status(member_id, role_id)
-        Choice.get_entry(@meeting.id, member_id, role_id).presence || "\t"
+        Choice.find_choice(@meeting.id, member_id, role_id).presence || "\t"
     end
 
     def assign_role(member_id, role_id, cmd = 'Assign')
       role = Role.find(role_id)
       if role
-        role.assign_id = member_id 
+        role.assign_id = member_id
         role.cmd = cmd
       end
       role
