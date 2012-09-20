@@ -1,12 +1,12 @@
-<h1>Operation meeting</h1>
+<h1>Role Assignment</h1>
 <p id="choice_error"></p>
 
-<p>
-<table class="table" border="1">
+
+<table id="roleAssignment" class="table " border="1">
   <tr>
-    <th></th>
+    <th class="memberName"></th>
     <% @meeting.roles.each do |role| %>
-    <th>
+    <th class="roleName">
       <%= role.name %>
     </th>
     <% end %>
@@ -61,4 +61,4 @@
     <% end %>
 </table>
 
-</p>
+

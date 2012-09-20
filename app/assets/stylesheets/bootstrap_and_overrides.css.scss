@@ -310,6 +310,9 @@ border-left: 3px dotted threedface;
 
 .showMainInner{
   padding:20px;
+  border: 1px solid green;
+  margin-right:20px;
+
 }
 
 .showButton{
@@ -340,3 +343,10 @@ border-left: 3px dotted threedface;
                 text-align:left;
                 vertical-align:top;}
 }
+
+/* role assignment table */
+#roleAssignment th.roleName,#roleAssignment th.memberName  {
+              width:80px;
+              padding:10px 2px;
+              text-align: middle;
+             border: 1px solid red;}
