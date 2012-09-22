@@ -8,4 +8,5 @@ rvm 1.9.3
 
 # CD to the rails app
 cd  /home/ubuntu/git/meetin
-bundle exec unicorn -c config/unicorn.rb -D
+bundle exec unicorn -c config/unicorn.rb -D -E production
+
