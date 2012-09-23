@@ -1,5 +1,16 @@
 #!/bin/sh
+### BEGIN INIT INFO
+# Provides:       unicorn
+# Required-Start:    $local_fs $remote_fs $network $syslog $named
+# Required-Stop:     $local_fs $remote_fs $network $syslog $named
+# Default-Start:     2 3 4 5
+# Default-Stop:      0 1 6
+# Short-Description: starts the unicorn web server
+# Description:       starts nginx using start-stop-daemon
+### END INIT INFO
+
 set -e
+. /lib/lsb/init-functions
 # Example init script, this can be used with nginx, too,
 # since nginx and unicorn accept the same signals
 
@@ -7,7 +18,7 @@ set -e
 TIMEOUT=${TIMEOUT-60}
 APP_ROOT=/home/ubuntu/git/meetin
 PID=$APP_ROOT/tmp/pids/unicorn.pid
-CMD="$APP_ROOT/unicorn -D -c $APP_ROOT/config/unicorn.rb"
+CMD="$APP_ROOT/config/meetin.sh"
 action="$1"
 set -u
 
@@ -26,6 +37,7 @@ oldsig () {
 case $action in
 start)
 	sig 0 && echo >&2 "Already running" && exit 0
+	echo "start"
 	$CMD
 	;;
 stop)
