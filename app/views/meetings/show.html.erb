@@ -1,8 +1,12 @@
-<div class="row-fluid">
-  <div class="span3 showLeft">
+<%= stylesheet_link_tag    "show", :media => "all" %>
+
+<div class="container-fluid wholeWidth">
+  <div class="row-fluid">
+ 
+<div class="span4 showLeft">
     <div class="showLeftInner">
               <p id="notice"><%= notice %></p>
-
+    
     <div class="showStatus">
         <button class='btn btn-info btn-block showButton'>Your Status</button>
 
@@ -43,12 +47,7 @@
                      <b class="leftItemName">Organizer:</b>
                      <em class="leftItemValue"><%= @meeting.organizer.username %></em>
                    </p>
-
-
-                  
-
-                 
-
+    
                   <p>
                      <b class="leftItemName">Started at:</b>
                      <em class="leftItemValue"><%= @meeting.started_at %> </em>
@@ -62,15 +61,17 @@
                   <%= link_to 'Refresh', @meeting %>
 
                   <%= link_to 'Back', meetings_path %>
-      </div>
-    </div>
+         </div>
+       
+     </div>
   </div>
-
-  <div class="span9 showMain">
+  <div class="span8 showMain">
       <div class="showMainInner">
                   <% if current_user.operate? (@meeting)  %>
                   <%= render :partial => "operation" %>
                   <% end %>
       </div>
   </div>
+
+ </div>
 </div>
