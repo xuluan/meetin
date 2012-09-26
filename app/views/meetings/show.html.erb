@@ -1,66 +1,77 @@
-<p id="notice"><%= notice %></p>
+<%= stylesheet_link_tag    "show", :media => "all" %>
 
-<div>
+<div class="showContainer">
+  <div class="showWrapper">
+ 
+<div class="showLeft">
+    <div class="showLeftInner">
+              <p id="notice"><%= notice %></p>
+    
+    <div class="showStatus">
+        <h3>Your Status</h3>
 
-<strong><%= current_user.username %>,</strong>
-<% if @member && @member.status  %>
-  <span>you have already joined this meeting</span>
+          <p>Welcome! <strong><%= current_user.username %>!</strong></br></p>
+          <% if @member && @member.status  %>
+              <p>Current Status: <strong>Joined</strong></p>
 
-  <p>If you want to exit, please click
-    <%= form_tag("/members/#{@member.id}", :method => :delete) do %>
-      <%= submit_tag("Exit") %>
-    <% end %>
-  </p>
+              <p>Cannot attend? Please Click:
+                      <%= form_tag("/members/#{@member.id}", :method => :delete) do %>
+                      <%= submit_tag("Cannot Attend", :class => 'showExitButton') %>
+                      <% end %>
+              </p>
 
-<% else %>
-  <span>you have not joined this meeting</span>
-  <p>If you want to join, please click 
-    <%= form_tag("/members") do %>
-      <%= hidden_field_tag 'meeting_id', "#{@meeting.id}" %>
-      <%= hidden_field_tag 'user_id', "#{current_user.id}" %>
-      <%= submit_tag("Join") %>
-    <% end %>
-  </p>
-<% end %>
+          <% else %>
+            
+             <p>Wanna join? please click:
+                  <%= form_tag("/members") do %>
+                  <%= hidden_field_tag 'meeting_id', "#{@meeting.id}" %>
+                  <%= hidden_field_tag 'user_id', "#{current_user.id}" %>
+                  <%= submit_tag("Join") %>
+                  <% end %>
+            </p>
+         <% end %>
+   </div>
+
+    <div class="showMeetingInfo">
+        <h3>Meeting Info</h3>
+                   <p >
+                     <b class="leftItemName">Title:</b>
+                     <em class="leftItemValue"><%= @meeting.title%></em>
+                   </p>
+                   <p>
+                     <b class="leftItemName">Intro:</b>
+                     <em class="leftItemValue"><%= @meeting.intro %></em>
+                  </p>
+
+                   <p>
+                     <b class="leftItemName">Organizer:</b>
+                     <em class="leftItemValue"><%= @meeting.organizer.username %></em>
+                   </p>
+    
+                  <p>
+                     <b class="leftItemName">Started at:</b>
+                     <em class="leftItemValue"><%= @meeting.started_at %> </em>
+                  </p>
+
+                  <p>
+                     <b class="leftItemName">Location:</b>
+                     <em class="leftItemValue"> <%= @meeting.location %></em>
+                  </p>
+
+                  <%= link_to 'Refresh', @meeting %>
+
+                  <%= link_to 'Back', meetings_path %>
+         </div> 
+       
+     </div>
+  </div>
+  <div class="showMain">
+      <div class="showMainInner">
+                  <% if current_user.operate? (@meeting)  %>
+                  <%= render :partial => "operation" %>
+                  <% end %>
+      </div>
+  </div>
+
+ </div>
 </div>
-
-
-<p>
-  <b>Title:</b>
-  <%= @meeting.title %>
-</p>
-
-<p>
-  <b>Organizer:</b>
-  <%= @meeting.organizer.username %>
-</p>
-
-
-<p>
-  <b>Intro:</b>
-  <%= @meeting.intro %>
-</p>
-
-<p>
-  <b>Invitation list:</b>
-  <%= @meeting.invitation_list %>
-</p>
-
-<p>
-  <b>Started at:</b>
-  <%= @meeting.started_at %>
-</p>
-
-<p>
-  <b>Location:</b>
-  <%= @meeting.location %>
-</p>
-
-<% if current_user.operate? (@meeting)  %>
-  <%= render :partial => "operation" %>
-<% end %>
-
-<%= link_to 'Refresh', @meeting %>
-
-<%= link_to 'Back', meetings_path %>
-

@@ -16,7 +16,7 @@ class Choice < ActiveRecord::Base
     if want.nil?
       'NONE'
     else
-      want ? 'WANT' : 'DONTWANT'
+      want ? 'WANT' : 'NOT4ME'
     end
   end
 

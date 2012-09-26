@@ -1,14 +1,19 @@
 
 // Set the correct sprite paths
 //@iconSpritePath: image-path('glyphicons-halflings.png');
+//@import "bootstrap-config";
+//@import "bootstrap";
+//@import "bootstrap-customized";
+//@import "bootstrap-responsive";
+//@import "responsive-customized"
 
+//-----------start ------------
+//@import "bootstrap-config";
 
-
-
-
+//$gridColumns:14;
+//@import "bootstrap";
 @import "bootstrap";
-
-
+//@import "bootstrap-customized";
 
 body {padding-top: 60px;}
 
@@ -259,11 +264,12 @@ fieldset{
 
 .indexMain{
 //border: 1px dashed green;
-border-left: 3px dotted threedface;
+
 
 }
 
 .indexMainInner {
+  border-left: 3px dotted threedface;
   padding:30px ;
 }
 
@@ -303,3 +309,62 @@ border-left: 3px dotted threedface;
   }
   
 }
+/*.wholeWidth{
+  border: 1px solid red;
+}
+*/
+/*show.css.scss
+.showLeftInner{
+  padding:20px;
+  border: 1px solid red;
+}
+
+.showMainInner{
+  padding:20px;
+  border: 1px solid green;
+  //margin-right:20px;
+
+}
+
+.showButton{
+  width:180px;
+  text-align:middle;
+  margin-bottom:10px;
+}
+
+.showExitButton{
+  background-color:#E9967A;
+  margin-left: 50px;
+}
+
+.showJoinButton{
+  background-color:green;
+  margin-left:50px;
+}
+
+.showMeetingInfo{
+
+.leftItemName {display:inline-block;
+              width:70px;
+              //border:1px solid red;
+              text-align:right;
+              vertical-align:top;}
+.leftItemValue {display:inline-block;
+                width:150px;
+                text-align:left;
+                vertical-align:top;}
+}
+*/
+/* role assignment table */
+/*#roleAssignment th.roleName,#roleAssignment th.memberName  {
+              width:80px;
+              padding:10px 2px;
+              text-align: middle;
+             border: 1px solid red;}*/
+
+//@import "responsive";
+
+@import "bootstrap-responsive";
+//@import "responsive-customized"
+
+
