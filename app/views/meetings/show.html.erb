@@ -1,28 +1,28 @@
 <%= stylesheet_link_tag    "show", :media => "all" %>
 
-<div class="container-fluid wholeWidth">
-  <div class="row-fluid">
+<div class="showContainer">
+  <div class="showWrapper">
  
-<div class="span4 showLeft">
+<div class="showLeft">
     <div class="showLeftInner">
               <p id="notice"><%= notice %></p>
     
     <div class="showStatus">
-        <button class='btn btn-info btn-block showButton'>Your Status</button>
+        <h3>Your Status</h3>
 
-          <p>Currently logged in as: <strong><%= current_user.username %>:</strong></br></p>
+          <p>Welcome! <strong><%= current_user.username %>!</strong></br></p>
           <% if @member && @member.status  %>
-              <span>you have already joined this meeting.</span>
+              <p>Current Status: <strong>Joined</strong></p>
 
-              <p>If you cannot attend, please click
+              <p>Cannot attend? Please Click:
                       <%= form_tag("/members/#{@member.id}", :method => :delete) do %>
                       <%= submit_tag("Cannot Attend", :class => 'showExitButton') %>
                       <% end %>
               </p>
 
           <% else %>
-             <p>You have not joined this meeting</p>
-             <p>If you want to join, please click:
+            
+             <p>Wanna join? please click:
                   <%= form_tag("/members") do %>
                   <%= hidden_field_tag 'meeting_id', "#{@meeting.id}" %>
                   <%= hidden_field_tag 'user_id', "#{current_user.id}" %>
@@ -33,7 +33,7 @@
    </div>
 
     <div class="showMeetingInfo">
-        <button class='btn btn-info btn-block showButton '>Meeting Info</button>
+        <h3>Meeting Info</h3>
                    <p >
                      <b class="leftItemName">Title:</b>
                      <em class="leftItemValue"><%= @meeting.title%></em>
@@ -61,11 +61,11 @@
                   <%= link_to 'Refresh', @meeting %>
 
                   <%= link_to 'Back', meetings_path %>
-         </div>
+         </div> 
        
      </div>
   </div>
-  <div class="span8 showMain">
+  <div class="showMain">
       <div class="showMainInner">
                   <% if current_user.operate? (@meeting)  %>
                   <%= render :partial => "operation" %>

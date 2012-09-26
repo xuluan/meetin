@@ -2,9 +2,9 @@
 <p id="choice_error"></p>
 
 
-<table id="roleAssignment" class="table " border="1">
-  <tr>
-    <th class="memberName"></th>
+<table id="roleAssignment" class="table table-bordered " border="1">
+  <tr class="success">
+    <th></th>
     <% @meeting.roles.each do |role| %>
     <th class="roleName">
       <%= role.name %>
@@ -12,18 +12,21 @@
     <% end %>
 
   </tr>
-  <tr>
-    <td>Assign Status</td>
+  <tr class="info">
+    <td class="memberName ">Assign Status</td>
     <% @meeting.roles.each do |role| %>
+    <!--<td class="assignStatusNo">-->
     <td>
-    <%=  content_tag(:p, :id => "assign_#{dom_id(role)}") do %>
+    <%=  content_tag(:p, :id => "assign_#{dom_id(role)}",:class=>"assignName") do %>
     
       <%= role.assign.presence || "\t" %>
     <% end %>
     <% if current_user.mymeetings.include? (@meeting) %>
+    
       <%= render @presenter.assign_role(nil, role.id, 'Cancel'), :as => :role %>
+    
     <% end %>
-
+       
     </td>
     <% end %>
 
@@ -32,24 +35,28 @@
     <% @meeting.members.each do |member| %>
     <% next unless member.status%>
   <tr id=<%= "member_#{dom_id(member)}" %>>
-    <td> 
+    <td class="memberName"> 
+   
       <%= member %>
     </td>
 
     <% @meeting.roles.each do |role| %>
     <td>
-      <%=  content_tag(:p, :class => "choice_#{dom_id(role)}") do %>
+      <%=  content_tag(:p, :class => "choice_#{dom_id(role)} choiceStyle") do %>
         <%= @presenter.choice_status(member.id, role.id) %>
       <% end %>
-      <%=  content_tag(:div, :class => "assign_#{dom_id(role)}") do %>
+      <%=  content_tag(:div, :class => "assign_#{dom_id(role)} assignStyle") do %>
         <%= assign_status_for(role, member.id) %>
       <% end %>      
     <% if current_user.mymeetings.include? (@meeting) %>
       <%= render @presenter.assign_role(member.id, role.id), :as => :role %>
     <% elsif current_user.member? (member) %>
-
-      <%= render @presenter.make_choice(member.id, role.id, true), :as => :choice %>
+      <div class="choiceWant">
+      <%= render @presenter.make_choice(member.id, role.id, true), :as => :choice%>
+      </div>
+      <div class="choiceDontwant">
       <%= render @presenter.make_choice(member.id, role.id, false), :as => :choice %>
+    </div>
     <% end %>
 
     </td>
