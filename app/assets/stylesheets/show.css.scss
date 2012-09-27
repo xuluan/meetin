@@ -1,0 +1,225 @@
+
+// Set the correct sprite paths
+//@iconSpritePath: image-path('glyphicons-halflings.png');
+//@import "bootstrap-config";
+//@import "bootstrap";
+//@import "bootstrap-customized";
+//@import "bootstrap-responsive";
+//@import "responsive-customized"
+
+//-----------start ------------
+//@import "bootstrap-config";
+
+$gridColumns:14;
+//@import "bootstrap";
+@import "bootstrap";
+//@import "bootstrap-customized";
+
+/*.wholeWidth{
+  border: 1px solid red;
+}
+*/
+.showContainer{
+  padding-right: 20px;
+  padding-left: 20px;
+  *zoom: 1;
+}
+.showLeft{
+  float:left;
+  width:220px;
+  h3 {text-align:middle;
+      width:110px;
+      margin: 20px auto ;
+      color:#08c;}
+}
+.showLeftInner{
+  
+  padding:10px;
+  background-color:#F0F3F0;
+  @include border-radius(5px);
+}
+
+/*.showLeftInnerContent{
+  border: 1px solid green;
+  width:95%;
+  margin:auto;
+}
+*/
+
+.showStatus{
+  width:100%;
+  margin:auto;
+}
+.showMain{
+   
+  position:absolute;
+  left:260px;
+}
+.showMainInner{
+  padding:20px;
+  //border: 1px solid green;
+  //margin-right:20px;
+
+}
+
+.showButton{
+  width:70%;
+  margin: 10px auto;
+  text-align:middle;
+ //margin-bottom:10px;
+}
+
+.showExitButton{
+
+  background-color:#E9967A;
+  padding:3px 10px;
+  color:white;
+  float:left;
+  @include border-radius(6px);
+}
+
+.showJoinButton{
+  background-color:green;
+  margin-left:50px;
+}
+
+.showMeetingInfo{
+  //border-top:1px dashed #A1A4A1;
+  margin-top:50px;
+
+.leftItemName {display:inline-block;
+             width:65px;
+              //border:1px solid red;
+              text-align:right;
+              vertical-align:top;}
+.leftItemValue {display:inline-block;
+                width:150px;
+                text-align:left;
+                margin-left:50px;
+                margin-top:10px;
+                vertical-align:top;}
+}
+
+/* role assignment table */
+#roleAssignment .roleName,#roleAssignment .memberName  {
+font-family: verdana, sans-serif;
+font-size: 12px;  
+font-weight:bold;}
+
+//@import "responsive";
+
+
+/*assignment table style*/
+.choiceStyle{
+ width: 65px;
+ color:blue;
+ padding:1px 2px;
+ position: absolute;
+  left:10px;
+  top: 40px;  
+}
+
+.assignStyle{
+
+  //visibility:hidden;
+  
+}
+
+.color_want{
+  color: green;
+}
+.color_dontwant{
+  color: red;
+}
+
+/*table#roleAssignment td,table#roleAssignment th{
+table-layout:fixed;
+overflow:hidden;
+}
+*/
+table#roleAssignment {
+  table-layout:fixed;
+}
+table#roleAssignment th {
+  position : relative;
+  width:70px;
+  height: 50px;
+  //border:1px solid red;
+ 
+  overflow: hidden;
+  text-align:middle;
+  //word-wrap: break-word;
+}
+
+table#roleAssignment td{
+  position : relative;
+  width:70px;
+  height: 100px;
+  //border:1px solid red;
+ 
+  overflow: hidden;
+  text-align:middle;
+  //word-wrap: break-word;
+}
+#roleAssignment .choiceButton{
+  
+  
+  width: 65px;
+}
+
+#roleAssignment .choiceWant{
+  position: absolute;
+  left:10px;
+  top: 40px;
+}
+
+#roleAssignment .choiceDontwant{
+  position: absolute;
+  left:10px;
+  top: 80px;
+}
+
+
+#roleAssignment .assignButton{
+  width:65px;
+  position: absolute;
+  left:10px;
+  top: 40px;
+}
+
+#roleAssignment .assignName{
+  text-align:center;
+  color:green;
+  font-weight:bold;
+  font-family: verdana, sans-serif;
+font-size: 12px;
+text-transform: uppercase;
+
+}
+
+//@import "bootstrap-responsive";
+//@import "responsive-customized"
+
+.table tr.success{
+  background-color:#DFF0D8;
+  //th {height:50px;}
+}
+
+.table tr.info{
+  background-color:#E8EDFA;
+  //th {height:50px;}
+}
+
+td.assignStatusYes{
+  background-image:url('smileyface_small.jpg');
+  background-position:20px 40px;
+  background-repeat:  no-repeat;
+    
+}
+td.assignStatusNo{
+  background-image:url('sadface_small.jpg');
+  background-position:20px 40px;
+  background-repeat:  no-repeat;
+    
+}
+
