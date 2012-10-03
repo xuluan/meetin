@@ -11,7 +11,6 @@ server "ec2-46-51-234-0.ap-northeast-1.compute.amazonaws.com", :web, :app, :db
 set :user, "ubuntu"
 set :application, "meetin"
 set :deploy_to, "/home/#{user}/apps/#{application}"
-set :deploy_via, :remote_cache
 set :use_sudo, false
 
 set :scm, "git"
