@@ -6,7 +6,7 @@ load "config/recipes/unicorn"
 load "config/recipes/rbenv"
 load "config/recipes/check"
 
-server "ec2-54-248-139-168.ap-northeast-1.compute.amazonaws.com", :web, :app, :db
+server "ec2-46-51-234-0.ap-northeast-1.compute.amazonaws.com", :web, :app, :db
 
 set :user, "ubuntu"
 set :application, "meetin"
