@@ -4,7 +4,7 @@ upstream unicorn {
 
 server {
   listen 80 default deferred;
-  # server_name example.com;
+  server_name nuoxu.me
   root <%= current_path %>/public;
 
   location ^~ /assets/ {

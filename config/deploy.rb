@@ -6,7 +6,7 @@ load "config/recipes/unicorn"
 load "config/recipes/rbenv"
 load "config/recipes/check"
 
-server "ec2-46-51-234-0.ap-northeast-1.compute.amazonaws.com", :web, :app, :db
+server "50.18.176.76", :web, :app, :db, primary: true
 
 set :user, "ubuntu"
 set :application, "meetin"
@@ -19,6 +19,6 @@ set :branch, "master"
 
 default_run_options[:pty] = true
 ssh_options[:forward_agent] = true
-ssh_options[:keys] = ["/home/xuluan/.ssh/xu_jp.pem"]
+ssh_options[:keys] = ["/home/xuluan/.ssh/ec2_ca.pem"]
 
 after "deploy", "deploy:cleanup" # keep only the last 5 releases
