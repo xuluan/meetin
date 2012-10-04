@@ -15,7 +15,7 @@ set :use_sudo, false
 
 set :scm, "git"
 set :repository, "https://github.com/xuluan/#{application}.git"
-set :branch, "master"
+set :branch, "release"
 
 default_run_options[:pty] = true
 ssh_options[:forward_agent] = true
