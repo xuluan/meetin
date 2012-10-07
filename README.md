@@ -5,12 +5,13 @@ TODO
 
 ------
 
-* refactoring
->- rbp
+* STAGE 3
 
-* STAGE 2
-protect mass assignment
-http://rails-bestpractices.com/posts/148-protect-mass-assignment
+>- add new function for meetin
+   1 put current user first
+   2 set assign status background
+   3 set current user choice status
+   4 set other user choice status
 
 >- invatation some one
 >- Send notify mail for meeting status 
@@ -24,18 +25,29 @@ http://rails-bestpractices.com/posts/148-protect-mass-assignment
 >- invalid access
 >- member exit issue ?
 
-* STAGE 3
+>- kankan and admin
 
-* deploy
-* kankan and admin
+
+------
+Pending
+
+* protect mass assignment
+http://rails-bestpractices.com/posts/148-protect-mass-assignment
 
 * Strong Parameters
 >- meeting: {} will be error?
 >- start_at error?  "started_at(1i)"=>"2012"
 
+
+
+
 DONE
 ------
+
+* deploy
+
 * refactoring
+>- rbp
 
 >- assign (user->member)
 >- choice (user->member)

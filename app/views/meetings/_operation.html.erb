@@ -1,4 +1,9 @@
+<% if current_user.mymeetings.include? (@meeting) %>
 <h1>Role Assignment</h1>
+<% else %>
+<h1>Role Choice</h1>
+<% end %>
+
 <p id="choice_error"></p>
 
 
@@ -10,57 +15,83 @@
       <%= role.name %>
     </th>
     <% end %>
-
   </tr>
+
   <tr class="info">
     <td class="memberName ">Assign Status</td>
     <% @meeting.roles.each do |role| %>
-    <!--<td class="assignStatusNo">-->
-    <td>
-      <%=  content_tag(:p, id: "assign_#{dom_id(role)}", class: "assignName") do %>
+
+      <!--<td class="assignStatusNo">-->
+
+      <%=  content_tag(:td, id: "assign_#{dom_id(role)}", class: "assignName #{assign_status_class(role)}") do %>
         <%= role.assign.presence || "\t" %>
+      
+        <% if current_user.mymeetings.include? (@meeting) %>
+          <%= render @presenter.assign_role(nil, role.id, 'Cancel') %>
+        <% end %>
+
       <% end %>
-      <% if current_user.mymeetings.include? (@meeting) %>
-        <%= render @presenter.assign_role(nil, role.id, 'Cancel'), as: :role %>
-      <% end %>
-    </td>
+
+
     <% end %>
-
-
   </tr>
-    <% @meeting.members.each do |member| %>
-    <% next unless member.status%>
-  <tr id=<%= "member_#{dom_id(member)}" %>>
+
+  <!-- current user  -->
+  <tr id=<%= "member_#{dom_id(@presenter.member)}" %> class="<%= current_user_class(@presenter.member.user) %>">
     <td class="memberName">
-      <%= member %>
+      <%= @presenter.member %>
     </td>
 
     <% @meeting.roles.each do |role| %>
-    <td>
-      <%=  content_tag(:p, class: "choice_#{dom_id(role)} choiceStyle") do %>
-        <%= @presenter.choice_status(member.id, role.id) %>
-      <% end %>
-      <%=  content_tag(:div, class: "assign_#{dom_id(role)} assignStyle") do %>
-        <%= assign_status_for(role, member.id) %>
-      <% end %>
-    <% if current_user.mymeetings.include? (@meeting) %>
-      <%= render @presenter.assign_role(member.id, role.id), as: :role %>
-    <% elsif current_user.member? (member) %>
-      <div class="choiceWant">
-      <%= render @presenter.make_choice(member.id, role.id, true), as: :choice%>
-      </div>
-      <div class="choiceDontwant">
-      <%= render @presenter.make_choice(member.id, role.id, false), as: :choice %>
-    </div>
+      <td>
+        <%=  content_tag(:p, class: "choice_#{dom_id(role)} choiceStyle") do %>
+          <%= @presenter.choice_status(@presenter.member.id, role.id) %>
+        <% end %>
+
+        <% if current_user.mymeetings.include? (@meeting) %>
+          <%= render @presenter.assign_role(@presenter.member.id, role.id) %>
+        <% elsif current_user.member? (@presenter.member) %>
+          <div class="choiceWant">
+            <%= render @presenter.make_choice(@presenter.member.id, role.id, true) %>
+          </div>
+          <div class="choiceDontwant">
+            <%= render @presenter.make_choice(@presenter.member.id, role.id, false) %>
+          </div>
+        <% end %>
+      </td>
     <% end %>
-
-    </td>
-    <% end %>
-
-
   </tr>
 
-    <% end %>
+
+  <% @meeting.members.each do |member| %>
+  <% next unless member.status%>
+  <% next if member.user_id == current_user.id %>
+
+    <tr id=<%= "member_#{dom_id(member)}" %>>
+      <td class="memberName">
+        <%= member %>
+      </td>
+
+      <% @meeting.roles.each do |role| %>
+        <td>
+          <%=  content_tag(:p, class: "choice_#{dom_id(role)} choiceStyle") do %>
+            <%= @presenter.choice_status(member.id, role.id) %>
+          <% end %>
+  
+          <% if current_user.mymeetings.include? (@meeting) %>
+            <%= render @presenter.assign_role(member.id, role.id) %>
+          <% elsif current_user.member? (member) %>
+            <div class="choiceWant">
+              <%= render @presenter.make_choice(member.id, role.id, true) %>
+            </div>
+            <div class="choiceDontwant">
+              <%= render @presenter.make_choice(member.id, role.id, false) %>
+            </div>
+          <% end %>
+        </td>
+      <% end %>
+    </tr>
+  <% end %>
 </table>
 
 

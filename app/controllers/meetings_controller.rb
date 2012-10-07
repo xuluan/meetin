@@ -27,7 +27,7 @@ class MeetingsController < ApplicationController
   def show
     @meeting = Meeting.find(params[:id])
     @member = @meeting.members.find_by_user_id(current_user.id)
-    @presenter = MeetingsHelper::EditPresenter.new(@meeting)
+    @presenter = MeetingsHelper::EditPresenter.new(@meeting, current_user)
 
     respond_to do |format|
       format.html # show.html.erb

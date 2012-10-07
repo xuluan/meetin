@@ -4,6 +4,22 @@ module MeetingsHelper
     Time.now > meeting.started_at ? "old_meeting" : "new_meeting"
   end
 
+  def assign_status_class(role)
+    return "nochoice" unless role.assign
+    member = Member.attend?(role.meeting_id, role.assign_id)
+    choice = Choice.find_choice(role.meeting_id, member.id, role.id)
+    return "nochoice" unless choice
+
+    if choice.want
+      return "choicewant"
+    else
+      return "choicenot4me"
+    end
+  end
+
+  def current_user_class(user)
+    user == current_user ? "currentuser" : "nocurrentuser"
+  end
 
   def assign_status_for(role, member_id)
     if role.assign_id == member_id
@@ -34,9 +50,11 @@ module MeetingsHelper
   end
 
   class EditPresenter
+    attr_reader :meeting, :member
 
-    def initialize(meeting)
+    def initialize(meeting, user)
       @meeting = meeting
+      @member = Member.attend?(meeting.id, user.id)
     end
 
 
