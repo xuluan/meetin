@@ -12,7 +12,8 @@ TODO
    2 set assign status background
    3 set current user choice status
    4 set other user choice status
-
+   5 clear
+   
 >- invatation some one
 >- Send notify mail for meeting status 
 >- check send email issue
