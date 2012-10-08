@@ -7,13 +7,6 @@ TODO
 
 * STAGE 3
 
->- add new function for meetin
-   1 put current user first
-   2 set assign status background
-   3 set current user choice status
-   4 set other user choice status
-   5 clear
-   
 >- invatation some one
 >- Send notify mail for meeting status 
 >- check send email issue
@@ -44,6 +37,13 @@ http://rails-bestpractices.com/posts/148-protect-mass-assignment
 
 DONE
 ------
+
+>- add new function for meetin
+   1 put current user first
+   2 set assign status background
+   3 set current user choice status
+   4 set other user choice status
+   5 clear
 
 * deploy
 

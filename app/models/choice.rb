@@ -28,7 +28,7 @@ class Choice < ActiveRecord::Base
 
   def to_s
     if want.nil?
-      'NONE'
+      'CLEAR'
     else
       want ? 'WANT' : 'NOT4ME'
     end

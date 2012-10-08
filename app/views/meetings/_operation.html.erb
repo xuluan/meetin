@@ -23,8 +23,8 @@
 
       <!--<td class="assignStatusNo">-->
 
-      <%=  content_tag(:td, id: "assign_#{dom_id(role)}", class: "assignName #{assign_status_class(role)}") do %>
-        <%= role.assign.presence || "\t" %>
+      <%=  content_tag(:td, id: "assign_#{dom_id(role)}", class: "#{assign_status_class(role)}") do %>
+        <p class="assignName"><%= role.assign.presence || "\t" %></p>
       
         <% if current_user.mymeetings.include? (@meeting) %>
           <%= render @presenter.assign_role(nil, role.id, 'Cancel') %>
@@ -37,7 +37,7 @@
   </tr>
 
   <!-- current user  -->
-  <tr id=<%= "member_#{dom_id(@presenter.member)}" %> class="<%= current_user_class(@presenter.member.user) %>">
+  <tr id=<%= "member_#{dom_id(@presenter.member)}" %> class="currentuser">
     <td class="memberName">
       <%= @presenter.member %>
     </td>
@@ -57,6 +57,9 @@
           <div class="choiceDontwant">
             <%= render @presenter.make_choice(@presenter.member.id, role.id, false) %>
           </div>
+          <div class="choiceClear">
+            <%= render @presenter.make_choice(@presenter.member.id, role.id, nil) %>
+          </div>          
         <% end %>
       </td>
     <% end %>
@@ -67,7 +70,7 @@
   <% next unless member.status%>
   <% next if member.user_id == current_user.id %>
 
-    <tr id=<%= "member_#{dom_id(member)}" %>>
+    <tr id=<%= "member_#{dom_id(member)}" %> class="nocurrentuser">
       <td class="memberName">
         <%= member %>
       </td>
@@ -80,13 +83,6 @@
   
           <% if current_user.mymeetings.include? (@meeting) %>
             <%= render @presenter.assign_role(member.id, role.id) %>
-          <% elsif current_user.member? (member) %>
-            <div class="choiceWant">
-              <%= render @presenter.make_choice(member.id, role.id, true) %>
-            </div>
-            <div class="choiceDontwant">
-              <%= render @presenter.make_choice(member.id, role.id, false) %>
-            </div>
           <% end %>
         </td>
       <% end %>
