@@ -1,6 +1,7 @@
 class Meeting < ActiveRecord::Base
 
   validates_presence_of :organizer_id, :title, :intro, :location, :started_at
+  # :invitation_list just like: example@host.com, abc@abc.com; test@mysite.com
   validates :invitation_list, format: {
     with: /\A\s*((([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\s*)?[;,]\s*)*((([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\s*)?)\z/i,
     message: "Only email allowed" }
@@ -25,6 +26,10 @@ class Meeting < ActiveRecord::Base
 
 protected
 
+  def Meeting.deliver(email, meeting)
+    UserMailer.meeting_invite(email, meeting).deliver
+  end
+
   def meeting_created
 
     invatations = []
@@ -37,7 +42,8 @@ protected
         if user = User.find_by_email(member_email)
           add_member(user)
         else
-          UserMailer.meeting_invite(member_email, self).deliver
+          #UserMailer.meeting_invite(member_email, self).deliver
+          Meeting.delay.deliver(member_email, self)
           invatations << member_email
         end
       end #if
@@ -50,7 +56,8 @@ protected
     add_member(self.organizer)
     # send email for each member
     self.members.each do |member|
-      UserMailer.meeting_invite(member.email, self).deliver
+      #UserMailer.meeting_invite(member.email, self).delay.deliver
+      Meeting.delay.deliver(member.email, self)
     end
 
   end #def
