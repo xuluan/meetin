@@ -25,10 +25,17 @@ class Choice < ActiveRecord::Base
     choice.tap { |c| c.save }
   end
 
+  def action
+    if want.nil?
+      'CLEAR'
+    else
+      want ? 'WANT' : 'NOT4ME'
+    end
+  end
 
   def to_s
     if want.nil?
-      'CLEAR'
+      nil
     else
       want ? 'WANT' : 'NOT4ME'
     end
