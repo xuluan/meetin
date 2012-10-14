@@ -3,7 +3,7 @@
 $('td#assign_<%=dom_id(@role)%> p').html('<%= escape_javascript(@role.assign.username) %>')
 $('td#assign_<%=dom_id(@role)%>').attr('class', '<%= assign_status_class(@role) %>')
 <% else %>
-$('#assign_<%=dom_id(@role)%>').html("\t")
-
+$('#assign_<%=dom_id(@role)%> p').html("\t")
+$('td#assign_<%=dom_id(@role)%>').attr('class', 'nochoice')
 <% end %>
 
