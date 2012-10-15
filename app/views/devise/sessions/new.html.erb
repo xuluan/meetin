@@ -2,19 +2,27 @@
   <div class="login">
 
       <h2>Login</h2>
+      
+      <% flash.each do |name, msg| %>
+          <%= content_tag :section, msg, :id => "flash_#{name}", :class => "flash" %>
+      <% end %>
 
-       <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-       <div><%= f.email_field :email, placeholder: "Email", class: "input-large" %></div>
+      <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
 
-       <div><%= f.password_field :password, placeholder: "Password", class: "input-large" %></div>
+        <div><%= f.email_field :email, placeholder: "Email", class: "input-large" %></div>
 
-       <% if devise_mapping.rememberable? -%>
-      <div class="loginRemMe"> <label class="loginLabel"> <span class="loginChebox"><%= f.check_box :remember_me %></span>Remember me? </label></div>
+        <div><%= f.password_field :password, placeholder: "Password", class: "input-large" %></div>
 
-      <% end -%>
+        <% if devise_mapping.rememberable? -%>
+        
+          <div class="loginRemMe"> 
+            <label class="loginLabel"> <span class="loginChebox"><%= f.check_box :remember_me %></span>Remember me? </label>
+          </div>
 
-       <div><%= f.submit "Login", class: "btn btn-login btn-primary" %></div>
-       <% end %>
+        <% end -%>
+
+        <div><%= f.submit "Login", class: "btn btn-login btn-primary" %></div>
+      <% end %>
 
       <h5><%= render "devise/shared/links" %></h5>
   </div>
