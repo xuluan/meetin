@@ -14,3 +14,37 @@
 //= require jquery_ujs
 //= require bootstrap
 //= require_tree .
+
+
+$(document).ready(function() {
+$('input, textarea').placeholder();
+/*$('.EA-label-hover').mouseover(
+    function(){
+    	$(this).find('p').css('display','block')
+    });
+$('.EA-label-hover').keyup(
+    function(){
+    	$(this).find('p').css('display','block')
+    });
+$('.EA-label-hover').mouseout(
+    function(){
+    	$(this).find('p').css('display','none')
+    });
+*/
+
+
+$('.EA-label-hover').on("mouseover",
+    function(){
+    	$(this).find('p').css('display','inline')
+    });
+$('.EA-label-hover').on("mouseout",
+    function(){
+    	$(this).find('p').css('display','none')
+    });
+
+/*$('.EA-label-hover').off("mouseover",
+    function(){
+    	$(this).find('p').css('display','none')
+    });*/
+
+});
