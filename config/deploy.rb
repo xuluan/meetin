@@ -33,5 +33,5 @@ task :upgradedb, :except => { :no_release => true } do
   run "cp #{previous_release}/db/schema.rb #{latest_release}/db/schema.rb"
 end
 
-after "deploy", "deploy:upgradedb"
+before "deploy:migrate", "upgradedb"
 
