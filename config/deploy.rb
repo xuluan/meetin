@@ -27,3 +27,11 @@ after "deploy:stop",    "delayed_job:stop"
 after "deploy:restart", "delayed_job:restart"
 
 after "deploy", "deploy:cleanup" # keep only the last 5 releases
+
+task :upgradedb, :except => { :no_release => true } do
+  run "cp #{previous_release}/db/production.sqlite3 #{latest_release}/db/production.sqlite3"
+  run "cp #{previous_release}/db/schema.rb #{latest_release}/db/schema.rb"
+end
+
+after "deploy", "deploy:upgradedb"
+
