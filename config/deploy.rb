@@ -23,7 +23,7 @@ ssh_options[:forward_agent] = true
 ssh_options[:keys] = ["/home/xuluan/.ssh/ec2_ca.pem"]
 
 after "deploy:stop",    "delayed_job:stop"
-after "deploy:start",   "delayed_job:start"
+#after "deploy:start",   "delayed_job:start"
 after "deploy:restart", "delayed_job:restart"
 
 after "deploy", "deploy:cleanup" # keep only the last 5 releases
