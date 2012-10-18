@@ -9,16 +9,12 @@
 # Description:       Start, stop, restart unicorn server for a specific application.
 ### END INIT INFO
 set -e
-[ -f /etc/default/setupmail ] && . /etc/default/setupmail
-
-export GMAIL_ACCOUNT_NAME=$GMAIL_ACCOUNT_NAME
-export GMAIL_ACCOUNT_PASSWORD=$GMAIL_ACCOUNT_PASSWORD
 
 # Feel free to change any of the following variables for your app:
 TIMEOUT=${TIMEOUT-60}
 APP_ROOT=<%= current_path %>
 PID=<%= unicorn_pid %>
-CMD="cd <%= current_path %>; bundle exec unicorn -D -c <%= unicorn_config %> -E production; RAILS_ENV=production script/delayed_job start"
+CMD="export GMAIL_ACCOUNT_NAME='<%= ENV["GMAIL_ACCOUNT_NAME"] %>'; export GMAIL_ACCOUNT_PASSWORD='<%= ENV["GMAIL_ACCOUNT_PASSWORD"] %>'; cd <%= current_path %>; bundle exec unicorn -D -c <%= unicorn_config %> -E production; RAILS_ENV=production script/delayed_job start"
 AS_USER=<%= unicorn_user %>
 set -u
 
