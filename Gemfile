@@ -66,3 +66,7 @@ gem 'will_paginate'
 gem 'strong_parameters'
 gem 'daemons'
 gem 'delayed_job_active_record'
+
+gem 'exception_notification'
+
+gem 'letter_opener', group: :development
