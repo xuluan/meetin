@@ -38,6 +38,8 @@ Meetin::Application.configure do
 
   # Use a different logger for distributed setups
   # config.logger = ActiveSupport::TaggedLogging.new(SyslogLogger.new)
+  
+  config.logger = Logger.new("#{RAILS_ROOT}/log/#{ENV['RAILS_ENV']}.log", 5,  100  * 1024)
 
   # Use a different cache store in production
   # config.cache_store = :mem_cache_store
@@ -65,5 +67,9 @@ Meetin::Application.configure do
   # with SQLite, MySQL, and PostgreSQL)
   # config.active_record.auto_explain_threshold_in_seconds = 0.5
   config.action_mailer.default_url_options = { host: 'nuoxu.me' }
+
+  config.middleware.use ExceptionNotifier,
+    sender_address: 'no-reply@nuoxu.me',
+    exception_recipients: 'meetin.service@gmail.com'
 
 end
