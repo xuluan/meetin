@@ -38,6 +38,6 @@ end
 before "deploy:migrate", "upgradedb"
 
 #reboot service 
-after "deploy:migrations", "deploy:stop"
-after "deploy:migrations", "deploy:start"
+#after "deploy:migrations", "deploy:stop"
+#after "deploy:migrations", "deploy:start"
 
