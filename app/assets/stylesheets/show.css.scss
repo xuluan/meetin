@@ -1,81 +1,58 @@
-
-// Set the correct sprite paths
-//@iconSpritePath: image-path('glyphicons-halflings.png');
-//@import "bootstrap-config";
-//@import "bootstrap";
-//@import "bootstrap-customized";
-//@import "bootstrap-responsive";
-//@import "responsive-customized"
-
 //-----------start ------------
-//@import "bootstrap-config";
 
 $gridColumns:14;
-//@import "bootstrap";
 @import "bootstrap";
-//@import "bootstrap-customized";
 
-/*.wholeWidth{
-  border: 1px solid red;
-}
-*/
 .showContainer{
   padding-right: 20px;
   padding-left: 20px;
   *zoom: 1;
 }
+
 .showLeft{
   float:left;
   width:220px;
-  h3 {text-align:middle;
-      width:150px;
-      margin: 20px auto ;
-      color:#08c;}
-}
-.showLeftInner{
-  
-  padding:10px;
-  background-color:#F0F3F0;
-  @include border-radius(5px);
+  h3 {
+    text-align:middle;
+    width:150px;
+    margin: 20px auto ;
+    color:#08c;
+  }
 }
 
-/*.showLeftInnerContent{
-  border: 1px solid green;
-  width:95%;
-  margin:auto;
+.showLeftInner{
+  @include border-radius(5px);  
+  padding:10px;
+  background-color:#F0F3F0;
 }
-*/
+
 
 .showStatus{
   width:100%;
   margin:auto;
 }
+
 .showMain{
-   
   position:absolute;
   left:260px;
 }
+
 .showMainInner{
   padding:20px;
-  //border: 1px solid green;
-  //margin-right:20px;
-
 }
 
 .showButton{
   width:70%;
   margin: 10px auto;
   text-align:middle;
- //margin-bottom:10px;
 }
 
 .showExitButton{
-
+  @include border-radius(6px);
   background-color:#E9967A;
   padding:3px 10px;
   color:white;
   float:left;
-  @include border-radius(6px);
 }
 
 .showJoinButton{
@@ -84,188 +61,101 @@ $gridColumns:14;
 }
 
 .showMeetingInfo{
-  //border-top:1px dashed #A1A4A1;
   margin-top:50px;
-
-.leftItemName {display:inline-block;
-             width:65px;
-              //border:1px solid red;
-              text-align:right;
-              vertical-align:top;}
-.leftItemValue {display:inline-block;
-                width:150px;
-                text-align:left;
-                margin-left:50px;
-                margin-top:10px;
-                vertical-align:top;}
+  .leftItemName {
+    display:inline-block;
+    width:65px;
+    text-align:right;
+    vertical-align:top;
+  }
+  
+  .leftItemValue {
+    display:inline-block;
+    width:150px;
+    text-align:left;
+    margin-left:50px;
+    margin-top:10px;
+    vertical-align:top;
+  }
 }
 
 //table#roleAssignment
-
-
 //general setting
 table#roleAssignment td,th{
-  position : relative;
-  width:70px;
+  position: relative;
+  width: 70px;
   overflow: hidden;
-  text-align:middle;
-  //word-wrap: break-word;
+  text-align: center;
 }
 
-table#roleAssignment tr.success{
-  background-color:#DFF0D8;}
-
-table#roleAssignment tr.info{
-  background-color:#E8EDFA;
+table#roleAssignment{
+  
+  tr.success{
+    background-color:#DFF0D8;
+  }
+  tr.info{
+    background-color:#E8EDFA;
+  }
+  td.nochoice,td.choicewant,td.choicenot4me p{
+    margin-top:5px;
+    font-weight: bold;
   }
 
+  td.choicewant{
+    background-color: green;
+  }
+
+  td.choicenot4me{
+    background-color: red;
+  }
+
+  //choice
+  tr{
+    height:90px;
+  }
+  tr.currentuser{
+    height: 150px;
+    background-color:#F4F4F4;
+  }
+
+}
+
+
 //assignments
-#roleAssignment .assignButton{
-  width:70px;
-  position: absolute;
-  left:10px;
-  top: 40px;
-}
+#roleAssignment {
+  .assignButton{
+    width:70px;
+    position: absolute;
+    left:10px;
+    top: 40px;
+  }
 
-
-table#roleAssignment td.nochoice,td.choicewant,td.choicenot4me p{
-
-  margin-top:5px;
-  font-weight: bold;
-}
-
-table#roleAssignment td.choicewant{
-  background-color: green;
-}
-
-table#roleAssignment td.choicenot4me{
-  background-color: red;
-}
-
-
-
-//choice
-table#roleAssignment tr{
-  height:90px;
-}
-table#roleAssignment tr.currentuser{
-  height: 150px;
-  background-color:#F4F4F4;
-}
-
-
-
-#roleAssignment .choiceButton{
+  .choiceButton{
     width: 70px;
+  }
+
+  .choiceWant{
+    position: absolute;
+    left:10px;
+    top: 40px;
+  }
+
+  .choiceDontwant{
+    position: absolute;
+    left:10px;
+    top: 80px;
+  }
+
+  .choiceClear{
+    position: absolute;
+    left:10px;
+    top: 120px;
+  }
+
+  .choiceStyle{
+    margin-left:10px;
+    color:blue;
+  }
 
 }
-#roleAssignment .choiceWant{
-  position: absolute;
-  left:10px;
-  top: 40px;
-}
-
-#roleAssignment .choiceDontwant{
-  position: absolute;
-  left:10px;
-  top: 80px;
-}
-
-#roleAssignment .choiceClear{
-  position: absolute;
-  left:10px;
-  top: 120px;
-}
-
-#roleAssignment .choiceStyle{
-  margin-left:10px;
-  color:blue;
-}
-
-
-/*
-
-//role assignment table 
-#roleAssignment .roleName,#roleAssignment .memberName  {
-font-family: verdana, sans-serif;
-font-size: 12px;  
-font-weight:bold;}
-
-//@import "responsive";
-
-
-//assignment table style
-.choiceStyle{
- width: 65px;
- color:blue;
- padding:1px 2px;
- position: absolute;
-  left:15px;
-  top: 15px;  
-}
-
-.assignStyle{
-
-  //visibility:hidden;
-  
-}
-
-.color_want{
-  color: green;
-}
-.color_dontwant{
-  color: red;
-}
-
-//table#roleAssignment td,table#roleAssignment th{
-//table-layout:fixed;
-//overflow:hidden;}
-
-table#roleAssignment {
-  table-layout:fixed;
-}
-
-
-
-
-
-
-
-
-
-
-#roleAssignment .assignName{
-  text-align:center;
-  color:green;
-  font-weight:bold;
-  font-family: verdana, sans-serif;
-font-size: 12px;
-text-transform: uppercase;
-
-}
-
-//@import "bootstrap-responsive";
-//@import "responsive-customized"
-
-
-
-  //th {height:50px;}
-}
-
-
-
-td.assignStatusYes{
-  background-image:url('smileyface_small.jpg');
-  background-position:20px 40px;
-  background-repeat:  no-repeat;
-    
-}
-td.assignStatusNo{
-  background-image:url('sadface_small.jpg');
-  background-position:20px 40px;
-  background-repeat:  no-repeat;
-    
-}
-
-*/
 

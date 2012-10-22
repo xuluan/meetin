@@ -1,80 +1,67 @@
 
-// Set the correct sprite paths
-//@iconSpritePath: image-path('glyphicons-halflings.png');
-//@import "bootstrap-config";
-//@import "bootstrap";
-//@import "bootstrap-customized";
-//@import "bootstrap-responsive";
-//@import "responsive-customized"
-
-//-----------start ------------
-//@import "bootstrap-config";
-
-//$gridColumns:14;
-//@import "bootstrap";
 @import "bootstrap";
-//@import "bootstrap-customized";
+
+@mixin btn($padding) {
+  @include border-radius(5px);
+  padding: $padding;
+  font-size: $baseFontSize + 2px;
+  line-height: normal;
+}
+
 
 //ERROR STYLE
-     //log in error
+//log in error
 .flash{color:red;} 
-     //sign up error
-#error_explanation h2{font-size:15px;
-                      line-height:16px;}
 
-#error_explanation {color:red;}
+//sign up error
+#error_explanation  {
+  color:red;
+  h2 { 
+    font-size:15px;
+    line-height:16px;
+  }
+}
+
 body {padding-top: 60px;}
 
-     //new meeting error
+//new meeting error
 .field_with_errors {
   border: 1px dashed red;
+  .error{
+    display:block;
+    color:red;
+    margin-left:150px;
+  }
 }
 
-.field_with_errors .error{
- display:block;
- color:red;
- margin-left:150px;
-}
 
 // I. signup page
-
-.signup,.login,.newPwd {
-    //border:1px solid red;
-    margin-top: 60px;
+.signup, .login, .newPwd {
+  margin-top: 60px;
 	margin-left: auto;
 	margin-right: auto;
 	width:220px;
 	h2 {margin-bottom:20px;}
-	
 }
-         //the submit button in signup page, inherit from ".btn-large"
+
+//the submit button in signup page, inherit from ".btn-large"
 .btn-signup {
-  padding: 5px 94px;
-  font-size: $baseFontSize + 2px;
-  line-height: normal;
-  @include border-radius(5px);
+  @include btn($padding:5px 94px);
 }
 
 //II. Login page
-
 //the submit button in signup page, inherit from ".btn-large"
 
 //.login => .signup
 .btn-login {
-  padding: 5px 92px;
-  font-size: $baseFontSize + 2px;
-  line-height: normal;
-  @include border-radius(5px);
+  @include btn($padding:5px 92px);  
 }
 
-
 .loginRemMe {
+  @include border-radius(5px);
 	width:220px;
-
 	background-color: #cccccc;
-	@include border-radius(5px);
 	margin-bottom:10px;
-	
 }
 
 .loginLabel {
@@ -82,22 +69,14 @@ body {padding-top: 60px;}
    margin:3px auto;
    padding-top:4px;
    padding-bottom:4px;
-   
- 
-   }
-
-.loginChebox {
-	
-	
-	margin-right:10px;
 }
+
+.loginChebox { 	margin-right:10px; }
 
 
 //III. Edit Account
 .editAccount {
-    margin-top: 60px;
-	margin-left: auto;
-	margin-right: auto;
+  margin: 60px auto 0 auto;
 	width:550px;
 
 	h3 { margin-bottom:20px;}
@@ -116,46 +95,34 @@ body {padding-top: 60px;}
 }
 
 .btn-editAccount {
-  padding: 5px 86px;
-
-  font-size: $baseFontSize + 2px;
-  line-height: normal;
-  @include border-radius(5px);
+  @include btn($padding:5px 86px);  
 }
 
 .editCancelAcnt{
-    width:220px;
-    height:27px;
-    
+  @include border-radius(5px);
+  width:220px;
+  height:27px;
 	background-color: #cccccc;
-	@include border-radius(5px);
 	margin-bottom:10px;
-
-	
 }
-.cancelText {
 
-    width:120px;
-   
-    
-    padding-top:5px;
-    margin: auto auto;	}
+.cancelText {
+  width:120px;
+  padding-top:5px;
+  margin: auto auto;	
+}
 
 // IV. New Password
-   //.newPWD => signup ,login
-
+//.newPWD => signup ,login
 .btn-newPwd {
-  padding: 5px 52px;
-  font-size: $baseFontSize + 2px;
-  line-height: normal;
-  @include border-radius(5px);
+  @include btn($padding:5px 52px);
 }
-
 
 //page:  meeting/new
 .editMeetingSpan5{
   width:370px;
 }
+
 .editMeetingSpan4{
   width: 310px;
 }
@@ -167,58 +134,63 @@ body {padding-top: 60px;}
   @include border-radius(5px);
 
   .newMeetingInner{
-   // border: 1px solid black;
     padding:20px;
-    h3 {width:200px;
-        margin:20px auto;}
-  label {
-         clear:both;
-         float:left;
-        width:130px;
-        text-align: right;
-        vertical-align:bottom;
-        margin: 2px 10px;
-        font-weight:bold;
-       }
+    h3 {
+      width:200px;
+      margin:20px auto;
+    }
+
+    label {
+      clear:both;
+      float:left;
+      width:130px;
+      text-align: right;
+      vertical-align:bottom;
+      margin: 2px 10px;
+      font-weight:bold;
+    }
 
     #meeting_started_at_1i, {width:78px;}
     #meeting_started_at_2i, {width:100px;}
-    #meeting_started_at_3i,#meeting_started_at_4i,#meeting_started_at_5i {width:53px;}
+    #meeting_started_at_3i, #meeting_started_at_4i, #meeting_started_at_5i {
+      width:53px;
+    }
   }
 
   .formInline {
-   // border: 1px solid green;
-    
     display:inline-block;
-    float:left;}
-   [type='button']{margin-left:50px;
-                  font-weight:bold;}
+    float:left;
+  }
 
-
-
+  [type='button']{
+    margin-left:50px;
+    font-weight:bold;
+  }
 }
-  .formGroup{
-   
-    margin-bottom:40px;
-    display:block;}
 
-
-.simple_form .hint {
-  clear: left;
-  margin-left: 120px;
-  margin-bottom:20px;
-  font-size: 12px;
-  color: #555;
-  display: block;
-  font-style: italic;
-
-
+.formGroup{
+  margin-bottom:40px;
+  display:block;
 }
- .simple_form input[type='submit']{
-  margin-left:395px;
-  font-weight:bold;
-  margin-top:30px;
- }
+
+
+.simple_form {
+  .hint {
+    clear: left;
+    margin-left: 120px;
+    margin-bottom:20px;
+    font-size: 12px;
+    color: #555;
+    display: block;
+    font-style: italic;
+  }
+
+  input[type='submit']{
+    margin-left:395px;
+    font-weight:bold;
+    margin-top:30px;
+   }
+}
 
 button.addRole {
   width:100px;
@@ -226,14 +198,12 @@ button.addRole {
 }
 
 .add_fields{
+ @include border-radius(3px);
   width:100px;
-
   margin-left:120px;
   background-color:#5bb65b;
- @include border-radius(3px);
   padding:5px  10px;
   color:black;
-
 }
 
 .remove_fields{
@@ -247,20 +217,6 @@ button.addRole {
   @include border-radius(3px);
 }
 
-/*fieldset{
-  width:100%;
-  margin:20px 0px 20px 0px;
-  position:relative;
-  display:block;
-  padding: 0px 10px 10px 10px;
-  -webkit-border-radius: 8px;
--moz-border-radius: 8px;
-border-radius: 8px;
-border: 1px dashed threedface;
-}
-*/
-
-
 fieldset{
   margin-bottom:10px;
   position:relative;
@@ -268,41 +224,29 @@ fieldset{
 
 
 .theLegend {
-    
-    text-align:left;
-    width:auto;
-    padding:2px 3px;
-    font-size: 14px;
-    line-height: 20px;
-    font-style: italic;
-    
-    margin-bottom: 0;
-    border-bottom:none;
-    
-
-}
-.theFieldset {
-    padding: 20px;
+  text-align:left;
+  width:auto;
+  padding:2px 3px;
+  font-size: 14px;
+  line-height: 20px;
+  font-style: italic;
   
-  border: 1px dashed #c0c0c0;
-  //margin-top:20px;
-    -webkit-box-shadow:  0px 0px 0px 0px #000;
-            box-shadow:  0px 0px 0px 0px #000;
+  margin-bottom: 0;
+  border-bottom:none;
 }
 
-.indexLeft{
- //border: 1px dashed green;
+.theFieldset {
+  padding: 20px;
+ 
+  border: 1px dashed #c0c0c0;
+  -webkit-box-shadow:  0px 0px 0px 0px #000;
+  box-shadow:  0px 0px 0px 0px #000;
 }
+
 
 .indexLeftInner{
   h4 {margin-bottom:20px;}
   padding:25px 0;
-}
-
-.indexMain{
-//border: 1px dashed green;
-
-
 }
 
 .indexMainInner {
@@ -311,7 +255,6 @@ fieldset{
 }
 
 .nav-tabs > .active > a {
-  //background-color: #0088CC;
   color: #0088CC;
 }
 
@@ -324,84 +267,28 @@ fieldset{
 }
 
 .indexTable  {
-  .new_meeting .meetingInfo:first-child {
-    //border:1px solid red;
-    background: #FFFFFF url('smallnew.jpg') no-repeat 0 100%;
-    //background-image: url('smallnew.jpg');
-    //background-repeat:no-repeat;
-    //background-position: 0 100% ;
-                }
- .new_meeting td {
-  color: black;
- }
- .old_meeting td {color: grey}
- .meetingInfo { font-weight:bold;}
- .meetingLink { 
+  .new_meeting{
+    .meetingInfo:first-child {
+      background: #FFFFFF url('smallnew.jpg') no-repeat 0 100%;
+    }
 
-  color:threadface;
-
-    .enter{font-weight:bold;
-           a {color:green;}}
-
+    td {
+      color: black;
+    }
   }
-  
-}
-/*.wholeWidth{
-  border: 1px solid red;
-}
-*/
-/*show.css.scss
-.showLeftInner{
-  padding:20px;
-  border: 1px solid red;
-}
 
-.showMainInner{
-  padding:20px;
-  border: 1px solid green;
-  //margin-right:20px;
+ .old_meeting td {color: grey}
 
+ .meetingInfo { font-weight:bold;}
+ 
+ .meetingLink { 
+    color:threadface;
+    .enter{
+      font-weight:bold;
+      a {color:green;}
+    }
+  }
 }
-
-.showButton{
-  width:180px;
-  text-align:middle;
-  margin-bottom:10px;
-}
-
-.showExitButton{
-  background-color:#E9967A;
-  margin-left: 50px;
-}
-
-.showJoinButton{
-  background-color:green;
-  margin-left:50px;
-}
-
-.showMeetingInfo{
-
-.leftItemName {display:inline-block;
-              width:70px;
-              //border:1px solid red;
-              text-align:right;
-              vertical-align:top;}
-.leftItemValue {display:inline-block;
-                width:150px;
-                text-align:left;
-                vertical-align:top;}
-}
-*/
-/* role assignment table */
-/*#roleAssignment th.roleName,#roleAssignment th.memberName  {
-              width:80px;
-              padding:10px 2px;
-              text-align: middle;
-             border: 1px solid red;}*/
-
-//@import "responsive";
 
 @import "bootstrap-responsive";
-//@import "responsive-customized"
-
 
