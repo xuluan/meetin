@@ -5,11 +5,9 @@ module MeetingsHelper
   end
 
   def assign_status_class(role)
-    return "nochoice" unless role.assign
-    member = Member.attend?(role.meeting_id, role.assign_id)
-    choice = Choice.find_choice(role.meeting_id, member.id, role.id)
-    return "nochoice" unless choice
-    return "nochoice" if choice.want == nil
+    choice = Choice.find_choice(role.meeting_id, role.assign_id, role.id)
+    return "nochoice" unless choice # no assign or no choice
+    return "nochoice" if choice.want == nil # choice.want == nil 
 
     if choice.want
       return "choicewant"
