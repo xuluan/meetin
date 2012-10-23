@@ -38,6 +38,8 @@ Meetin::Application.configure do
 
   # Use a different logger for distributed setups
   # config.logger = ActiveSupport::TaggedLogging.new(SyslogLogger.new)
+  log_file = File.join(File.dirname(__FILE__), "../../log/#{ENV['RAILS_ENV']}.log")
+  config.logger = Logger.new(log_file, 5,  100  * 1024)
 
   # Use a different cache store in production
   # config.cache_store = :mem_cache_store
@@ -46,7 +48,7 @@ Meetin::Application.configure do
   # config.action_controller.asset_host = "http://assets.example.com"
 
   # Precompile additional assets (application.js, application.css, and all non-JS/CSS are already added)
-  config.assets.precompile += %w( show.css )
+  config.assets.precompile += ['show.css', 'jquery.placeholder.js' ]
 
   # Disable delivery errors, bad email addresses will be ignored
   config.action_mailer.raise_delivery_errors = false
@@ -65,5 +67,9 @@ Meetin::Application.configure do
   # with SQLite, MySQL, and PostgreSQL)
   # config.active_record.auto_explain_threshold_in_seconds = 0.5
   config.action_mailer.default_url_options = { host: 'nuoxu.me' }
+
+  config.middleware.use ExceptionNotifier,
+    sender_address: 'no-reply@nuoxu.me',
+    exception_recipients: 'meetin.service@gmail.com'
 
 end

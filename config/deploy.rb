@@ -23,7 +23,19 @@ ssh_options[:forward_agent] = true
 ssh_options[:keys] = ["/home/xuluan/.ssh/ec2_ca.pem"]
 
 after "deploy:stop",    "delayed_job:stop"
-after "deploy:start",   "delayed_job:start"
+#after "deploy:start",   "delayed_job:start"
 after "deploy:restart", "delayed_job:restart"
 
 after "deploy", "deploy:cleanup" # keep only the last 5 releases
+
+task :upgradedb, :except => { :no_release => true } do
+  run "cp #{previous_release}/db/production.sqlite3 #{latest_release}/db/production.sqlite3"
+  run "cp #{previous_release}/db/schema.rb #{latest_release}/db/schema.rb"
+end
+
+before "deploy:migrate", "upgradedb"
+
+#reboot service 
+after "deploy:migrations", "deploy:stop"
+after "deploy:migrations", "deploy:start"
+
