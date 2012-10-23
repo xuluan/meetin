@@ -128,28 +128,22 @@ table#roleAssignment tr.info{
 }
 
 
-table#roleAssignment td.nochoice p{
+table#roleAssignment td.nochoice,td.choicewant,td.choicenot4me p{
 
   margin-top:5px;
-  color:#0088cc;
   font-weight: bold;
-  background-color:yellow;
-
 }
 
-table#roleAssignment td.choicewant p{
-  margin-top:5px;
-  color:green;
-  font-weight: bold;
-  background-color:yellow;
+table#roleAssignment td.choicewant{
+  background-color: green;
 }
 
-table#roleAssignment td.choicenot4me p{
-  margin-top:5px;
-  color:red;
-  font-weight: bold;
-  background-color:yellow;
+table#roleAssignment td.choicenot4me{
+  background-color: red;
 }
+
+
+
 //choice
 table#roleAssignment tr{
   height:90px;
