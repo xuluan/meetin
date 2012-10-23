@@ -6,10 +6,10 @@
       <fieldset class="theFieldset basic">
       <legend class="theLegend"> Basic Info </legend>
 
-      <%= f.input :title, placeholder: "Ex: TM_08292012", input_html: {class: "span5"} %>
+      <%= f.input :title, placeholder: "Ex: TM_08292012", input_html: {class: "editMeetingSpan5"} %>
 
       <!-- Meeting Intro -->
-      <%= f.input :intro, placeholder: "Brief introduction of the meeting", input_html: {class: "span5"} %>
+      <%= f.input :intro, placeholder: "Brief introduction of the meeting", input_html: {class: "editMeetingSpan5"} %>
 
       <!-- Meeting Time -->
        <div class="formInline" >
@@ -17,7 +17,7 @@
       </div>
 
       <!-- Meeting Place -->
-      <%= f.input :location,placeholder: "Ex: 12808 West Airport Suite 260. Sugar Land TX 77478",  input_html: {class: "span5"} %>
+      <%= f.input :location,placeholder: "Ex: 12808 West Airport Suite 260. Sugar Land TX 77478",  input_html: {class: "editMeetingSpan5"} %>
 
      </fieldset>
 
@@ -29,28 +29,36 @@
       <% if @meeting.new_record? %>
         <div class=" formGroup">
           <%= f.input :invitation_list, label: "New Invitees", placeholder: "List emails separated by ,",
-           input_html: {class: "span5 formInline"} %>
+           input_html: {class: "editMeetingSpan5 formInline"} %>
         </div>
       <% else %>
         <div class=" formGroup">
-          <%= label_tag nil, "Invitation List", class: "string optional control-label",  input_html: {class: "span5 formInline"} %>
+          <!--
+          <%= label_tag nil, "Invitation List", class: "string optional control-label",  input_html: {class: "editMeetingSpan5 formInline"} %>
           <%= display_invitaion_list(f.object) %>
+        -->
+        <label class="string optional control-label", input_html: {class: "span4 formInline";}>Invitation List</label>
+        <span class="span5 noneditable-input
+noneditInvite">norla.xu@gmail.com; rolle.xu@gmail.com;
+lyfxun@gmail.com; boogie_xu@hotmail.com</span>
 
 
         </div>
       <% end %>
-
+      <!--
       <%= f.fields_for :members do |builder| %>
         <%= render 'member_fields', f: builder %>
       <% end %>
+    -->
 
         <% if @meeting_template %>
           <% @meeting_template.members.each do |member| %>
             <% new_object = @meeting.members.new(user_id: member.user_id, meeting_id: @meeting.id) %>
-
+           <!--
             <%= f.fields_for :members, new_object do |builder| %>
               <%= render 'member_fields', f: builder %>
             <% end %>
+          -->
           <% end %>
         <% end %>
       </fieldset>

@@ -1,0 +1,892 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"rol",
+				"roleAssignment"
+			],
+			[
+				"ro",
+				"roleAssignment"
+			]
+		]
+	},
+	"buffers":
+	[
+		{
+			"file": "/home/nuo/work/sass-twitter-bootstrap/lib/bootstrap.scss",
+			"settings":
+			{
+				"buffer_size": 1298,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "app/views/layouts/application.html.erb",
+			"settings":
+			{
+				"buffer_size": 1302,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "/home/nuo/work/sass-twitter-bootstrap/lib/_navbar.scss",
+			"settings":
+			{
+				"buffer_size": 8554,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "/home/nuo/work/sass-twitter-bootstrap/lib/_variables.css.scss",
+			"settings":
+			{
+				"buffer_size": 6919,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "app/views/meetings/index.html.erb",
+			"settings":
+			{
+				"buffer_size": 2482,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "app/views/meetings/new.html.erb",
+			"settings":
+			{
+				"buffer_size": 217,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "app/views/meetings/edit.html.erb",
+			"settings":
+			{
+				"buffer_size": 259,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "app/views/meetings/show.html.erb",
+			"settings":
+			{
+				"buffer_size": 2519,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "app/views/meetings/_role_fields.html.erb",
+			"settings":
+			{
+				"buffer_size": 252,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"contents": "Searching 5 files for \"display_invitaion_list\" (case sensitive)\n\n/home/nuo/work/meetin/app/views/meetings/_form.html.erb:\n   35          <div class=\" formGroup\">\n   36            <%= label_tag nil, \"New Invitees\", class: \"string optional control-label\",  input_html: {class: \"span5 formInline red\"} %>\n   37:           <%= display_invitaion_list(f.object) %>\n   38  \n   39  \n\n1 match in 1 file\n",
+			"settings":
+			{
+				"buffer_size": 394,
+				"line_ending": "Unix",
+				"name": "Find Results",
+				"scratch": true
+			}
+		},
+		{
+			"file": "app/assets/stylesheets/base.css.scss",
+			"settings":
+			{
+				"buffer_size": 6314,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "app/assets/stylesheets/application.css",
+			"settings":
+			{
+				"buffer_size": 563,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "app/assets/stylesheets/show.css.scss",
+			"settings":
+			{
+				"buffer_size": 3719,
+				"line_ending": "Windows"
+			}
+		}
+	],
+	"build_system": "",
+	"command_palette":
+	{
+		"height": 54.0,
+		"selected_items":
+		[
+			[
+				"install",
+				"Package Control: Install Package"
+			],
+			[
+				"setting",
+				"Preferences: Package Control Settings – Default"
+			],
+			[
+				"",
+				"Preferences: Prefixr Key Bindings – User"
+			],
+			[
+				"i",
+				"Indentation: Reindent Lines"
+			],
+			[
+				"men",
+				"Snippet: ClassName = Struct .. do .. end"
+			]
+		],
+		"width": 449.0
+	},
+	"console":
+	{
+		"height": 54.0
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"file_history":
+	[
+		"/home/nuo/work/meetinNew/app/views/layouts/application.html.erb",
+		"/home/nuo/work/meetin/app/views/meetings/_form.html.erb",
+		"/home/nuo/work/meetinNew/app/assets/javascripts/application.js",
+		"/home/nuo/work/meetinNew/app/assets/stylesheets/application.css",
+		"/home/nuo/work/meetinNew/app/assets/stylesheets/base.css.scss",
+		"/home/nuo/work/meetinNew/app/views/meetings/show.html.erb",
+		"/home/nuo/work/meetinNew/app/views/meetings/_role_fields.html.erb",
+		"/home/nuo/work/meetin/app/views/meetings/edit.html.erb",
+		"/home/nuo/work/meetin/app/views/meetings/new.html.erb",
+		"/home/nuo/work/meetin/app/views/devise/sessions/new.html.erb",
+		"/home/nuo/work/meetinNew/app/views/meetings/new.html.erb",
+		"/home/nuo/work/meetinNew/app/views/meetings/_form.html.erb",
+		"/home/nuo/work/meetinNew/app/views/meetings/index.html.erb",
+		"/home/nuo/work/meetinNew/app/views/devise/registrations/edit.html.erb",
+		"/home/nuo/Document",
+		"/home/nuo/Speech/Untitled",
+		"/home/nuo/Documents/Toastmaster",
+		"/home/nuo/work/meetinNew/app/views/devise/registrations/new.html.erb",
+		"/home/nuo/work/meetinNew/app/views/devise/sessions/new.html.erb",
+		"/home/nuo/work/meetin/app/views/devise/passwords/edit.html.erb",
+		"/home/nuo/work/meetinNew/app/views/devise/passwords/new.html.erb",
+		"/home/nuo/work/meetinNew/app/views/devise/passwords/edit.html.erb",
+		"/home/nuo/work/meetin/app/views/devise/registrations/edit.html.erb",
+		"/home/nuo/work/meetin/app/views/devise/passwords/new.html.erb",
+		"/home/nuo/work/meetin/spec/models/choice_spec.rb",
+		"/home/nuo/Speech/Painting",
+		"/home/nuo/work/meetinNew/app/assets/javascripts/jquery.placeholder.js",
+		"/home/nuo/.config/sublime-text-2/Packages/User/Default (Linux).sublime-keymap",
+		"/home/nuo/.config/sublime-text-2/Packages/Package Control/Package Control.sublime-settings",
+		"/home/nuo/work/sass-twitter-bootstrap/lib/tests/css-tests.css",
+		"/home/nuo/work/meetin/app/assets/stylesheets/base.css.scss",
+		"/home/nuo/work/meetinNew/app/views/meetings/_operation.html.erb",
+		"/home/nuo/work/meetin/app/views/meetings/show.html.erb",
+		"/home/nuo/work/sass-twitter-bootstrap/lib/_tables.scss",
+		"/home/nuo/work/meetin/app/assets/stylesheets/show.css.scss",
+		"/home/nuo/work/sass-twitter-bootstrap/bootstrap-2.0.4.css",
+		"/home/nuo/work/meetin/tmp/MeetinHtmlonly.css",
+		"/home/nuo/work/meetin/app/views/meetings/index.html.erb",
+		"/home/nuo/work/sass-twitter-bootstrap/lib/_variables.css.scss",
+		"/home/nuo/work/sass-twitter-bootstrap/lib/_buttons.scss",
+		"/home/nuo/work/sass-twitter-bootstrap/lib/_mixins.scss",
+		"/home/nuo/work/meetin/app/controllers/meetings_controller.rb",
+		"/home/nuo/work/meetin/app/helpers/meetings_helper.rb",
+		"/home/nuo/work/meetin/app/models/choice.rb",
+		"/home/nuo/work/meetin/app/views/roles/_role.html.erb",
+		"/home/nuo/work/meetin/app/views/meetings/_operation.html.erb",
+		"/home/nuo/work/meetin/tmp/Meetin.html",
+		"/home/nuo/work/meetin/app/views/choices/_choice.html.erb",
+		"/home/nuo/work/meetin/app/views/layouts/application.html.erb",
+		"/home/nuo/work/meetin/app/models/role.rb",
+		"/home/nuo/work/meetin/app/assets/stylesheets/application.css",
+		"/home/nuo/work/sass-twitter-bootstrap/lib/_grid.scss",
+		"/home/nuo/work/meetin/db/schema.rb",
+		"/home/nuo/work/sass-twitter-bootstrap/lib/_layouts.scss",
+		"/home/nuo/work/meetin/app/helpers/roles_helper.rb",
+		"/home/nuo/work/meetin/app/controllers/roles_controller.rb",
+		"/home/nuo/work/sass-twitter-bootstrap/lib/_scaffolding.scss",
+		"/home/nuo/work/sass-twitter-bootstrap/lib/_responsive-utilities.scss",
+		"/home/nuo/work/sass-twitter-bootstrap/lib/_responsive-768px-979px.scss",
+		"/home/nuo/work/sass-twitter-bootstrap/lib/responsive.scss",
+		"/home/nuo/work/meetin/app/views/choices/create.js.erb",
+		"/home/nuo/work/meetin/app/helpers/choices_helper.rb",
+		"/home/nuo/work/meetin/app/assets/stylesheets/choices.css.scss",
+		"/home/nuo/work/meetin/app/helpers/members_helper.rb",
+		"/home/nuo/work/meetin/config/locales/en.yml",
+		"/home/nuo/work/meetin/config/locales/simple_form.en.yml",
+		"/home/nuo/work/meetin/config/initializers/wrap_parameters.rb",
+		"/home/nuo/work/meetin_RCS/meetin_learn/app/views/meetings/show.html.erb",
+		"/home/nuo/work/meetin_RCS/meetin_learn/app/assets/stylesheets/bootstrap_and_overrides.css.scss",
+		"/home/nuo/work/meetin_RCS/meetin/app/views/meetings/show.html.erb",
+		"/home/nuo/work/sass-twitter-bootstrap/lib/_navs.scss",
+		"/home/nuo/work/meetinR/app/assets/stylesheets/bootstrap_and_overrides.css.scss",
+		"/home/nuo/work/meetinR/app/views/meetings/_role_fields.html.erb",
+		"/home/nuo/work/bootlearn/app/views/layouts/application.html.erb",
+		"/home/nuo/work/bootlearn/app/views/products/edit.html.erb",
+		"/home/nuo/work/meetin_learn/app/models/user.rb",
+		"/home/nuo/work/meetin_learn/app/models/meeting.rb",
+		"/home/nuo/work/meetin_learn/config/environments/test.rb",
+		"/home/nuo/Downloads/SublimeHelp.wiki",
+		"/home/nuo/work/meetinR/app/views/meetings/_form.html.erb",
+		"/home/nuo/work/bootlearn/app/views/products/index.html.erb",
+		"/home/nuo/work/meetinR/app/controllers/meetings_controller.rb",
+		"/home/nuo/work/meetin_learn/config/environments/production.rb",
+		"/home/nuo/work/meetin_learn/config/environments/development.rb",
+		"/home/nuo/work/meetinR/app/helpers/meetings_helper.rb",
+		"/home/nuo/work/meetinR/db/schema.rb",
+		"/home/nuo/work/meetinR/app/views/meetings/show.html.erb",
+		"/home/nuo/work/meetinR/app/views/meetings/index.html.erb",
+		"/home/nuo/work/meetinR/app/models/role.rb",
+		"/home/nuo/work/meetinR/app/views/meetings/new.html.erb",
+		"/home/nuo/work/meetinR/app/views/meetings/edit.html.erb",
+		"/home/nuo/work/meetinR/app/helpers/activeClass_helper.rb",
+		"/home/nuo/work/meetinR/app/helpers/application_helper.rb",
+		"/home/nuo/work/meetinR/app/helpers/roles_helper.rb",
+		"/home/nuo/work/meetinR/app/helpers/choices_helper.rb",
+		"/home/nuo/Downloads/bootstrap/css/bootstrap.css",
+		"/home/nuo/.cache/.fr-6M7Q6g/css/bootstrap.css",
+		"/home/nuo/.cache/.fr-TeBtDE/css/bootstrap.min.css",
+		"/home/nuo/Downloads/23219007058802",
+		"/home/nuo/work/meetinR/app/models/choice.rb",
+		"/home/nuo/work/meetinR/app/models/meeting.rb",
+		"/home/nuo/work/meetinR/app/assets/javascripts/meetings.js.coffee",
+		"/home/nuo/work/meetinR/app/assets/stylesheets/application.css",
+		"/home/nuo/work/meetinR/app/assets/stylesheets/scaffolds.css.scss",
+		"/home/nuo/work/meetinR/app/assets/stylesheets/roles.css.scss",
+		"/home/nuo/work/meetinR/app/assets/stylesheets/members.css.scss",
+		"/home/nuo/work/meetinR/app/assets/stylesheets/meetings.css.scss",
+		"/home/nuo/work/meetinR/app/assets/stylesheets/home.css.scss",
+		"/home/nuo/work/meetinR/app/assets/stylesheets/choices.css.scss",
+		"/home/nuo/work/meetinR/app/views/roles/_role.html.erb",
+		"/home/nuo/work/meetin/app/models/meeting.rb",
+		"/home/nuo/work/meetin/README.fe",
+		"/home/nuo/work/sass-twitter-bootstrap/lib/_forms.scss",
+		"/home/nuo/work/meetin/config/initializers/simple_form.rb",
+		"/home/nuo/work/meetin/app/assets/stylesheets/bootstrap_and_overrides.css.scss",
+		"/home/nuo/work/meetin/Gemfile",
+		"/home/nuo/work/bootlearn/app/assets/stylesheets/bootstrap-customized.css.scss",
+		"/home/nuo/work/meetin/app/assets/stylesheets/meetings.css.scss",
+		"/usr/share/applications/defaults.list",
+		"/home/nuo/work/bootlearn/app/assets/stylesheets/base.css.scss",
+		"/home/nuo/work/bootlearn/config/routes.rb",
+		"/home/nuo/work/meetin/config/routes.rb",
+		"/home/nuo/Downloads/SublimeHelp",
+		"/home/nuo/work/bootlearn/public/index.html",
+		"/home/nuo/(1).wiki",
+		"/usr/share/applications/sublime.desktop",
+		"/home/nuo/work/meetin/app/assets/stylesheets/sass-twitter-bootstrap/lib/bootstrap.scss",
+		"/home/nuo/work/meetin/app/views/devise/shared/_links.erb"
+	],
+	"find":
+	{
+		"height": 35.0
+	},
+	"find_in_files":
+	{
+		"height": 0.0,
+		"where_history":
+		[
+			""
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": true,
+		"find_history":
+		[
+			"navbar",
+			"h4",
+			"h3",
+			"h4",
+			"MeetingInfo",
+			"display_invitaion_list",
+			"edit",
+			"error",
+			"fielderror",
+			"green",
+			"remove",
+			"back",
+			"editAccount",
+			"newPwd",
+			"newPWD",
+			"assignStyle",
+			"choiceWant",
+			"NOT4ME",
+			"choice_role_30",
+			"WANT",
+			"X",
+			"Fred",
+			"Boogie",
+			"assign_role_27 assignStyle",
+			"assign_role_27",
+			"red",
+			"x",
+			"roleName",
+			"memberName",
+			"member",
+			"membername",
+			"success",
+			"table",
+			"green",
+			"hidden",
+			"assign_role",
+			"assign",
+			"choice_status",
+			"      \n",
+			"10px auto",
+			"margin",
+			"border",
+			"button",
+			"table",
+			"span4",
+			"base",
+			"radius",
+			"container-fluid",
+			"showLeft",
+			".row",
+			"wholeWidth",
+			"media",
+			"responsive",
+			".row-fluid",
+			"grid-fluid",
+			".grid-fluid",
+			".row-fluid",
+			"fluid-span",
+			".row-fluid",
+			"clearfix",
+			".container-fluid",
+			"container-fluid",
+			"span",
+			"margin-left",
+			".span",
+			"span",
+			"row    {span}",
+			"span",
+			"clearfix",
+			".row",
+			".container",
+			"core-span",
+			"$girdColumn",
+			"core-span",
+			".container",
+			"940px",
+			"container-fixed",
+			"container",
+			"row",
+			"container",
+			"container-fixed",
+			"container",
+			"border",
+			"span3",
+			"row",
+			"container-fixed",
+			"container",
+			"container-fluid",
+			"showLeft",
+			".row",
+			"row",
+			" row",
+			"row",
+			" row",
+			" row ",
+			"row-fluid",
+			"row",
+			"container-fixed",
+			"gridGutterWidth",
+			"container-fixed",
+			"choice.want",
+			"main",
+			":partial",
+			"@presenter",
+			"manager",
+			"btn",
+			"new",
+			".table th",
+			".table tbody",
+			".table th",
+			"tr:first-child",
+			"table",
+			"border-top",
+			"green",
+			".nav-tabs ",
+			"$",
+			".nav-tabs",
+			"link_to_",
+			"active",
+			"nav",
+			"tab",
+			"label",
+			"responsive",
+			"fieldset",
+			"btn-success",
+			"button",
+			"hint",
+			"inline"
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+			"sublime"
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"selected": 1,
+			"sheets":
+			[
+				{
+					"buffer": 0,
+					"file": "/home/nuo/work/sass-twitter-bootstrap/lib/bootstrap.scss",
+					"settings":
+					{
+						"buffer_size": 1298,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								910,
+								910
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/ls/Syntaxes/SASS.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 483.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "app/views/layouts/application.html.erb",
+					"settings":
+					{
+						"buffer_size": 1302,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Rails/HTML (Rails).tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "/home/nuo/work/sass-twitter-bootstrap/lib/_navbar.scss",
+					"settings":
+					{
+						"buffer_size": 8554,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								455,
+								455
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/ls/Syntaxes/SASS.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 3876.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 3,
+					"file": "/home/nuo/work/sass-twitter-bootstrap/lib/_variables.css.scss",
+					"settings":
+					{
+						"buffer_size": 6919,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								4668,
+								4668
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/ls/Syntaxes/SASS.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 2173.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 4,
+					"file": "app/views/meetings/index.html.erb",
+					"settings":
+					{
+						"buffer_size": 2482,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								287,
+								287
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Rails/HTML (Rails).tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 68.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 5,
+					"file": "app/views/meetings/new.html.erb",
+					"settings":
+					{
+						"buffer_size": 217,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								15,
+								15
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Rails/HTML (Rails).tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 6,
+					"file": "app/views/meetings/edit.html.erb",
+					"settings":
+					{
+						"buffer_size": 259,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								259,
+								259
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Rails/HTML (Rails).tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 7,
+					"file": "app/views/meetings/show.html.erb",
+					"settings":
+					{
+						"buffer_size": 2519,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								2173,
+								2173
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Rails/HTML (Rails).tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 866.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 8,
+					"file": "app/views/meetings/_role_fields.html.erb",
+					"settings":
+					{
+						"buffer_size": 252,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Rails/HTML (Rails).tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 9,
+					"settings":
+					{
+						"buffer_size": 394,
+						"regions":
+						{
+							"match":
+							{
+								"flags": 112,
+								"regions":
+								[
+									[
+										323,
+										345
+									]
+								],
+								"scope": ""
+							}
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"detect_indentation": false,
+							"output_tag": 1,
+							"result_base_dir": "",
+							"result_file_regex": "^([A-Za-z\\\\/<].*):$",
+							"result_line_regex": "^ +([0-9]+):",
+							"scroll_past_end": true,
+							"syntax": "Packages/Default/Find Results.hidden-tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 10,
+					"file": "app/assets/stylesheets/base.css.scss",
+					"settings":
+					{
+						"buffer_size": 6314,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								935,
+								935
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/ls/Syntaxes/SASS.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 459.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 11,
+					"file": "app/assets/stylesheets/application.css",
+					"settings":
+					{
+						"buffer_size": 563,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/CSS/CSS.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 12,
+					"file": "app/assets/stylesheets/show.css.scss",
+					"settings":
+					{
+						"buffer_size": 3719,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								562,
+								562
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/ls/Syntaxes/SASS.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 186.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				}
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 34.0
+	},
+	"input":
+	{
+		"height": 33.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"replace":
+	{
+		"height": 64.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"show_minimap": true,
+	"show_open_files": true,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 150.0,
+	"status_bar_visible": true
+}
