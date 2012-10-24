@@ -104,7 +104,13 @@ $gridColumns:14;
 
 
 //general setting
+.showTable{
+  display:block;
+  position:relative;
+}
 table#roleAssignment td,th{
+
+  
   position : relative;
   width:70px;
   overflow: hidden;
@@ -112,11 +118,11 @@ table#roleAssignment td,th{
   //word-wrap: break-word;
 }
 
-table#roleAssignment tr.success{
-  background-color:#DFF0D8;}
+table#roleAssignment tr.roleRow{
+  }
 
-table#roleAssignment tr.info{
-  background-color:#E8EDFA;
+table#roleAssignment tr.nameRow{
+  
   }
 
 //assignments
@@ -135,11 +141,11 @@ table#roleAssignment td.nochoice,td.choicewant,td.choicenot4me p{
 }
 
 table#roleAssignment td.choicewant{
-  background-color: green;
+  background-color: #B6E7CD;
 }
 
 table#roleAssignment td.choicenot4me{
-  background-color: red;
+  background-color: #FFA59D;
 }
 
 

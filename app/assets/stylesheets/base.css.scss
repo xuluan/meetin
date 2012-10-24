@@ -247,6 +247,33 @@ button.addRole {
   @include border-radius(3px);
 }
 
+.editMember{
+  display:block;
+  width:400px;
+  margin-left: 160px;
+  clear:both;
+  
+}
+.editMemberList{
+  display:block;
+  margin:5px auto;
+  height: 20px;
+  clear:both;
+  float:left;
+  span {
+  display:inline-block;
+  width:310px;
+  text-align:center;
+  background-color:#FFFFFF;
+  padding-top: 3px ;
+  padding-bottom:3px;
+  @include border-radius(3px);
+  border:1px solid #CCCCCC;
+  }
+}
+
+
+
 /*fieldset{
   width:100%;
   margin:20px 0px 20px 0px;
