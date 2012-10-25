@@ -104,19 +104,53 @@ $gridColumns:14;
 
 
 //general setting
-table#roleAssignment td,th{
+.showTable{
+  display:block;
+  position:relative;
+}
+div.relativePosition{
+  display:block;
+  position:relative;
+}
+
+
+table#roleAssignment td {
+
+  width:80px;
+  div.statusRow{
+  padding:0;
+  
   position : relative;
-  width:70px;
+  
+  height: 80px;
   overflow: hidden;
   text-align:middle;
   //word-wrap: break-word;
 }
 
-table#roleAssignment tr.success{
-  background-color:#DFF0D8;}
+}
 
-table#roleAssignment tr.info{
-  background-color:#E8EDFA;
+table#roleAssignment td {
+
+  width:80px;
+  div.choiceRow{
+  padding:0;
+  
+  position : relative;
+  
+  height: 160px;
+  overflow: hidden;
+  text-align:middle;
+  //word-wrap: break-word;
+}
+
+}
+
+table#roleAssignment tr.roleRow{
+  }
+
+table#roleAssignment tr.nameRow{
+  
   }
 
 //assignments
@@ -125,8 +159,18 @@ table#roleAssignment tr.info{
   position: absolute;
   left:10px;
   top: 40px;
+ 
 }
+#roleAssignment .assignName{
+  position:absolute;
+  top:0;
+  left:10px;
+  font-weight:bold;
+  font-family: verdana, sans-serif;
+font-size: 12px;
+text-transform: uppercase;
 
+}
 
 table#roleAssignment td.nochoice,td.choicewant,td.choicenot4me p{
 
@@ -135,11 +179,11 @@ table#roleAssignment td.nochoice,td.choicewant,td.choicenot4me p{
 }
 
 table#roleAssignment td.choicewant{
-  background-color: green;
+  background-color: #B6E7CD;
 }
 
 table#roleAssignment td.choicenot4me{
-  background-color: red;
+  background-color: #FFA59D;
 }
 
 
@@ -178,6 +222,7 @@ table#roleAssignment tr.currentuser{
 }
 
 #roleAssignment .choiceStyle{
+
   margin-left:10px;
   color:blue;
 }
