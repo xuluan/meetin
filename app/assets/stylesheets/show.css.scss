@@ -172,17 +172,17 @@ text-transform: uppercase;
 
 }
 
-table#roleAssignment td.nochoice,td.choicewant,td.choicenot4me p{
+table#roleAssignment div.nochoice,div.choicewant,div.choicenot4me p{
 
   margin-top:5px;
   font-weight: bold;
 }
 
-table#roleAssignment td.choicewant{
+table#roleAssignment div.choicewant{
   background-color: #B6E7CD;
 }
 
-table#roleAssignment td.choicenot4me{
+table#roleAssignment div.choicenot4me{
   background-color: #FFA59D;
 }
 
