@@ -1,6 +1,6 @@
 <% if @choice.errors.empty? %>
-$('#member_<%=dom_id(@choice.member)%> .<%="choice_"+dom_id(@choice.role)%>').html('<%= escape_javascript(@choice.to_s) %>')
-$('td#assign_<%=dom_id(@choice.role)%>').attr('class', '<%= assign_status_class(@choice.role) %>')
+$('tr#member_<%=dom_id(@choice.member)%> p.<%="choice_"+dom_id(@choice.role)%>').html('<%= escape_javascript(@choice.to_s) %>')
+$('div#assign_<%=dom_id(@choice.role)%>').attr('class', '<%= assign_status_class(@choice.role) %> statusRow')
 <% else %>
 $('#choice_error').html('<%= escape_javascript(@choice.errors.full_messages.join(',')) %>')
 <% end %>
