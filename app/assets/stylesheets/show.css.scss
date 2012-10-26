@@ -39,12 +39,7 @@ $gridColumns:14;
   @include border-radius(5px);
 }
 
-/*.showLeftInnerContent{
-  border: 1px solid green;
-  width:95%;
-  margin:auto;
-}
-*/
+
 
 .showStatus{
   width:100%;
@@ -100,67 +95,32 @@ $gridColumns:14;
                 vertical-align:top;}
 }
 
-//table#roleAssignment
+//table#roleAssignment  - general setting
 
-
-//general setting
-.showTable{
-  display:block;
-  position:relative;
+table#roleAssignment tr{
+  height:90px;
 }
-div.relativePosition{
-  display:block;
-  position:relative;
+table#roleAssignment tr.currentuser{
+  height: 150px;
+  background-color:#F4F4F4;
 }
 
 
+//style the row of "assign status"
 table#roleAssignment td {
 
   width:80px;
   div.statusRow{
   padding:0;
-  
   position : relative;
-  
-  height: 80px;
+  height:  80px;
   overflow: hidden;
   text-align:middle;
   //word-wrap: break-word;
+   }
 }
 
-}
-
-table#roleAssignment td {
-
-  width:80px;
-  div.choiceRow{
-  padding:0;
-  
-  position : relative;
-  
-  height: 160px;
-  overflow: hidden;
-  text-align:middle;
-  //word-wrap: break-word;
-}
-
-}
-
-table#roleAssignment tr.roleRow{
-  }
-
-table#roleAssignment tr.nameRow{
-  
-  }
-
-//assignments
-#roleAssignment .assignButton{
-  width:70px;
-  position: absolute;
-  left:10px;
-  top: 40px;
- 
-}
+//style the row of "assign status" - name display
 #roleAssignment .assignName{
   position:absolute;
   top:0;
@@ -172,32 +132,51 @@ text-transform: uppercase;
 
 }
 
-table#roleAssignment td.nochoice,td.choicewant,td.choicenot4me p{
+//style the row of "assign status" - status style - "nochoic","choicewant","choicenot4me"
+
+table#roleAssignment div.nochoice p{
 
   margin-top:5px;
   font-weight: bold;
 }
 
-table#roleAssignment td.choicewant{
+table#roleAssignment div.choicewant p{
+
+  margin-top:5px;
+  font-weight: bold;
+}
+
+table#roleAssignment div.choicenot4me p{
+
+  margin-top:5px;
+  font-weight: bold;
+}
+
+
+table#roleAssignment div.choicewant{
   background-color: #B6E7CD;
+  
 }
 
-table#roleAssignment td.choicenot4me{
+table#roleAssignment div.choicenot4me{
   background-color: #FFA59D;
+  
 }
 
 
+//style the row of members :  "current user"  - choice
+table#roleAssignment td {
 
-//choice
-table#roleAssignment tr{
-  height:90px;
+  width:80px;
+  div.choiceRow{
+  padding:0;
+  position : relative;
+  height: 160px;
+  overflow: hidden;
+  text-align:middle;
+  //word-wrap: break-word;
+  }
 }
-table#roleAssignment tr.currentuser{
-  height: 150px;
-  background-color:#F4F4F4;
-}
-
-
 
 #roleAssignment .choiceButton{
     width: 70px;
@@ -228,8 +207,28 @@ table#roleAssignment tr.currentuser{
 }
 
 
-/*
 
+//style the row of members :  "organizer"   - assignButton
+#roleAssignment .assignButton{
+  width:70px;
+  position: absolute;
+  left:10px;
+  top: 40px;
+ 
+}
+
+//choice
+
+
+
+
+
+
+/*
+showTable{
+  display:block;
+  position:relative;
+}
 //role assignment table 
 #roleAssignment .roleName,#roleAssignment .memberName  {
 font-family: verdana, sans-serif;
