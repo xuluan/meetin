@@ -37,30 +37,32 @@
           <%= label_tag nil, "Invitation List", class: "string optional control-label",  input_html: {class: "editMeetingSpan5 formInline"} %>
           <%= display_invitaion_list(f.object) %>
         -->
-        <label class="string optional control-label", input_html: {class: "span4 formInline";}>Invitation List</label>
-        <span class="span5 noneditable-input
-noneditInvite">norla.xu@gmail.com; rolle.xu@gmail.com;
-lyfxun@gmail.com; boogie_xu@hotmail.com</span>
-
-
+        <label class="string optional control-label", input_html: {class: "span4 formInline";}>Edit Members</label>
+        <!--<span class="span5 noneditable-input noneditInvite">norla.xu@gmail.com; rolle.xu@gmail.com;
+         lyfxun@gmail.com; boogie_xu@hotmail.com</span>-->
         </div>
       <% end %>
-      <!--
+      
+      <div class="editMember">
       <%= f.fields_for :members do |builder| %>
         <%= render 'member_fields', f: builder %>
       <% end %>
-    -->
+      </div>
 
         <% if @meeting_template %>
+
+           <label class="string optional control-label", input_html: {class: "span4 formInline";}>Edit Members</label>
+          <div class="editMember">
           <% @meeting_template.members.each do |member| %>
             <% new_object = @meeting.members.new(user_id: member.user_id, meeting_id: @meeting.id) %>
-           <!--
+
             <%= f.fields_for :members, new_object do |builder| %>
               <%= render 'member_fields', f: builder %>
-            <% end %>
-          -->
+              <% end %>
+              <% end %>  
+          </div>    
           <% end %>
-        <% end %>
+        
       </fieldset>
 
       <!-- Meeting Roles -->

@@ -1,7 +1,8 @@
 
 <fieldset>
-<div class="formGroup">
-  <%= f.label "#{f.object.username}", input_html: { class: "span5 formInline"} %>
+<div class="formGroup editMemberList">
+  <%= content_tag :span, "#{f.object.username}", input_html: { class: "span5 formInline"} %>
+  <!--<%= f.label "#{f.object.username}", input_html: { class: "span5  "} %>-->
   <%= f.hidden_field :user_id %>
   <%= f.hidden_field :meeting_id %>
   <%= f.hidden_field :_destroy %>
