@@ -10,7 +10,8 @@ class MembersController < ApplicationController
 
   def destroy
     @member = Member.signoff(params[:id])
-    raise "invalid access!" unless @member && @member.user_id == current_user.id
+    raise "invalid access!" unless (@member && @member.user_id == current_user.id)
+    flash[:notice] = "As organizer, you cannot quit." if @member.status 
     redirect_to @member.meeting
   end
 end
