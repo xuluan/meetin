@@ -1,316 +1,184 @@
-
-// Set the correct sprite paths
-//@iconSpritePath: image-path('glyphicons-halflings.png');
-//@import "bootstrap-config";
-//@import "bootstrap";
-//@import "bootstrap-customized";
-//@import "bootstrap-responsive";
-//@import "responsive-customized"
-
 //-----------start ------------
-//@import "bootstrap-config";
 
-$gridColumns:14;
-//@import "bootstrap";
+$gridColumns: 14;
+
 @import "bootstrap";
-//@import "bootstrap-customized";
 
-/*.wholeWidth{
-  border: 1px solid red;
-}
-*/
-.showContainer{
+.showContainer {
   padding-right: 20px;
   padding-left: 20px;
   *zoom: 1;
 }
-.showLeft{
-  float:left;
-  width:220px;
-  h3 {text-align:middle;
-      width:150px;
-      margin: 20px auto ;
-      color:#08c;}
+
+.showLeft {
+  float: left;
+  width: 220px;
+  h3 {
+    text-align: middle;
+    width: 150px;
+    margin: 20px auto ;
+    color: #08c;
+  }
 }
-.showLeftInner{
-  
-  padding:10px;
-  background-color:#F0F3F0;
+
+.showLeftInner {
+  padding: 10px;
+  background-color: #F0F3F0;
   @include border-radius(5px);
 }
 
-
-
-.showStatus{
-  width:100%;
-  margin:auto;
-}
-.showMain{
-   
-  position:absolute;
-  left:260px;
-}
-.showMainInner{
-  padding:20px;
-  //border: 1px solid green;
-  //margin-right:20px;
-
+.showStatus {
+  width: 100%;
+  margin: auto;
 }
 
-.showButton{
-  width:70%;
+.showMain {
+  position: absolute;
+  left: 260px;
+}
+
+.showMainInner {
+  padding: 20px;
+}
+
+.showButton {
+  width: 70%;
   margin: 10px auto;
-  text-align:middle;
- //margin-bottom:10px;
+  text-align: middle;
 }
 
-.showExitButton{
-
-  background-color:#E9967A;
-  padding:3px 10px;
-  color:white;
-  float:left;
+.showExitButton {
+  background-color: #E9967A;
+  padding: 3px 10px;
+  color: white;
+  float: left;
   @include border-radius(6px);
 }
 
-.showJoinButton{
-  background-color:green;
-  margin-left:50px;
+.showJoinButton {
+  background-color: green;
+  margin-left: 50px;
 }
 
-.showMeetingInfo{
-  //border-top:1px dashed #A1A4A1;
-  margin-top:50px;
+.showMeetingInfo {
+  margin-top: 50px;
 
-.leftItemName {display:inline-block;
-             width:65px;
-              //border:1px solid red;
-              text-align:right;
-              vertical-align:top;}
-.leftItemValue {display:inline-block;
-                width:150px;
-                text-align:left;
-                margin-left:50px;
-                margin-top:10px;
-                vertical-align:top;}
+  .leftItemName {
+    display: inline-block;
+    width: 65px;
+    text-align: right;
+    vertical-align: top;
+  }
+
+  .leftItemValue {
+    display: inline-block;
+    width: 150px;
+    text-align: left;
+    margin-left: 50px;
+    margin-top: 10px;
+    vertical-align: top;
+  }
 }
 
 //table#roleAssignment  - general setting
-
-table#roleAssignment tr{
-  height:90px;
+table#roleAssignment tr {
+  height: 90px;
 }
-table#roleAssignment tr.currentuser{
+table#roleAssignment tr.currentuser {
   height: 150px;
-  background-color:#F4F4F4;
+  background-color: #F4F4F4;
 }
-
 
 //style the row of "assign status"
 table#roleAssignment td {
-
-  width:80px;
-  div.statusRow{
-  padding:0;
-  position : relative;
-  height:  80px;
-  overflow: hidden;
-  text-align:middle;
-  //word-wrap: break-word;
-   }
+  width: 80px;
+  div.statusRow {
+    padding: 0;
+    position : relative;
+    height:  80px;
+    overflow: hidden;
+    text-align: middle;
+  }
 }
 
 //style the row of "assign status" - name display
-#roleAssignment .assignName{
-  position:absolute;
-  top:0;
-  left:10px;
-  font-weight:bold;
+#roleAssignment .assignName {
+  position: absolute;
+  top: 0;
+  left: 10px;
+  font-weight: bold;
   font-family: verdana, sans-serif;
-font-size: 12px;
-text-transform: uppercase;
-
+  font-size: 12px;
+  text-transform: uppercase;
 }
 
 //style the row of "assign status" - status style - "nochoic","choicewant","choicenot4me"
-
-table#roleAssignment div.nochoice p{
-
-  margin-top:5px;
+table#roleAssignment div.nochoice p {
+  margin-top: 5px;
   font-weight: bold;
 }
 
-table#roleAssignment div.choicewant p{
-
-  margin-top:5px;
+table#roleAssignment div.choicewant p {
+  margin-top: 5px;
   font-weight: bold;
 }
 
-
-table#roleAssignment div.choicenot4me p{
-
-  margin-top:5px;
+table#roleAssignment div.choicenot4me p {
+  margin-top: 5px;
   font-weight: bold;
 }
 
-
-table#roleAssignment div.choicewant{
+table#roleAssignment div.choicewant {
   background-color: #B6E7CD;
-  
 }
 
-table#roleAssignment div.choicenot4me{
+table#roleAssignment div.choicenot4me {
   background-color: #FFA59D;
-  
 }
 
 
 //style the row of members :  "current user"  - choice
 table#roleAssignment td {
-
-  width:80px;
-  div.choiceRow{
-  padding:0;
-  position : relative;
-  height: 160px;
-  overflow: hidden;
-  text-align:middle;
-  //word-wrap: break-word;
+  width: 80px;
+  div.choiceRow {
+    padding: 0;
+    position : relative;
+    height: 160px;
+    overflow: hidden;
+    text-align: middle;
   }
 }
 
-#roleAssignment .choiceButton{
-    width: 70px;
-
+#roleAssignment .choiceButton {
+  width: 70px;
 }
-#roleAssignment .choiceWant{
+#roleAssignment .choiceWant {
   position: absolute;
-  left:10px;
+  left: 10px;
   top: 40px;
 }
 
-#roleAssignment .choiceDontwant{
+#roleAssignment .choiceDontwant {
   position: absolute;
-  left:10px;
+  left: 10px;
   top: 80px;
 }
 
-#roleAssignment .choiceClear{
+#roleAssignment .choiceClear {
   position: absolute;
-  left:10px;
+  left: 10px;
   top: 120px;
 }
 
-#roleAssignment .choiceStyle{
-
-  margin-left:10px;
-  color:blue;
+#roleAssignment .choiceStyle {
+  margin-left: 10px;
+  color: blue;
 }
-
-
 
 //style the row of members :  "organizer"   - assignButton
-#roleAssignment .assignButton{
-  width:70px;
+#roleAssignment .assignButton {
+  width: 70px;
   position: absolute;
-  left:10px;
+  left: 10px;
   top: 40px;
- 
 }
-
-//choice
-
-
-
-
-
-
-/*
-showTable{
-  display:block;
-  position:relative;
-}
-//role assignment table 
-#roleAssignment .roleName,#roleAssignment .memberName  {
-font-family: verdana, sans-serif;
-font-size: 12px;  
-font-weight:bold;}
-
-//@import "responsive";
-
-
-//assignment table style
-.choiceStyle{
- width: 65px;
- color:blue;
- padding:1px 2px;
- position: absolute;
-  left:15px;
-  top: 15px;  
-}
-
-.assignStyle{
-
-  //visibility:hidden;
-  
-}
-
-.color_want{
-  color: green;
-}
-.color_dontwant{
-  color: red;
-}
-
-//table#roleAssignment td,table#roleAssignment th{
-//table-layout:fixed;
-//overflow:hidden;}
-
-table#roleAssignment {
-  table-layout:fixed;
-}
-
-
-
-
-
-
-
-
-
-
-#roleAssignment .assignName{
-  text-align:center;
-  color:green;
-  font-weight:bold;
-  font-family: verdana, sans-serif;
-font-size: 12px;
-text-transform: uppercase;
-
-}
-
-//@import "bootstrap-responsive";
-//@import "responsive-customized"
-
-
-
-  //th {height:50px;}
-}
-
-
-
-td.assignStatusYes{
-  background-image:url('smileyface_small.jpg');
-  background-position:20px 40px;
-  background-repeat:  no-repeat;
-    
-}
-td.assignStatusNo{
-  background-image:url('sadface_small.jpg');
-  background-position:20px 40px;
-  background-repeat:  no-repeat;
-    
-}
-
-*/
-
