@@ -81,104 +81,105 @@ $gridColumns: 14;
 }
 
 //table#roleAssignment  - general setting
-table#roleAssignment tr {
-  height: 90px;
-}
-table#roleAssignment tr.currentuser {
-  height: 150px;
-  background-color: #F4F4F4;
-}
-
-//style the row of "assign status"
-table#roleAssignment td {
-  width: 80px;
-  div.statusRow {
-    padding: 0;
-    position : relative;
-    height:  80px;
-    overflow: hidden;
-    text-align: middle;
+table#roleAssignment {
+  tr {
+    height: 90px;
   }
-}
 
-//style the row of "assign status" - name display
-#roleAssignment .assignName {
-  position: absolute;
-  top: 0;
-  left: 10px;
-  font-weight: bold;
-  font-family: verdana, sans-serif;
-  font-size: 12px;
-  text-transform: uppercase;
-}
-
-//style the row of "assign status" - status style - "nochoic","choicewant","choicenot4me"
-table#roleAssignment div.nochoice p {
-  margin-top: 5px;
-  font-weight: bold;
-}
-
-table#roleAssignment div.choicewant p {
-  margin-top: 5px;
-  font-weight: bold;
-}
-
-table#roleAssignment div.choicenot4me p {
-  margin-top: 5px;
-  font-weight: bold;
-}
-
-table#roleAssignment div.choicewant {
-  background-color: #B6E7CD;
-}
-
-table#roleAssignment div.choicenot4me {
-  background-color: #FFA59D;
-}
-
-
-//style the row of members :  "current user"  - choice
-table#roleAssignment td {
-  width: 80px;
-  div.choiceRow {
-    padding: 0;
-    position : relative;
-    height: 160px;
-    overflow: hidden;
-    text-align: middle;
+  tr.currentuser {
+    height: 150px;
+    background-color: #F4F4F4;
   }
-}
 
-#roleAssignment .choiceButton {
-  width: 70px;
-}
-#roleAssignment .choiceWant {
-  position: absolute;
-  left: 10px;
-  top: 40px;
-}
+  //style the row of "assign status"
+  td {
+    width: 80px;
+    div.statusRow {
+      padding: 0;
+      position : relative;
+      height:  80px;
+      overflow: hidden;
+      text-align: middle;
+    }
+  }
 
-#roleAssignment .choiceDontwant {
-  position: absolute;
-  left: 10px;
-  top: 80px;
-}
+  //style the row of "assign status" - name display
+  .assignName {
+    position: absolute;
+    top: 0;
+    left: 10px;
+    font-weight: bold;
+    font-family: verdana, sans-serif;
+    font-size: 12px;
+    text-transform: uppercase;
+  }
 
-#roleAssignment .choiceClear {
-  position: absolute;
-  left: 10px;
-  top: 120px;
-}
+  //style the row of "assign status" - status style - "nochoic","choicewant","choicenot4me"
+  div.nochoice p {
+    margin-top: 5px;
+    font-weight: bold;
+  }
 
-#roleAssignment .choiceStyle {
-  margin-left: 10px;
-  color: blue;
-}
+  div.choicewant {
+    background-color: #B6E7CD;
+    p {
+      margin-top: 5px;
+      font-weight: bold;
+    }
+  }
 
-//style the row of members :  "organizer"   - assignButton
-#roleAssignment .assignButton {
-  width: 70px;
-  position: absolute;
-  left: 10px;
-  top: 40px;
+  div.choicenot4me {
+    background-color: #FFA59D;
+    p {
+      margin-top: 5px;
+      font-weight: bold;
+    }
+  }
+
+  //style the row of members :  "current user"  - choice
+  td {
+    width: 80px;
+    div.choiceRow {
+      padding: 0;
+      position : relative;
+      height: 160px;
+      overflow: hidden;
+      text-align: middle;
+    }
+  }
+
+  .choiceButton {
+    width: 70px;
+  } 
+
+  .choiceWant {
+    position: absolute;
+    left: 10px;
+    top: 40px;
+  }
+
+  .choiceDontwant {
+    position: absolute;
+    left: 10px;
+    top: 80px;
+  }
+
+  .choiceClear {
+    position: absolute;
+    left: 10px;
+    top: 120px;
+  }
+
+  .choiceStyle {
+    margin-left: 10px;
+    color: blue;
+  }
+
+  //style the row of members :  "organizer"   - assignButton 
+  .assignButton {
+    width: 70px;
+    position: absolute;
+    left: 10px;
+    top: 40px;
+  }
 }
