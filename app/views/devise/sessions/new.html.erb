@@ -4,7 +4,7 @@
       <h2>Login</h2>
       
       <% flash.each do |name, msg| %>
-          <%= content_tag :section, msg, :id => "flash_#{name}", :class => "flash" %>
+          <%= content_tag :section, msg, :id => "flash_#{name}", :class => "alert  alert-error" %>
       <% end %>
 
       <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>

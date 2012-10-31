@@ -5,10 +5,6 @@ body {
 }
 
 //ERROR STYLE
-//login error
-.flash {
-  color: red;
-} 
 
 //sign up error
 #error_explanation {
@@ -20,8 +16,6 @@ body {
   }
 }
 
-
-
 //new meeting error
 .field_with_errors {
   border: 1px dashed red;
@@ -32,8 +26,6 @@ body {
     margin-left: 150px;
   }  
 }
-
-
 
 // I. signup page
 .signup, .login, .newPwd {
