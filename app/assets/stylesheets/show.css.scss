@@ -13,7 +13,6 @@ $gridColumns: 14;
 .showLeft {
   float: left;
   width: 220px;
-
   padding: 10px;
   background-color: #F0F3F0;
   @include border-radius(5px);
@@ -23,6 +22,7 @@ $gridColumns: 14;
     width: 150px;
     margin: 20px auto ;
     color: #08c;
+    font-size: $baseFontSize + 6px;
   }
 }
 
@@ -35,40 +35,40 @@ $gridColumns: 14;
   position: absolute;
   left: 260px;
   padding: 20px;
-
 }
 
+@mixin showButton($color, $hover_color) {
+  display: block;
+  background-color: $color;
+  padding: 3px 12px;  
+  font-size: $baseFontSize + 2px;
+  margin: 0 auto;
+  color: white;
+  border: 0px;
+  @include border-radius(5px);
+  &:hover {
+    background-color: $hover_color;
+  }  
+}
 
 input[type='submit'].showExitButton {
-  display: block;
-  background-color: #FFA59D;
-  padding: 3px 12px;  
-  font-size: $baseFontSize + 2px;
-  margin: 0 auto;
-  color: white;
-  border: 0px;
-  @include border-radius(5px);
+  @include showButton(#FFA59D, red);
 }
 
-
 input[type='submit'].showJoinButton {
-  display: block;  
-  background-color: #B6E7CD;
-  padding: 3px 12px;  
-  font-size: $baseFontSize + 2px;
-  margin: 0 auto;
-  color: white;
-  border: 0px;
-  @include border-radius(5px);
+  @include showButton(#B6E7CD, green);
 }
 
 .showMeetingInfo {
   margin-top: 50px;
+  font-size: $baseFontSize;
 
   .leftItemName {
     display: block;
     text-align: left;
     vertical-align: top;
+    font-weight: bold;
+    font-family: verdana, sans-serif;
     text-transform: uppercase;    
   }
 
@@ -82,105 +82,96 @@ input[type='submit'].showJoinButton {
 }
 
 //table#roleAssignment  - general setting
-table#roleAssignment {
-  tr {
-    height: 90px;
-  }
+tr {
+  height: 90px;
+  &.currentuser {
+      background-color: #F4F4F4;
+  }    
+}
 
-  tr.currentuser {
-    height: 150px;
-    background-color: #F4F4F4;
-  }
+td {
+  width: 80px;
 
   //style the row of "assign status"
-  td {
-    width: 80px;
-    div.statusRow {
-      padding: 0;
-      position : relative;
-      height:  80px;
-      overflow: hidden;
-      text-align: middle;
-    }
-  }
-
-  //style the row of "assign status" - name display
-  .assignName {
-    position: absolute;
-    top: 0;
-    left: 10px;
-    font-weight: bold;
-    font-family: verdana, sans-serif;
-    font-size: 12px;
-    text-transform: uppercase;
-  }
-
-  //style the row of "assign status" - status style - "nochoic","choicewant","choicenot4me"
-  div.nochoice p {
-    margin-top: 5px;
-    font-weight: bold;
-  }
-
-  div.choicewant {
-    background-color: #B6E7CD;
-    p {
-      margin-top: 5px;
-      font-weight: bold;
-    }
-  }
-
-  div.choicenot4me {
-    background-color: #FFA59D;
-    p {
-      margin-top: 5px;
-      font-weight: bold;
-    }
+  div.statusRow {
+    padding: 0;
+    position : relative;
+    height:  80px;
+    overflow: hidden;
+    text-align: middle;
   }
 
   //style the row of members :  "current user"  - choice
-  td {
-    width: 80px;
-    div.choiceRow {
-      padding: 0;
-      position : relative;
-      height: 160px;
-      overflow: hidden;
-      text-align: middle;
-    }
+  div.choiceRow {
+    padding: 0;
+    position : relative;
+    height: 160px;
+    overflow: hidden;
+    text-align: middle;
   }
 
-  .choiceButton {
-    width: 70px;
-  } 
-
-  .choiceWant {
-    position: absolute;
-    left: 10px;
-    top: 40px;
+  &.memberName {
+    line-height:80px;  
+    margin: auto auto;
+    padding: auto auto;
+    text-align: center;
   }
 
-  .choiceDontwant {
-    position: absolute;
-    left: 10px;
-    top: 80px;
-  }
+}
 
-  .choiceClear {
-    position: absolute;
-    left: 10px;
-    top: 120px;
+//style the row of "assign status" - status style - "nochoic","choicewant","choicenot4me"
+p {
+  div.nochoice, div.choicewant, div.choicenot4me {
+    margin-top: 5px;
+    font-weight: bold;   
   }
+}
 
-  .choiceStyle {
-    margin-left: 10px;
-    color: blue;
-  }
+div.choicewant {
+  background-color: #B6E7CD;
+}
 
-  //style the row of members :  "organizer"   - assignButton 
-  .assignButton {
-    width: 70px;
-    position: absolute;
-    left: 10px;
-    top: 40px;
-  }
+div.choicenot4me {
+  background-color: #FFA59D;
+}
+
+//style the row of "assign status" - name display
+.assignName {
+  position: absolute;
+  top: 0;
+  left: 10px;
+  font-weight: bold;
+  font-family: verdana, sans-serif;
+  font-size: 12px;
+  text-transform: uppercase;
+}
+
+//style the row of "choice status": WANT or NO4ME 
+.choiceStyle {
+  margin-left: 10px;
+  color: blue;
+}  
+
+@mixin btn($top) {
+  position: absolute;
+  width: 70px;
+  left: 10px;
+  top: $top;
+}
+
+.choiceWant .choiceButton {
+  @include btn(40px);
+}
+
+.choiceDontwant .choiceButton {
+  @include btn(80px);
+}
+
+.choiceClear .choiceButton {
+  @include btn(120px);
+}
+
+//style the row of members :  "organizer"   - assignButton 
+.assignButton {
+  @include btn(40px);
 }
