@@ -82,96 +82,98 @@ input[type='submit'].showJoinButton {
 }
 
 //table#roleAssignment  - general setting
-tr {
-  height: 90px;
-  &.currentuser {
-      background-color: #F4F4F4;
-  }    
-}
-
-td {
-  width: 80px;
-
-  //style the row of "assign status"
-  div.statusRow {
-    padding: 0;
-    position : relative;
-    height:  80px;
-    overflow: hidden;
-    text-align: middle;
+table#roleAssignment {
+  tr {
+    height: 90px;
+    &.currentuser {
+        background-color: #F4F4F4;
+    }    
   }
 
-  //style the row of members :  "current user"  - choice
-  div.choiceRow {
-    padding: 0;
-    position : relative;
-    height: 160px;
-    overflow: hidden;
-    text-align: middle;
+  td {
+    width: 80px;
+
+    //style the row of "assign status"
+    div.statusRow {
+      padding: 0;
+      position : relative;
+      height:  80px;
+      overflow: hidden;
+      text-align: middle;
+    }
+
+    //style the row of members :  "current user"  - choice
+    div.choiceRow {
+      padding: 0;
+      position : relative;
+      height: 160px;
+      overflow: hidden;
+      text-align: middle;
+    }
+
+    &.memberName {
+      line-height:80px;  
+      margin: auto auto;
+      padding: auto auto;
+      text-align: center;
+    }
+
   }
 
-  &.memberName {
-    line-height:80px;  
-    margin: auto auto;
-    padding: auto auto;
-    text-align: center;
+  //style the row of "assign status" - status style - "nochoic","choicewant","choicenot4me"
+  p {
+    div.nochoice, div.choicewant, div.choicenot4me {
+      margin-top: 5px;
+      font-weight: bold;   
+    }
   }
 
-}
-
-//style the row of "assign status" - status style - "nochoic","choicewant","choicenot4me"
-p {
-  div.nochoice, div.choicewant, div.choicenot4me {
-    margin-top: 5px;
-    font-weight: bold;   
+  div.choicewant {
+    background-color: #B6E7CD;
   }
-}
 
-div.choicewant {
-  background-color: #B6E7CD;
-}
+  div.choicenot4me {
+    background-color: #FFA59D;
+  }
 
-div.choicenot4me {
-  background-color: #FFA59D;
-}
+  //style the row of "assign status" - name display
+  .assignName {
+    position: absolute;
+    top: 0;
+    left: 10px;
+    font-weight: bold;
+    font-family: verdana, sans-serif;
+    font-size: 12px;
+    text-transform: uppercase;
+  }
 
-//style the row of "assign status" - name display
-.assignName {
-  position: absolute;
-  top: 0;
-  left: 10px;
-  font-weight: bold;
-  font-family: verdana, sans-serif;
-  font-size: 12px;
-  text-transform: uppercase;
-}
+  //style the row of "choice status": WANT or NO4ME 
+  .choiceStyle {
+    margin-left: 10px;
+    color: blue;
+  }  
 
-//style the row of "choice status": WANT or NO4ME 
-.choiceStyle {
-  margin-left: 10px;
-  color: blue;
-}  
+  @mixin btn($top) {
+    position: absolute;
+    width: 70px;
+    left: 10px;
+    top: $top;
+  }
 
-@mixin btn($top) {
-  position: absolute;
-  width: 70px;
-  left: 10px;
-  top: $top;
-}
+  .choiceWant .choiceButton {
+    @include btn(40px);
+  }
 
-.choiceWant .choiceButton {
-  @include btn(40px);
-}
+  .choiceDontwant .choiceButton {
+    @include btn(80px);
+  }
 
-.choiceDontwant .choiceButton {
-  @include btn(80px);
-}
+  .choiceClear .choiceButton {
+    @include btn(120px);
+  }
 
-.choiceClear .choiceButton {
-  @include btn(120px);
-}
-
-//style the row of members :  "organizer"   - assignButton 
-.assignButton {
-  @include btn(40px);
+  //style the row of members :  "organizer"   - assignButton 
+  .assignButton {
+    @include btn(40px);
+  }
 }

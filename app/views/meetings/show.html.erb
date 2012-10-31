@@ -3,8 +3,10 @@
 <div class="showContainer">
 
   <div class="showLeft">
-
-    <p id="notice"><%= notice %></p>
+   
+    <% if notice %>
+      <p id="notice" class="alert  alert-error"><%= notice %></p>
+    <% end %>
 
     <div class="showStatus">
       <h3>Your Status</h3>
