@@ -1,79 +1,71 @@
 <%= stylesheet_link_tag    "show", :media => "all" %>
 
 <div class="showContainer">
-  <div class="showWrapper">
- 
-<div class="showLeft">
-    <div class="showLeftInner">
-              
+
+  <div class="showLeft">
+
     <p id="notice"><%= notice %></p>
-    
+
     <div class="showStatus">
-        <h3>Your Status</h3>
+      <h3>Your Status</h3>
 
-          <p>Welcome! <strong><%= current_user.username %>!</strong></br></p>
-          <% if @member && @member.status  %>
-              <p>Current Status: <strong>Joined</strong></p>
+      <p>Welcome, <strong><%= current_user.username %>!</strong></br></p>
+      <% if @member && @member.status  %>
+        <p>You <strong>Joined</strong> this meeting. </p>
 
-              <p>Cannot attend? Please Click:
-                      <%= form_tag("/members/#{@member.id}", method: :delete) do %>
-                      <%= submit_tag("Cannot Attend", class: 'showExitButton', confirm: "Are you sure?") %>
-                      <% end %>
-              </p>
-
-          <% else %>
-            
-             <p>Wanna join? please click:
-                  <%= form_tag("/members") do %>
-                  <%= hidden_field_tag 'meeting_id', "#{@meeting.id}" %>
-                  <%= hidden_field_tag 'user_id', "#{current_user.id}" %>
-                  <%= submit_tag("Join") %>
-                  <% end %>
-            </p>
-         <% end %>
-   </div>
+        <p>Cannot attend? Please Click:
+        <%= form_tag("/members/#{@member.id}", method: :delete) do %>
+          <%= submit_tag("Sign out", class: 'showExitButton', confirm: "Are you sure?") %>
+        <% end %>
+        </p>
+      <% else %>
+        <p>You havn't <strong>Joined</strong> this meeting. </p>
+        <p>Wanna join? please click:
+          <%= form_tag("/members") do %>
+            <%= hidden_field_tag 'meeting_id', "#{@meeting.id}" %>
+            <%= hidden_field_tag 'user_id', "#{current_user.id}" %>
+            <%= submit_tag("Join", class: 'showJoinButton') %>
+            <% end %>
+          </p>
+      <% end %>
+    </div> <%# showStatus %>
 
     <div class="showMeetingInfo">
-        <h3>Meeting Info</h3>
-                   <p >
-                     <b class="leftItemName">Title:</b>
-                     <em class="leftItemValue"><%= @meeting.title%></em>
-                   </p>
-                   <p>
-                     <b class="leftItemName">Intro:</b>
-                     <em class="leftItemValue"><%= @meeting.intro %></em>
-                  </p>
+      <h3>Meeting Info</h3>
+      <p >
+        <b class="leftItemName">Title:</b>
+        <em class="leftItemValue"><%= @meeting.title%></em>
+      </p>
+      <p>
+        <b class="leftItemName">Intro:</b>
+        <em class="leftItemValue"><%= @meeting.intro %></em>
+      </p>
 
-                   <p>
-                     <b class="leftItemName">Organizer:</b>
-                     <em class="leftItemValue"><%= @meeting.organizer.username %></em>
-                   </p>
-    
-                  <p>
-                     <b class="leftItemName">Time:</b>
-                     <em class="leftItemValue"><%= show_time(@meeting.started_at)  %> </em>
-                  </p>
+      <p>
+        <b class="leftItemName">Organizer:</b>
+        <em class="leftItemValue"><%= @meeting.organizer.username %></em>
+      </p>
 
-                  <p>
-                     <b class="leftItemName">Location:</b>
-                     <em class="leftItemValue"> <%= @meeting.location %></em>
-                  </p>
+      <p>
+        <b class="leftItemName">Time:</b>
+        <em class="leftItemValue"><%= show_time(@meeting.started_at)  %> </em>
+      </p>
 
-                  <%= link_to 'Refresh', @meeting %>
+      <p>
+        <b class="leftItemName">Location:</b>
+        <em class="leftItemValue"> <%= @meeting.location %></em>
+      </p>
 
-                  <%= link_to 'Back', meetings_path %>
-         </div> 
-       
-     </div>
-  </div>
+      <%= link_to 'Refresh', @meeting %>
+      <%= link_to 'Back', meetings_path %>
+    </div> <%# showMeetingInfo %>
+  </div> <%# showLeft %>
+
   <div class="showMain">
-      <div class="showMainInner">
-                  <% if current_user.operate? (@meeting)  %>
-                  <%= render :partial => "operation" %>
-                  <% end %>
-      </div>
+    <% if current_user.operate? (@meeting)  %>
+      <%= render :partial => "operation" %>
+    <% end %>
   </div>
 
- </div>
-</div>
+</div> <%# showContainer %>
 
