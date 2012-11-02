@@ -119,6 +119,10 @@ table#roleAssignment td {
   //word-wrap: break-word;
    }
 }
+table#roleAssignment th{
+  min-width:80px;
+}
+
 
 //style the row of "assign status" - name display
 #roleAssignment .assignName{
@@ -126,6 +130,7 @@ table#roleAssignment td {
   top:0;
   left:10px;
   font-weight:bold;
+  color: #0B0B61;
   font-family: verdana, sans-serif;
 font-size: 12px;
 text-transform: uppercase;
