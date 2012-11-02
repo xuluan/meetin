@@ -5,7 +5,8 @@
  
 <div class="showLeft">
     <div class="showLeftInner">
-              <p id="notice"><%= notice %></p>
+              
+    <p id="notice"><%= notice %></p>
     
     <div class="showStatus">
         <h3>Your Status</h3>
@@ -15,8 +16,8 @@
               <p>Current Status: <strong>Joined</strong></p>
 
               <p>Cannot attend? Please Click:
-                      <%= form_tag("/members/#{@member.id}", :method => :delete) do %>
-                      <%= submit_tag("Cannot Attend", :class => 'showExitButton') %>
+                      <%= form_tag("/members/#{@member.id}", method: :delete) do %>
+                      <%= submit_tag("Cannot Attend", class: 'showExitButton', confirm: "Are you sure?") %>
                       <% end %>
               </p>
 

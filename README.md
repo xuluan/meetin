@@ -4,7 +4,6 @@ Meetin
 TODO
 
 ------
-
 * STAGE 3
 
 >- invatation some one
@@ -37,6 +36,7 @@ http://rails-bestpractices.com/posts/148-protect-mass-assignment
 
 DONE
 ------
+* fix bug:  organizer cannot quit
 
 >- add new function for meetin
    1 put current user first

@@ -34,9 +34,12 @@ class Member < ActiveRecord::Base
   def Member::signoff(id)
     member = Member.find(id)
 
-    if member
+    # member exist and member isn't the meeting's organizer
+    if member && (member.user != member.meeting.organizer)
       member.status = false
       member.tap {|m| m.save}
+    else
+      member
     end
   end
 
