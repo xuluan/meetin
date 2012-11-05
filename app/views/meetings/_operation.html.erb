@@ -47,6 +47,11 @@
     <% @meeting.roles.each do |role| %>
    
       <td>
+        <% if current_user.mymeetings.include? (@meeting) %>
+          <div class="statusRow">
+        <% else %>
+          <div class="choiceRow">
+        <% end %>
         <div class="choiceRow">
         <%=  content_tag(:p, class: "choice_#{dom_id(role)} choiceStyle") do %>
           <%= @presenter.choice_status(@presenter.member.id, role.id) %>
