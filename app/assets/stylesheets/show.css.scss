@@ -83,6 +83,10 @@ input[type='submit'].showJoinButton {
 
 //table#roleAssignment  - general setting
 table#roleAssignment {
+  th{
+    min-width:86px;
+  } 
+
   tr {
     height: 90px;
     &.currentuser {
@@ -92,6 +96,7 @@ table#roleAssignment {
 
   td {
     width: 86px;
+    color: #0B0B61;
 
     //style the row of "assign status"
     div.statusRow {
