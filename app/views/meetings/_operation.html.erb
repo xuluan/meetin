@@ -1,9 +1,13 @@
+<div class="tabletitle">
 <% if current_user.mymeetings.include? (@meeting) %>
 <h1>Role Assignment</h1>
 <% else %>
 <h1>Role Selection</h1>
 <% end %>
-
+<div class="colorcode">
+<p class="reject">Role Rejected</p>
+<p class="accept">Role Accepted</p>
+</div>
 <p id="choice_error"></p>
 
 <div >

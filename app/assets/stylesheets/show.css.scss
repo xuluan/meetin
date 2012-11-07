@@ -82,7 +82,44 @@ input[type='submit'].showJoinButton {
 }
 
 //table#roleAssignment  - general setting
+
+.tabletitle {
+  h1 {
+    display: inline-block;
+    float:left;}
+
+  .colorcode {
+    margin-top:20px;
+    margin-left: 50px;
+    display:inline-block;
+    float:left;
+    p {color:#0B0B61;}
+
+    .reject{
+    width: 120px;
+    background-color:#FFA59D;
+    
+    margin-left: 20px;
+    text-align:center;
+    display: inline-block;
+    float:left;}
+     
+     .accept{
+    width:120px;
+    background-color:#B6E7CD;
+    text-align:center;
+    margin-left: 20px;
+    display: inline-block;
+    float:left;}
+
+  }
+
+}
+
+
 table#roleAssignment {
+  display:block;
+  float:left;
   th{
     min-width:86px;
   } 
