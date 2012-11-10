@@ -13,7 +13,7 @@ describe UserMailer do
     it "renders the headers" do
       @mail.subject.should eq("Meeting invitation: #{@meeting.title}")
       @mail.to.should eq([@to_mail])
-      @mail.from.should eq(["no-reply@meetin.xunuo.mem"])
+      @mail.from.should eq(["no-reply@tmeetin.com"])
     end
 
     it "renders the body" do

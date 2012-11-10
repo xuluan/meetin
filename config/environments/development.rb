@@ -38,7 +38,7 @@ Meetin::Application.configure do
   config.action_mailer.default_url_options = { host: 'localhost:3000' }
 
   config.middleware.use ExceptionNotifier,
-    sender_address: 'no-reply@nuoxu.me',
+    sender_address: 'no-reply@tmeetin.com',
     exception_recipients: 'meetin.service@gmail.com'
 
   config.action_mailer.delivery_method = :letter_opener  

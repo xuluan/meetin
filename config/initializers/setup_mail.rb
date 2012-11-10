@@ -4,7 +4,7 @@ if Rails.env.production?
   ActionMailer::Base.smtp_settings = {
     address: "smtp.gmail.com",
     port: 587,
-    domain: "nuoxu.me",
+    domain: "tmeetin.com",
     authentication: "plain",
     enable_starttls_auto: true,
     user_name: ENV["GMAIL_ACCOUNT_NAME"],

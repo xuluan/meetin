@@ -1,5 +1,5 @@
 class UserMailer < ActionMailer::Base
-  default from: "no-reply@meetin.xunuo.mem"
+  default from: "no-reply@tmeetin.com"
 
   # Subject can be set in your I18n file at config/locales/en.yml
   # with the following lookup:
@@ -9,7 +9,7 @@ class UserMailer < ActionMailer::Base
   def meeting_invite(email, meeting)
     @meeting = meeting
 
-    mail to: email, subject: "Meeting invitation: #{meeting.title}"do |format|
+    mail from: meeting.organizer.email, to: email, subject: "Meeting invitation: #{meeting.title}"do |format|
       format.html
     end
   end
