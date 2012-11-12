@@ -8,8 +8,10 @@ class UserMailer < ActionMailer::Base
   #
   def meeting_invite(email, meeting)
     @meeting = meeting
+    @organizer = meeting.organizer.email
 
-    mail from: meeting.organizer.email, to: email, subject: "Meeting invitation: #{meeting.title}"do |format|
+    mail reply_to: @organizer, from: @organizer, to: email, 
+         subject: "Meeting invitation: #{meeting.title}" do |format|
       format.html
     end
   end
