@@ -86,36 +86,39 @@ input[type='submit'].showJoinButton {
 .tabletitle {
   h1 {
     display: inline-block;
-    float:left;}
+    float:left;
+  }
 
-  .colorcode {
+  div.colorcode {
     margin-top:20px;
     margin-left: 50px;
     display:inline-block;
-    float:left;
-    p {color:#0B0B61;}
 
-    .reject{
+    p.reject{
     width: 120px;
     background-color:#FFA59D;
-    
+    color:#0B0B61;
     margin-left: 20px;
     text-align:center;
     display: inline-block;
-    float:left;}
+  }
      
-     .accept{
+    p.accept{
     width:120px;
     background-color:#B6E7CD;
+    color:#0B0B61;
     text-align:center;
     margin-left: 20px;
     display: inline-block;
-    float:left;}
+  }
 
   }
 
 }
 
+th{
+	background-color:#EEE;  
+} 
 
 table#roleAssignment {
   display:block;
@@ -125,7 +128,6 @@ table#roleAssignment {
   } 
 
   tr {
-    height: 90px;
     &.currentuser {
         background-color: #F4F4F4;
     }    

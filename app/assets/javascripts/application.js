@@ -46,5 +46,8 @@ $('.EA-label-hover').on("mouseout",
     function(){
     	$(this).find('p').css('display','none')
     });*/
-
+		$("#roleAssignment").chromatable({
+				height: "400px",
+				scrolling: "yes"				
+			});	
 });
