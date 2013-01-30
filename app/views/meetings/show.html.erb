@@ -19,7 +19,7 @@
 
         <p>Cannot attend? Please Click:
         <%= form_tag("/members/#{@member.id}", method: :delete) do %>
-          <%= submit_tag("Sign out", class: 'showExitButton', confirm: "Are you sure?") %>
+          <%= submit_tag("I Cannot Attend Meeting", class: 'showExitButton', confirm: "Are you sure?") %>
         <% end %>
         </p>
       <% else %>
